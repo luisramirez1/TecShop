@@ -355,6 +355,7 @@
                       <ul class="multi-column-dropdown">
                         <li><a class="list" href="{{url('/registrarProductos')}}">Productos</a></li>
                         <li><a class="list" href="{{url('/registrarCategorias')}}">Categorias</a></li>
+                        <li><a class="list" href="{{url('/registrarMarcas')}}">Marcas</a></li>
                       </ul>
                     </div>
                     <div class="clearfix"> </div>
@@ -450,11 +451,9 @@
                   <div class="row">
                     <div class="col-sm-4 menu-grids">
                       <ul class="multi-column-dropdown">
-                        <li><a class="list" href="">Audio y Video</a></li>
-                        <li><a class="list" href="">Computadoras</a></li>
-                        <li><a class="list" href="">Consolas</a></li>
-                        <li><a class="list" href="">Electronica</a></li>
-                        <li><a class="list" href="">Smartphone's</a></li>
+                        @foreach($categorias as $c)
+                        <li><a class="list" href="">{{$c->name}}</a></li>
+                        @endforeach
                       </ul>
                     </div>
                     <div class="col-sm-8 menu-grids">

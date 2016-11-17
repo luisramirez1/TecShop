@@ -33,7 +33,6 @@ class HomeController extends Controller
         return view('/');
     }
 
-<<<<<<< HEAD
     public function acerca() {
         return view('/acercaDe');
     }
@@ -46,11 +45,9 @@ class HomeController extends Controller
         return view('/FAQ');
     }
 
+    
 
-     public function editar($id)
-=======
     public function editar($id)
->>>>>>> 37b8793f53dabeb7af06d9aeb84b2d068384bdd5
     {
         $usuarios = Usuarios::find($id);
         return view('/editar', compact('usuarios'));
