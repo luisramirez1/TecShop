@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use Auth;
 use DB;
 use Illuminate\Support\Facades\Input;
-use App\usuarios;
+use App\Usuarios;
+use App\Categorias;
+
 
 class HomeController extends Controller
 {
@@ -27,9 +29,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        
+        return view('/');
     }
 
+<<<<<<< HEAD
     public function acerca() {
         return view('/acercaDe');
     }
@@ -44,6 +48,9 @@ class HomeController extends Controller
 
 
      public function editar($id)
+=======
+    public function editar($id)
+>>>>>>> 37b8793f53dabeb7af06d9aeb84b2d068384bdd5
     {
         $usuarios = Usuarios::find($id);
         return view('/editar', compact('usuarios'));
