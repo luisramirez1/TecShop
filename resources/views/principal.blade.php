@@ -103,7 +103,7 @@
         </div>
         <div class="nav navbar-nav navbar-right header-two-right">
           <div class="header-right my-account">
-            <a href="contact.html"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> CONTACT US</a>       
+            <a href=""><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>CONTACTANOS</a>       
           </div>
           <div class="header-right cart">
             <a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
@@ -111,7 +111,7 @@
                 <span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>) 
             </a></h4>
             <div class="cart-box">
-              <p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
+              <p><a href="javascript:;" class="simpleCart_empty">Vaciar carrito</a></p>
               <div class="clearfix"> </div>
             </div>
           </div>
@@ -134,9 +134,9 @@
           <!--navbar-header-->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav top-nav-info">
-              <li><a href="{{url('/')}}" class="active">Home</a></li>
+              <li><a href="{{url('/')}}" class="active">Inicio</a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Baby<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Computadoras<b class="caret"></b></a>
                 <ul class="dropdown-menu multi-column multi-column1">
                   <div class="row">
                     <div class="col-sm-4 menu-grids menulist1">
@@ -356,16 +356,16 @@
       <div class="footer-info">
         <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".5s">
           <h4 class="footer-logo"><a href="{{url('/')}}">Tec <b>Shop</b> <span class="tag">Tecnologia a la Moda </span> </a></h4>
-          <p>© 2016 Tec Shop . All rights reserved | Design by <a href="http://w3layouts.com" target="_blank">W3layouts</a></p>
+          <p>© 2016 Tec Shop . All rights reserved</p>
         </div>
         <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".7s">
           <h3>Popular</h3>
           <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="products.html">new</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="checkout.html">Wishlist</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">new</a></li>
+            <li><a href="">Contact Us</a></li>
+            <li><a href="">FAQ</a></li>
+            <li><a href="">Wishlist</a></li>
           </ul>
         </div>
         <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".9s">
