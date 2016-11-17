@@ -34,18 +34,22 @@ class HomeController extends Controller
     }
 
     public function acerca() {
-        return view('/acercaDe');
+        $categorias = Categorias::all();
+
+        return view('/acercaDe', compact('categorias'));
     }
 
     public function contactanos() {
-        return view('/contactanos');
+        $categorias = Categorias::all();
+
+        return view('/contactanos', compact('categorias'));
     }
 
     public function FAQs() {
-        return view('/FAQ');
-    }
+        $categorias = Categorias::all();
 
-    
+        return view('/FAQ', compact('categorias'));
+    }
 
     public function editar($id)
     {

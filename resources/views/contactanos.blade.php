@@ -1,7 +1,14 @@
 @extends('principal')
 
 @section('contenido')
-    
+    <div class="breadcrumbs">
+         <div class="container">
+             <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+                 <li><a href="{{url('/')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Inicio</a></li>
+                 <li class="active">Contactanos</li>
+             </ol>
+        </div>
+    </div>
     <div class="jumbotron" id="jum">
             <strong>Soporte técnico</strong>
             <p>.- Por favor, contacta con nuestro soporte técnico
