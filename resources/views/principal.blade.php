@@ -92,8 +92,19 @@
             @if (Auth::guest())
               <li></i>Sesion no iniciada</li>
             @else
-            <li></i>{{ Auth::user()->name }}</li>
-            <li><i></i><a></a></li>
+            @if(Auth::user()->imagen == null)
+            <a href="#" data-toggle="modal" data-target="#myModal89"><img id="imagen" src="{{asset("images/usuarios/user.png")}}" alt=""></a> 
+            @else
+              <a href="#" data-toggle="modal" data-target="#myModal89"><img id="imagen" src="{{asset("images/usuarios")}}/{{Auth::user()->imagen}}" alt=""></a> 
+            @endif
+              <div id="nombre">
+                <li ></i>{{Auth::user()->name}}</li> <br>
+            @if(Auth::user()->tipoUsuario == 1)
+                <li ><i></i><a>Administrador</a></li> 
+            @else
+                <li ><i></i><a>Invitado</a></li>
+            @endif
+              </div>
             @endif     
           </ul>
         </div>
@@ -379,6 +390,47 @@
       </div>
     </div>
   </div>
+
+@if (Auth::guest())
+@else
+  <div class="modal fade md" id="myModal89" tabindex="-1" role="dialog" aria-labelledby="myModal89"
+    aria-hidden="true">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            &times;</button>
+          <h3 class="modal-title" id="nombrem">
+            <b>{{ Auth::user()->name }}</b> <br>
+          </h3>
+        </div>
+        <div class="modal-body modal-body-sub">
+          <div class="row">
+            <div class="col-md-12 modal_body_left modal_body_left1">
+              <div class="sap_tabs">  
+                <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                  <div class="col-md-6">
+                    <ul>
+                      <b>Tipo de Usuario:</b>   @if(Auth::user()->tipoUsuario==1)
+                                  Administrador
+                                @endif
+                                @if(Auth::user()->tipoUsuario==2)
+                                  Invitado
+                                @endif<br>
+                      <b>Correo:</b> {{Auth::user()->email}} <br>
+                      <b>Celular:</b> {{Auth::user()->tel}}<br>
+                    </ul>
+                    <a href="{{url('/editar')}}/{{Auth::user()->id}}" class="btn btn-info btn-sm" id="editar">Editar</a>
+                  </div>
+                  <div>
+                    @if(Auth::user()->imagen == null)
+                      <a href="#" data-toggle="modal" data-target="#myModal89"><img id="imagen2" src="{{asset("images/usuarios/user.png")}}" alt=""></a> 
+                    @else
+                      <a href="#" data-toggle="modal" data-target="#myModal89"><img id="imagen2" src="{{asset("images/usuarios")}}/{{Auth::user()->imagen}}" alt=""></a> 
+                    @endif
+                  </div>
+  @endif
+
   <!--//footer-->   
   <!--search jQuery-->
   <script src="js/main.js"></script>

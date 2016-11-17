@@ -17,7 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/registrar', 'HomeController@registrar');
-Route::get('/ingresar', 'HomeController@ingresar');
+Route::get('/editar/{id}', 'HomeController@editar');
+Route::post('/actualizar/{id}', 'HomeController@actualizar');
+
 
 
