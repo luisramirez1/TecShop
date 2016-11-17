@@ -113,7 +113,7 @@
         </div>
         <div class="nav navbar-nav navbar-right header-two-right">
           <div class="header-right my-account">
-            <a href=""><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>CONTACTANOS</a>       
+            <a href=""><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>CONTÁCTANOS</a>       
           </div>
           <div class="header-right cart">
             <a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
@@ -146,128 +146,78 @@
             <ul class="nav navbar-nav top-nav-info">
               <li><a href="{{url('/')}}" class="active">Inicio</a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Computadoras<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorias<b class="caret"></b></a>
                 <ul class="dropdown-menu multi-column multi-column1">
                   <div class="row">
                     <div class="col-sm-4 menu-grids menulist1">
-                      <h4>Bath & Care</h4>
+                      <h4>Computadoras</h4>
                       <ul class="multi-column-dropdown ">
-                        <li><a class="list" href="products.html">Diapering</a></li>
-                        <li><a class="list" href="products.html">Baby Wipes</a></li>
-                        <li><a class="list" href="products.html">Baby Soaps</a></li>
-                        <li><a class="list" href="products.html">Lotions & Oils </a></li>
-                        <li><a class="list" href="products.html">Powders</a></li>
-                        <li><a class="list" href="products.html">Shampoos</a></li>
+                        <li><a class="list" href="">Acer</a></li>
+                        <li><a class="list" href="">Apple</a></li>
+                        <li><a class="list" href="">Asus</a></li>
+                        <li><a class="list" href="">Dell</a></li>
+                        <li><a class="list" href="">Gateway</a></li>
+                        <li><a class="list" href="">HP</a></li>
                       </ul>
                       <ul class="multi-column-dropdown">
-                        <li><a class="list" href="products.html">Body Wash</a></li>
-                        <li><a class="list" href="products.html">Cloth Diapers</a></li>
-                        <li><a class="list" href="products.html">Baby Nappies</a></li>
-                        <li><a class="list" href="products.html">Medical Care</a></li>
-                        <li><a class="list" href="products.html">Grooming</a></li>
-                        <li><h6><a class="list" href="products.html">Combo Packs</a></h6></li>
+                        <li><a class="list" href="">Lenovo</a></li>
+                        <li><a class="list" href="">Sony</a></li>
+                        <li><a class="list" href="">Toshiba</a></li>
+                        <li><a class="list" href="">Alienware</a></li>
+                        <li><a class="list" href="">Compaq</a></li>
+                        <li><h6><a class="list" href="">Promociones</a></h6></li>
                       </ul>
                     </div>                                    
                     <div class="col-sm-2 menu-grids">
-                      <h4>Baby Clothes</h4>
+                      <h4>Smartphone's</h4>
                       <ul class="multi-column-dropdown">
-                        <li><a class="list" href="products.html">Onesies & Rompers</a></li>
-                        <li><a class="list" href="products.html">Frocks</a></li>
-                        <li><a class="list" href="products.html">Socks & Tights</a></li>
-                        <li><a class="list" href="products.html">Sweaters & Caps</a></li>
-                        <li><a class="list" href="products.html">Night Wear</a></li>
-                        <li><a class="list" href="products.html">Quilts & Wraps</a></li>
+                        <li><a class="list" href="">Apple</a></li>
+                        <li><a class="list" href="">Blackberry</a></li>
+                        <li><a class="list" href="">HTC</a></li>
+                        <li><a class="list" href="">Huawei</a></li>
+                        <li><a class="list" href="">Lg</a></li>
+                        <li><a class="list" href="">Samsung</a></li>
                       </ul>
                     </div>
                     <div class="col-sm-3 menu-grids">
                       <ul class="multi-column-dropdown">
-                        <li><a class="list" href="products.html">Blankets</a></li>
-                        <li><a class="list" href="products.html">Gloves & Mittens</a></li>
-                        <h4>Shop by Age</h4>
-                        <li><a class="list" href="products.html">New Born (0 - 5 M)</a></li>
-                        <li><a class="list" href="products.html">5 - 10 Months</a></li>
-                        <li><a class="list" href="products.html">10 - 15 Months</a></li>
-                        <li><a class="list" href="products.html">15 Months Above</a></li>
+                        <li><a class="list" href="">Sony</a></li>
+                        <li><a class="list" href="">Xiaomi</a></li>
+                        <h4>Electronica</h4>
+                        <li><a class="list" href="">Audio y Video</a></li>
+                        <li><a class="list" href="">Impresoras 3D</a></li>
+                        <li><a class="list" href="">Smart TV</a></li>
+                        <li><a class="list" href="">Accesorios / smartphone</a></li>
                       </ul>
                     </div>
                     <div class="col-sm-3 menu-grids">
                       <ul class="multi-column-dropdown">
-                        <li><h6><a class="list" href="products.html">Feeding & Nursing</a></h6></li>
-                        <h4>Baby Gear</h4>
-                        <li><a class="list" href="products.html">Baby Walkers</a></li>
-                        <li><a class="list" href="products.html">Strollers</a></li>
-                        <li><a class="list" href="products.html">Prams & Toys</a></li>
-                        <li><a class="list" href="products.html">Cribs & Cradles</a></li>
-                        <li><a class="list" href="products.html">Booster Seats</a></li>
+                        <li><h6><a class="list" href="">Promociones</a></h6></li>
+                        <h4>Consolas</h4>
+                        <li><a class="list" href="">Play Station 4</a></li>
+                        <li><a class="list" href="">Xbox one S</a></li>
                       </ul>
                     </div>
                     <div class="clearfix"> </div>
                   </div>
                 </ul>
               </li>
+
               <li class="dropdown grid">
-                <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Kids<b class="caret"></b></a>
-                <ul class="dropdown-menu multi-column multi-column2">
-                  <div class="row">
-                    <div class="col-sm-3 menu-grids">
-                      <h4>New Arrivals</h4>
-                      <ul class="multi-column-dropdown">
-                        <li><a class="list" href="products.html">Topwear</a></li>
-                        <li><a class="list" href="products.html">Bottomwear</a></li>
-                        <li><a class="list" href="products.html">Innerwear</a></li>
-                        <li><a class="list" href="products.html">Nightwear</a></li>
-                        <li><a class="list" href="products.html">Swimwear</a></li>
-                        <li><a class="list" href="products.html">Jumpers</a></li>
-                      </ul>
-                    </div>                                    
-                    <div class="col-sm-3 menu-grids">
-                      <h4>Boys</h4>
-                      <ul class="multi-column-dropdown">
-                        <li><a class="list" href="products.html">Jeans</a></li>
-                        <li><a class="list" href="products.html">Shirts</a></li>
-                        <li><a class="list" href="products.html">T-shirts</a></li>
-                        <li><a class="list" href="products.html">Dhoti Kurta Sets</a></li>
-                        <li><a class="list" href="products.html">Winter wear</a></li>
-                        <li><a class="list" href="products.html">Party Wear</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-sm-3 menu-grids">
-                      <h4>Girls</h4>
-                      <ul class="multi-column-dropdown">
-                        <li><a class="list" href="products.html">Tops</a></li>
-                        <li><a class="list" href="products.html">Leggings</a></li>
-                        <li><a class="list" href="products.html">Dresses </a></li>
-                        <li><a class="list" href="products.html">Skirts</a></li>
-                        <li><a class="list" href="products.html">Casual Dresses</a></li>
-                        <li><a class="list" href="products.html">Capris & 3/4ths</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-sm-3 menu-grids new-add2">
-                      <a href="products.html">
-                        <h6>Kids Special</h6>
-                        <img src="images/img1.jpg" alt="">
-                      </a>
-                    </div>
-                    <div class="clearfix"> </div>
-                  </div>
-                </ul>
-              </li>
-              <li class="dropdown grid">
-                <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Accessories<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Ofertas Especiales<b class="caret"></b></a>
                 <ul class="dropdown-menu multi-column menu-two multi-column3">
                   <div class="row">
                     <div class="col-sm-4 menu-grids">
                       <ul class="multi-column-dropdown">
-                        <li><a class="list" href="products.html">Jewellery</a></li>
-                        <li><a class="list" href="products.html">Hair bands & Clips</a></li>
-                        <li><a class="list" href="products.html">Bangles </a></li>
-                        <li><a class="list" href="products.html">Caps & Belts</a></li>
-                        <li><a class="list" href="products.html">Rain wear</a></li>
-                        <li><a class="list" href="products.html">Bags</a></li>
+                        <li><a class="list" href="">Audio y Video</a></li>
+                        <li><a class="list" href="">Computadoras</a></li>
+                        <li><a class="list" href="">Consolas</a></li>
+                        <li><a class="list" href="">Electronica</a></li>
+                        <li><a class="list" href="">Smartphone's</a></li>
                       </ul>
                     </div>
                     <div class="col-sm-8 menu-grids">
-                      <a href="products.html">
+                      <a href="">
                         <div class="new-add">
                           <h5>30% OFF <br> Today Only</h5>
                         </div>  
@@ -277,63 +227,12 @@
                   </div>  
                 </ul>
               </li>       
-              <li class="dropdown grid">
-                <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Toys <b class="caret"></b></a>
-                <ul class="dropdown-menu multi-column multi-column4">
-                  <div class="row">
-                    <div class="col-sm-4 menu-grids menulist1">
-                      <h4>BABY</h4>
-                      <ul class="multi-column-dropdown ">
-                        <li><a class="list" href="products.html">Rockers</a></li>
-                        <li><a class="list" href="products.html">Rattles</a></li>
-                        <li><a class="list" href="products.html">Stroller Toys</a></li>
-                        <li><a class="list" href="products.html">Musical Toys </a></li>
-                        <li><a class="list" href="products.html">Doll Houses</a></li>
-                        <li><a class="list" href="products.html">Play Sets</a></li>
-                      </ul>
-                      <ul class="multi-column-dropdown">
-                        <li><a class="list" href="products.html">Toys Dolls</a></li>
-                        <li><a class="list" href="products.html">Pacifiers</a></li>
-                        <li><a class="list" href="products.html">Building Sets</a></li>
-                        <li><a class="list" href="products.html">Bath Toys</a></li>
-                        <li><a class="list" href="products.html">Soft Toys</a></li>
-                        <li><h6><a class="list" href="products.html">Special Off</a></h6></li>
-                      </ul>
-                    </div>                                    
-                    <div class="col-sm-2 menu-grids">
-                      <h4>Pretend Play</h4>
-                      <ul class="multi-column-dropdown">
-                        <li><h6><a class="list" href="products.html">Video Games</a></h6></li>
-                        <li><a class="list" href="products.html">Kitchen Sets</a></li>
-                        <li><a class="list" href="products.html">Sand Toys</a></li>
-                        <li><a class="list" href="products.html">Tool Sets</a></li>
-                        <li><a class="list" href="products.html">Bath Toys</a></li>
-                        <li><a class="list" href="products.html">Medical Set</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-sm-2 menu-grids">
-                      <h4>Outdoor</h4>
-                      <ul class="multi-column-dropdown">
-                        <li><a class="list" href="products.html">Swimming</a></li>
-                        <li><a class="list" href="products.html">Rideons </a></li>
-                        <li><a class="list" href="products.html">Scooters</a></li>
-                        <li><a class="list" href="products.html">Remote Control</a></li>
-                        <li><a class="list" href="products.html">Animals</a></li>
-                        <li><a class="list" href="products.html">Make up</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-sm-4 menu-grids">
-                      <a href="products.html">
-                        <div class="new-add">
-                          <h5>30% OFF <br> Today Only</h5>
-                        </div>
-                      </a>  
-                    </div>
-                    <div class="clearfix"> </div>
-                  </div>
-                </ul>
+            
+<!--............................................................................................... Lo mas popular -->
+              <li>
+                <a href="">Lo mas popular</a>
               </li>
-              <li><a href="codes.html">Special Offers</a></li>
+
             </ul> 
             <div class="clearfix"> </div>
             <!--//navbar-collapse-->
@@ -354,33 +253,34 @@
     </div>
   </div>
 
+<!--............................................................................................... Yield -->
+  <article>
+    @yield('contenido')
+  </article>
 
-
-<article>
-  @yield('contenido')
-</article>
-
-
-<div class="footer">
+<!--............................................................................................... Footer -->
+  <div class="footer">
     <div class="container">
       <div class="footer-info">
         <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".5s">
           <h4 class="footer-logo"><a href="{{url('/')}}">Tec <b>Shop</b> <span class="tag">Tecnologia a la Moda </span> </a></h4>
           <p>© 2016 Tec Shop . All rights reserved</p>
+          <i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a>
+            Culiacan, Sinaloa.</a><br>
+            <i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">  tecShop@gmail.com</a><br>
+            <i class="glyphicon glyphicon-earphone" aria-hidden="true"></i> +6671234567
         </div>
         <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".7s">
           <h3>Popular</h3>
           <ul>
-            <li><a href="">About Us</a></li>
-            <li><a href="">new</a></li>
-            <li><a href="">Contact Us</a></li>
-            <li><a href="">FAQ</a></li>
-            <li><a href="">Wishlist</a></li>
-          </ul>
+            <li><a href="">Acerca de</a></li>
+            <li><a href="">Contáctanos</a></li>
+            <li><a href="">FAQ's</a></li>
+           </ul>
         </div>
         <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".9s">
           <h3>Subscribe</h3>
-          <p>Sign Up Now For More Information <br> About Our Company </p>
+          <p>Regístrese ahora para obtener más información <br> Sobre nuestra compañía </p>
           <form>
             <input type="text" placeholder="Enter Your Email" required="">
             <input type="submit" value="Go">
