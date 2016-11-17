@@ -20,5 +20,7 @@ Auth::routes();
 Route::get('/editar/{id}', 'HomeController@editar');
 Route::post('/actualizar/{id}', 'HomeController@actualizar');
 
-
+Route::get('/acercade','HomeController@acerca');
+Route::get('/contactanos','HomeController@contactanos');
+Route::get('/preguntasFrecuentes','HomeController@FAQs');
 

@@ -30,6 +30,19 @@ class HomeController extends Controller
         return view('home');
     }
 
+    public function acerca() {
+        return view('/acercaDe');
+    }
+
+    public function contactanos() {
+        return view('/contactanos');
+    }
+
+    public function FAQs() {
+        return view('/FAQ');
+    }
+
+
      public function editar($id)
     {
         $usuarios = Usuarios::find($id);

@@ -265,6 +265,7 @@
         <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".5s">
           <h4 class="footer-logo"><a href="{{url('/')}}">Tec <b>Shop</b> <span class="tag">Tecnologia a la Moda </span> </a></h4>
           <p>© 2016 Tec Shop . All rights reserved</p>
+          <br>
           <i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a>
             Culiacan, Sinaloa.</a><br>
             <i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">  tecShop@gmail.com</a><br>
@@ -273,10 +274,11 @@
         <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".7s">
           <h3>Popular</h3>
           <ul>
-            <li><a href="">Acerca de</a></li>
-            <li><a href="">Contáctanos</a></li>
-            <li><a href="">FAQ's</a></li>
+            <li><a href="{{url('/acercade')}}">Acerca de</a></li>
+            <li><a href="{{url('/contactanos')}}">Contáctanos</a></li>
+            <li><a href="{{url('/preguntasFrecuentes')}}">FAQ's</a></li>
            </ul>
+           
         </div>
         <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".9s">
           <h3>Subscribe</h3>
