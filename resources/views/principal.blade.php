@@ -142,6 +142,247 @@
             </button>
           </div>
           <!--navbar-header-->
+<!--............................................................................................... No logueado -->
+          @if (Auth::guest())
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav top-nav-info">
+              <li><a href="{{url('/')}}" class="active">Inicio</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorias<b class="caret"></b></a>
+                <ul class="dropdown-menu multi-column multi-column1">
+                  <div class="row">
+                    <div class="col-sm-4 menu-grids menulist1">
+                      <h4>Computadoras</h4>
+                      <ul class="multi-column-dropdown ">
+                        <li><a class="list" href="">Acer</a></li>
+                        <li><a class="list" href="">Apple</a></li>
+                        <li><a class="list" href="">Asus</a></li>
+                        <li><a class="list" href="">Dell</a></li>
+                        <li><a class="list" href="">Gateway</a></li>
+                        <li><a class="list" href="">HP</a></li>
+                      </ul>
+                      <ul class="multi-column-dropdown">
+                        <li><a class="list" href="">Lenovo</a></li>
+                        <li><a class="list" href="">Sony</a></li>
+                        <li><a class="list" href="">Toshiba</a></li>
+                        <li><a class="list" href="">Alienware</a></li>
+                        <li><a class="list" href="">Compaq</a></li>
+                        <li><h6><a class="list" href="">Promociones</a></h6></li>
+                      </ul>
+                    </div>                                    
+                    <div class="col-sm-2 menu-grids">
+                      <h4>Smartphone's</h4>
+                      <ul class="multi-column-dropdown">
+                        <li><a class="list" href="">Apple</a></li>
+                        <li><a class="list" href="">Blackberry</a></li>
+                        <li><a class="list" href="">HTC</a></li>
+                        <li><a class="list" href="">Huawei</a></li>
+                        <li><a class="list" href="">Lg</a></li>
+                        <li><a class="list" href="">Samsung</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-sm-3 menu-grids">
+                      <ul class="multi-column-dropdown">
+                        <li><a class="list" href="">Sony</a></li>
+                        <li><a class="list" href="">Xiaomi</a></li>
+                        <h4>Electronica</h4>
+                        <li><a class="list" href="">Audio y Video</a></li>
+                        <li><a class="list" href="">Impresoras 3D</a></li>
+                        <li><a class="list" href="">Smart TV</a></li>
+                        <li><a class="list" href="">Accesorios / smartphone</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-sm-3 menu-grids">
+                      <ul class="multi-column-dropdown">
+                        <li><h6><a class="list" href="">Promociones</a></h6></li>
+                        <h4>Consolas</h4>
+                        <li><a class="list" href="">Play Station 4</a></li>
+                        <li><a class="list" href="">Xbox one S</a></li>
+                      </ul>
+                    </div>
+                    <div class="clearfix"> </div>
+                  </div>
+                </ul>
+              </li>
+
+              <li class="dropdown grid">
+                <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Ofertas Especiales<b class="caret"></b></a>
+                <ul class="dropdown-menu multi-column menu-two multi-column3">
+                  <div class="row">
+                    <div class="col-sm-4 menu-grids">
+                      <ul class="multi-column-dropdown">
+                        <li><a class="list" href="">Audio y Video</a></li>
+                        <li><a class="list" href="">Computadoras</a></li>
+                        <li><a class="list" href="">Consolas</a></li>
+                        <li><a class="list" href="">Electronica</a></li>
+                        <li><a class="list" href="">Smartphone's</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-sm-8 menu-grids">
+                      <a href="">
+                        <div class="new-add">
+                          <h5>30% OFF <br> Today Only</h5>
+                        </div>  
+                      </a>
+                    </div>  
+                    <div class="clearfix"> </div>
+                  </div>  
+                </ul>
+              </li>       
+            
+<!--............................................................................................... Lo mas popular -->
+              <li>
+                <a href="">Lo mas popular</a>
+              </li>
+
+            </ul> 
+            <div class="clearfix"> </div>
+            <!--//navbar-collapse-->
+            <header class="cd-main-header">
+              <ul class="cd-header-buttons">
+                <li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+              </ul> <!-- cd-header-buttons -->
+            </header>
+          </div>
+          <!--//navbar-header-->
+        </nav>
+        <div id="cd-search" class="cd-search">
+          <form>
+            <input type="search" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+          @else
+<!--............................................................................................... Administrador -->
+          @if(Auth::user()->tipoUsuario == 1)
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav top-nav-info">
+              <li><a href="{{url('/')}}" class="active">Inicio</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorias<b class="caret"></b></a>
+                <ul class="dropdown-menu multi-column multi-column1">
+                  <div class="row">
+                    <div class="col-sm-4 menu-grids menulist1">
+                      <h4>Computadoras</h4>
+                      <ul class="multi-column-dropdown ">
+                        <li><a class="list" href="">Acer</a></li>
+                        <li><a class="list" href="">Apple</a></li>
+                        <li><a class="list" href="">Asus</a></li>
+                        <li><a class="list" href="">Dell</a></li>
+                        <li><a class="list" href="">Gateway</a></li>
+                        <li><a class="list" href="">HP</a></li>
+                      </ul>
+                      <ul class="multi-column-dropdown">
+                        <li><a class="list" href="">Lenovo</a></li>
+                        <li><a class="list" href="">Sony</a></li>
+                        <li><a class="list" href="">Toshiba</a></li>
+                        <li><a class="list" href="">Alienware</a></li>
+                        <li><a class="list" href="">Compaq</a></li>
+                        <li><h6><a class="list" href="">Promociones</a></h6></li>
+                      </ul>
+                    </div>                                    
+                    <div class="col-sm-2 menu-grids">
+                      <h4>Smartphone's</h4>
+                      <ul class="multi-column-dropdown">
+                        <li><a class="list" href="">Apple</a></li>
+                        <li><a class="list" href="">Blackberry</a></li>
+                        <li><a class="list" href="">HTC</a></li>
+                        <li><a class="list" href="">Huawei</a></li>
+                        <li><a class="list" href="">Lg</a></li>
+                        <li><a class="list" href="">Samsung</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-sm-3 menu-grids">
+                      <ul class="multi-column-dropdown">
+                        <li><a class="list" href="">Sony</a></li>
+                        <li><a class="list" href="">Xiaomi</a></li>
+                        <h4>Electronica</h4>
+                        <li><a class="list" href="">Audio y Video</a></li>
+                        <li><a class="list" href="">Impresoras 3D</a></li>
+                        <li><a class="list" href="">Smart TV</a></li>
+                        <li><a class="list" href="">Accesorios / smartphone</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-sm-3 menu-grids">
+                      <ul class="multi-column-dropdown">
+                        <li><h6><a class="list" href="">Promociones</a></h6></li>
+                        <h4>Consolas</h4>
+                        <li><a class="list" href="">Play Station 4</a></li>
+                        <li><a class="list" href="">Xbox one S</a></li>
+                      </ul>
+                    </div>
+                    <div class="clearfix"> </div>
+                  </div>
+                </ul>
+              </li>
+
+              <li class="dropdown grid">
+                <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Ofertas Especiales<b class="caret"></b></a>
+                <ul class="dropdown-menu multi-column menu-two multi-column3">
+                  <div class="row">
+                    <div class="col-sm-4 menu-grids">
+                      <ul class="multi-column-dropdown">
+                        @foreach($categorias as $c)
+                        <li><a class="list" href="">{{$c->name}}</a></li>
+                        @endforeach
+
+                        
+                      </ul>
+                    </div>
+                    <div class="col-sm-8 menu-grids">
+                      <a href="">
+                        <div class="new-add">
+                          <h5>30% OFF <br> Today Only</h5>
+                        </div>  
+                      </a>
+                    </div>  
+                    <div class="clearfix"> </div>
+                  </div>  
+                </ul>
+              </li>       
+            
+<!--............................................................................................... Lo mas popular -->
+              <li>
+                <a href="">Lo mas popular</a>
+              </li>
+              <li class="dropdown grid">
+                <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Registrar<b class="caret"></b></a>
+                <ul class="dropdown-menu multi-column menu-two multi-column3">
+                  <div class="row">
+                    <div class="col-sm-12 menu-grids">
+                      <ul class="multi-column-dropdown">
+                        <li><a class="list" href="{{url('/registrarProductos')}}">Productos</a></li>
+                        <li><a class="list" href="{{url('/registrarCategorias')}}">Categorias</a></li>
+                      </ul>
+                    </div>
+                    <div class="clearfix"> </div>
+                  </div>  
+                </ul>
+              </li>       
+
+            </ul> 
+            <div class="clearfix"> </div>
+            <!--//navbar-collapse-->
+            <header class="cd-main-header">
+              <ul class="cd-header-buttons">
+                <li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+              </ul> <!-- cd-header-buttons -->
+            </header>
+          </div>
+          <!--//navbar-header-->
+        </nav>
+        <div id="cd-search" class="cd-search">
+          <form>
+            <input type="search" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+          @else
+<!--............................................................................................... Invitado -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav top-nav-info">
               <li><a href="{{url('/')}}" class="active">Inicio</a></li>
@@ -252,7 +493,8 @@
       </div>
     </div>
   </div>
-
+  @endif
+  @endif
 <!--............................................................................................... Yield -->
   <article>
     @yield('contenido')

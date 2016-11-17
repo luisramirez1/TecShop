@@ -10,15 +10,24 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Categorias;
 
 Route::get('/', function () {
-    return view('principal');
+	$categorias = Categorias::all();
+    return view('principal', compact('categorias'));
 });
 
 Auth::routes();
 
-Route::get('/editar/{id}', 'HomeController@editar');
-Route::post('/actualizar/{id}', 'HomeController@actualizar');
+Route::group(['middleware' => ['admin']], function () {
 
+	Route::get('/registrarProductos', 'ProductosController@registrarV');
+	Route::post('/guardarProductos', 'ProductosController@registrar');
+	Route::get('/registrarCategorias', 'ProductosController@registrarCV');
+	Route::post('/guardarCategorias', 'ProductosController@registrarC');		
+});
 
-
+Route::group(['middleware' => ['auth']], function () {
+	Route::get('/editar/{id}', 'HomeController@editar');
+	Route::post('/actualizar/{id}', 'HomeController@actualizar');
+});
