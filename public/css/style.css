@@ -1497,6 +1497,16 @@ h4.panel-title a {
     background: #FFFFFF;
     margin: 0em 0em 1em 0em;
 }
+.login-page input[type="tel"]{
+    font-size: 1em;
+    padding: 0.9em 1em;
+    width: 100%;
+    color: #999;
+    outline: none;
+    border: 1px solid #E2DCDC;
+    background: #FFFFFF;
+    margin: 0em 0em 1em 0em;
+}
 /*--placeholder--*/
 .login-page ::-webkit-input-placeholder{
 	color:#999 !important;

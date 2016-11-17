@@ -46,6 +46,18 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('celular') ? ' has-error' : '' }}">
+                            <div>
+                                <input id="name" class="tel" type="tel" name="tel" required placeholder="Celular" pattern="[0-9]{10}" onkeypress="return justNumbers(event);">
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <div>
                                 <input id="password" type="password" name="password" required placeholder="Contraseña">
