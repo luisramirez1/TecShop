@@ -18,9 +18,30 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->integer('tipoUsuario');
+            $table->bigInteger('tel');
+            $table->string('imagen')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::table('users')->insert([
+                'name' => 'Luis Fernando Ramirez Salazar',
+                'email' => 'luisramirez.lfrs@gmail.com',
+                'password' => bcrypt('luis123'),
+                'tipoUsuario' => '1',
+                'tel' => '6672005057'
+            ]
+        );
+
+        DB::table('users')->insert([
+                'name' => 'Jose Mario Sanz Lopez',
+                'email' => 'josemario.sanz@gmail.com',
+                'password' => bcrypt('sanz123'),
+                'tipoUsuario' => '1',
+                'tel' => '6674734974'
+            ]
+        );
     }
 
     /**

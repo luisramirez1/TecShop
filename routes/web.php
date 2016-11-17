@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('principal');
 });
+
+Auth::routes();
+
+Route::get('/registrar', 'HomeController@registrar');
+Route::get('/ingresar', 'HomeController@ingresar');
+
+
