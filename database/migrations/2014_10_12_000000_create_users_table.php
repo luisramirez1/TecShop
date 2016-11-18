@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->integer('tipoUsuario');
             $table->bigInteger('tel');
             $table->string('imagen')->nullable();
+            $table->boolean('verified')->default(false);
+            $table->string('token')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

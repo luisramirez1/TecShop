@@ -15,6 +15,7 @@
         <div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
             <h3 class="title"><span>Registrar</span></h3>
         </div>
+            @include('partials.flash')
         <div class="widget-shadow">
             <div class="login-top wow fadeInUp animated" data-wow-delay=".7s">
                 <h4>Ya tienes cuenta?<a href="{{url('/login')}}">  Ingresar »</a> </h4>

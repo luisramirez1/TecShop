@@ -6,6 +6,10 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Mail\ConfirmationEmail;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -71,5 +75,22 @@ class RegisterController extends Controller
             'tipoUsuario' => $tipo,
             'tel' => $data['tel'],
         ]);
+    }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        Mail::to($user->email)->send(new ConfirmationEmail($user));
+
+        return back()->with('status', 'Te enviamos un código de activación. Consulta tu Correo Electrónico.');
+    }
+
+    public function confirmEmail($token)
+    {
+        User::whereToken($token)->firstOrFail()->hasVerified();
+        return redirect('login')->with('status', 'Correo confirmado. Por favor Inicia sesión.');
     }
 }
