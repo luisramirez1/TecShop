@@ -1,23 +1,25 @@
-@extends('layouts.app')
+@extends('principal')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
+@section('contenido')
 
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/reset') }}">
-                        {{ csrf_field() }}
+<div class="login-page">
+        <div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
+            <h3 class="title"><span> Cambiar Contraseña</span></h3>
+        </div>
 
+        <div class="widget-shadow">
+            <div class="login-top wow fadeInUp animated" data-wow-delay=".7s">
+                <h4>Ya tienes cuenta?<a href="{{url('/login')}}">  Ingresar »</a> </h4>
+            </div>
+            <div class="login-body">
+                <form class="wow fadeInUp animated" data-wow-delay=".7s" class="form-horizontal" role="form" method="POST" action="{{ url('/password/reset') }}">
+                    {{ csrf_field() }}
+                        
                         <input type="hidden" name="token" value="{{ $token }}">
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
+                            <div>
+                                <input id="email" class="email" type="email" name="email" value="{{ old('email') }}" required placeholder="Email">
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -28,10 +30,8 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                            <div>
+                                <input id="password" type="password" name="password" required placeholder="Contraseña">
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -41,30 +41,14 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-
-                                @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Reset Password
-                                </button>
+                            <div>
+                                <input id="password-confirm" type="password" name="password_confirmation" required placeholder="Confirmar Contraseña">
                             </div>
                         </div>
-                    </form>
-                </div>
+                    <input type="submit" name="Register" value="Cambiar Contraseña">
+                </form>
             </div>
         </div>
     </div>
-</div>
 @endsection
