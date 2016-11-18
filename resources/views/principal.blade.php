@@ -113,7 +113,7 @@
         </div>
         <div class="nav navbar-nav navbar-right header-two-right">
           <div class="header-right my-account">
-            <a href=""><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>CONTÁCTANOS</a>       
+            <a href="{{url('/contactanos')}}"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>CONTÁCTANOS</a>       
           </div>
           <div class="header-right cart">
             <a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
@@ -355,6 +355,7 @@
                       <ul class="multi-column-dropdown">
                         <li><a class="list" href="{{url('/registrarProductos')}}">Productos</a></li>
                         <li><a class="list" href="{{url('/registrarCategorias')}}">Categorias</a></li>
+                        <li><a class="list" href="{{url('/registrarMarcas')}}">Marcas</a></li>
                       </ul>
                     </div>
                     <div class="clearfix"> </div>
@@ -450,11 +451,9 @@
                   <div class="row">
                     <div class="col-sm-4 menu-grids">
                       <ul class="multi-column-dropdown">
-                        <li><a class="list" href="">Audio y Video</a></li>
-                        <li><a class="list" href="">Computadoras</a></li>
-                        <li><a class="list" href="">Consolas</a></li>
-                        <li><a class="list" href="">Electronica</a></li>
-                        <li><a class="list" href="">Smartphone's</a></li>
+                        @foreach($categorias as $c)
+                        <li><a class="list" href="">{{$c->name}}</a></li>
+                        @endforeach
                       </ul>
                     </div>
                     <div class="col-sm-8 menu-grids">
@@ -507,6 +506,7 @@
         <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".5s">
           <h4 class="footer-logo"><a href="{{url('/')}}">Tec <b>Shop</b> <span class="tag">Tecnologia a la Moda </span> </a></h4>
           <p>© 2016 Tec Shop . All rights reserved</p>
+          <br>
           <i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a>
             Culiacan, Sinaloa.</a><br>
             <i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">  tecShop@gmail.com</a><br>
@@ -515,10 +515,11 @@
         <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".7s">
           <h3>Popular</h3>
           <ul>
-            <li><a href="">Acerca de</a></li>
-            <li><a href="">Contáctanos</a></li>
-            <li><a href="">FAQ's</a></li>
+            <li><a href="{{url('/acercade')}}">Acerca de</a></li>
+            <li><a href="{{url('/contactanos')}}">Contáctanos</a></li>
+            <li><a href="{{url('/preguntasFrecuentes')}}">FAQ's</a></li>
            </ul>
+           
         </div>
         <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".9s">
           <h3>Subscribe</h3>

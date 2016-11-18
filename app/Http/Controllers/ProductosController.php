@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Input;
 use App\Productos;
 use App\Categorias;
 use App\Pro_Cate;
+use App\Marcas;
 
 class ProductosController extends Controller
 {
@@ -38,6 +39,8 @@ class ProductosController extends Controller
     	return Redirect('/registrarProductos');
     }
 
+
+
     public function registrarCV()
     {
         $categorias = Categorias::all();
@@ -50,5 +53,21 @@ class ProductosController extends Controller
     	$nuevo->save();
 
     	return Redirect('/registrarCategorias');
+    }
+
+    public function registrarMarcaV()
+    {
+        $categorias = Categorias::all();
+        return view('/registrarMarcas', compact('categorias'));
+    }
+
+    public function registrarM(Request $datos) {
+        $nuevo = new Marcas();
+        $nuevo->name=$datos->input('name');
+        $nuevo->save();
+
+        return Redirect('/registrarMarcas');
+
+
     }
 }

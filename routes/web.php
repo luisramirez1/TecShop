@@ -19,12 +19,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/acercade','HomeController@acerca');
+Route::get('/contactanos','HomeController@contactanos');
+Route::get('/preguntasFrecuentes','HomeController@FAQs');
+
 Route::group(['middleware' => ['admin']], function () {
 
 	Route::get('/registrarProductos', 'ProductosController@registrarV');
 	Route::post('/guardarProductos', 'ProductosController@registrar');
 	Route::get('/registrarCategorias', 'ProductosController@registrarCV');
-	Route::post('/guardarCategorias', 'ProductosController@registrarC');		
+	Route::post('/guardarCategorias', 'ProductosController@registrarC');
+	Route::get('/registrarMarcas','ProductosController@registrarMarcaV');
+	Route::post('/guardarMarcas','ProductosController@registrarM');		
 });
 
 Route::group(['middleware' => ['auth']], function () {

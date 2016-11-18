@@ -33,6 +33,24 @@ class HomeController extends Controller
         return view('/');
     }
 
+    public function acerca() {
+        $categorias = Categorias::all();
+
+        return view('/acercaDe', compact('categorias'));
+    }
+
+    public function contactanos() {
+        $categorias = Categorias::all();
+
+        return view('/contactanos', compact('categorias'));
+    }
+
+    public function FAQs() {
+        $categorias = Categorias::all();
+
+        return view('/FAQ', compact('categorias'));
+    }
+
     public function editar($id)
     {
         $usuarios = Usuarios::find($id);
