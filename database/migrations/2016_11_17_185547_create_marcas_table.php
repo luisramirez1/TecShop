@@ -25,133 +25,133 @@ class CreateMarcasTable extends Migration
 //..................................................................... 
         DB::table('marcas')->insert([
                 'name' => 'Acer',
-                'categoria' => 'computadoras'
+                'categoria' => '2'
             ]
         );
 
         DB::table('marcas')->insert([
                 'name' => 'Alienware',
-                'categoria' => 'computadoras'
+                'categoria' => '2'
             ]
         );
 
         DB::table('marcas')->insert([
                 'name' => 'Apple',
-                'categoria' => 'computadoras'
+                'categoria' => '2'
             ]
         );
 
         DB::table('marcas')->insert([
                 'name' => 'Apple',
-                'categoria' => 'celulares'
+                'categoria' => '1'
             ]
         );
 
         DB::table('marcas')->insert([
                 'name' => 'Asus',
-                'categoria' => 'computadoras'
+                'categoria' => '2'
             ]
         );
 
         DB::table('marcas')->insert([
                 'name' => 'Blackberry',
-                'categoria' => 'celulares'
+                'categoria' => '1'
             ]
         );
 
         DB::table('marcas')->insert([
                 'name' => 'Compaq',
-                'categoria' => 'computadoras'
+                'categoria' => '2'
             ]
         );
 
         DB::table('marcas')->insert([
                 'name' => 'Dell',
-                'categoria' => 'computadoras'
+                'categoria' => '2'
             ]
         );
 
         DB::table('marcas')->insert([
                 'name' => 'Gateway',
-                'categoria' => 'computadoras'
+                'categoria' => '2'
             ]
         );
 
         DB::table('marcas')->insert([
                 'name' => 'Hisense',
-                'categoria' => 'electronica'
+                'categoria' => '4'
             ]
         );
 
         DB::table('marcas')->insert([
                 'name' => 'HP',
-                'categoria' => 'computadoras'
+                'categoria' => '2'
             ]
         );
 
         DB::table('marcas')->insert([
                 'name' => 'HTC',
-                'categoria' => 'celulares'
+                'categoria' => '1'
             ]
         );
 
         DB::table('marcas')->insert([
                 'name' => 'Huawei',
-                'categoria' => 'celulares'
+                'categoria' => '1'
             ]
         );
 
         DB::table('marcas')->insert([
                 'name' => 'Lenovo',
-                'categoria' => 'computadoras'
+                'categoria' => '2'
             ]
         );
 
         DB::table('marcas')->insert([
                 'name' => 'Lg',
-                'categoria' => 'celulares'
+                'categoria' => '1'
             ]
         );
 
         DB::table('marcas')->insert([
                 'name' => 'Microsoft',
-                'categoria' => 'Consolas'
+                'categoria' => '3'
             ]
         );
 
         DB::table('marcas')->insert([
                 'name' => 'Samsung',
-                'categoria' => 'celulares'
+                'categoria' => '1'
             ]
         );
 
         DB::table('marcas')->insert([
                 'name' => 'Sony',
-                'categoria' => 'computadoras'
+                'categoria' => '2'
             ]
         );
 
         DB::table('marcas')->insert([
                 'name' => 'Sony',
-                'categoria' => 'celulares'
+                'categoria' => '1'
             ]
         );
-
+        
         DB::table('marcas')->insert([
                 'name' => 'Sony',
-                'categoria' => 'electronica'
+                'categoria' => '4'
             ]
         );
 
         DB::table('marcas')->insert([
                 'name' => 'Toshiba',
-                'categoria' => 'computadoras'
+                'categoria' => '2'
             ]
         );
 
         DB::table('marcas')->insert([
                 'name' => 'Xiaomi',
-                'categoria' => 'celulares'
+                'categoria' => '1'
             ]
         );
 
