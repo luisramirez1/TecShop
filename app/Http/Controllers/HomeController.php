@@ -54,7 +54,9 @@ class HomeController extends Controller
     public function editar($id)
     {
         $usuarios = Usuarios::find($id);
-        return view('/editar', compact('usuarios'));
+        $categorias = Categorias::all();
+
+        return view('/editar', compact('usuarios', 'categorias'));
     }
 
     public function actualizar($id, Request $datos){
