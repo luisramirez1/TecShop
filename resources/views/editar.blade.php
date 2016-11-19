@@ -35,7 +35,7 @@
                 </article>            
                 <article class="form-group">
                     <label for="Imagen">Imagen:</label>
-                    <input name="imagen" type="file" class="form-control" accept="image/*" value="{{$usuarios->imagen}}">
+                    <input name="imagen" type="file" class="form-control" accept="image/*" required>
                 </article>
                 <input type="submit" value="Actualizar" class="btn btn-info" id="botonEditar">
                 <a href="{{url('/')}}" class="btn btn-primary">Cancelar</a>
