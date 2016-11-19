@@ -116,7 +116,7 @@
             <a href="{{url('/contactanos')}}"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>CONTÁCTANOS</a>       
           </div>
           
-          if (Auth::guest())
+          @if (Auth::guest())
           @else
           <div class="header-right cart">
             <a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
@@ -129,7 +129,7 @@
             </div>
           </div>
           @endif
-          
+
           <div class="clearfix"> </div>
         </div>
         <div class="clearfix"> </div>
