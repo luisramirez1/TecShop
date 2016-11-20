@@ -95,3 +95,21 @@
 	margin: 0 auto;
 	width: 90%;
 }
+
+#facebook
+{
+	background-color: #3b5998;
+	border-color: #3b5998;
+}
+
+#twitter
+{
+	background-color: #4099FF;
+	border-color: #4099FF;
+}
+
+#google
+{
+	background-color: #d34836;
+	border-color: #d34836;
+}

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\SocialProvider;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -10,6 +11,7 @@ use App\Mail\ConfirmationEmail;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Socialite;
 
 class RegisterController extends Controller
 {
@@ -75,6 +77,49 @@ class RegisterController extends Controller
             'tipoUsuario' => $tipo,
             'tel' => $data['tel'],
         ]);
+    }
+
+     /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return Response
+     */
+    public function redirectToProvider($provider)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return Response
+     */
+    public function handleProviderCallback($provider)
+    {
+        try
+        {
+            $socialUser = Socialite::driver($provider)->user();
+        }
+        catch(\Exception $e)
+        {
+            return redirect('/');
+        }
+        //check if we have logged provider
+        $socialProvider = SocialProvider::where('provider_id',$socialUser->getId())->first();
+        if(!$socialProvider)
+        {
+            //create a new user and provider
+            $user = User::firstOrCreate(
+                ['email' => $socialUser->getEmail()],
+                ['name' => $socialUser->getName()]
+            );
+            $user->socialProviders()->create(
+                ['provider_id' => $socialUser->getId(), 'provider' => $provider]
+            );
+        }
+        else
+            $user = $socialProvider->user;
+        auth()->login($user);
+        return redirect('/');
     }
 
     public function register(Request $request)

@@ -59,8 +59,10 @@
         </div>
         <div class="login-page-bottom">
             <h5> - Ingresa con -</h5>
-            <div class="social-btn"><a href="#"><i>Iniciar con Facebook</i></a></div>
-            <div class="social-btn sb-two"><a href="#"><i>Iniciar con Twitter</i></a></div>
+            <div class="btn btn-info" id="facebook"><a href="{{ url('/auth/facebook') }}"><i><img src="{{asset("images/f.png")}}" alt=""></i></a></div>
+            <div class="btn btn-info" id="twitter"><a href="{{ url('/auth/twitter') }}"><i><img src="{{asset("images/t.png")}}" alt=""></i></a></div>
+            <div class="btn btn-info" id="google"><a href="{{ url('/auth/google') }}"><i><img src="{{asset("images/g.png")}}" alt=""></i></a></div>
+
         </div>
     </div>
 @endsection

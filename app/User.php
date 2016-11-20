@@ -41,4 +41,9 @@ class User extends Authenticatable
         $this->token = null;
         $this->save();
     }
+
+    function socialProviders()
+    {
+        return $this->hasMany(SocialProvider::class);
+    }
 }

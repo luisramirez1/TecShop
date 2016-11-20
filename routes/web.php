@@ -22,6 +22,8 @@ Auth::routes();
 Route::get('/acercade','HomeController@acerca');
 Route::get('/contactanos','HomeController@contactanos');
 Route::get('/preguntasFrecuentes','HomeController@FAQs');
+Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
 
 Route::group(['middleware' => ['admin']], function () {
 
