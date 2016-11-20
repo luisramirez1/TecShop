@@ -32,6 +32,7 @@ class CreateUsersTable extends Migration
                 'email' => 'luisramirez.lfrs@gmail.com',
                 'password' => bcrypt('luis123'),
                 'tipoUsuario' => '1',
+                'verified' => '1',
                 'tel' => '6672005057'
             ]
         );
@@ -41,6 +42,7 @@ class CreateUsersTable extends Migration
                 'email' => 'josemario.sanz@gmail.com',
                 'password' => bcrypt('sanz123'),
                 'tipoUsuario' => '1',
+                'verified' => '1',
                 'tel' => '6674734974'
             ]
         );

@@ -16,7 +16,8 @@ class ProductosController extends Controller
     public function registrarV()
     {
     	$categorias= Categorias::all();
-        return view('/registrarProductos', compact('categorias'));
+        $marca= Marcas::all();
+        return view('/registrarProductos', compact('categorias', 'marca'));
     }
 
     public function registrar(Request $datos){
@@ -32,6 +33,7 @@ class ProductosController extends Controller
     	$nuevo->precio=$datos->input('precio');
     	$nuevo->descripcion=$datos->input('descripcion');
         $nuevo->categoria=$datos->input('categoria');
+        $nuevo->marca=$datos->input('marca');
     	$nuevo->imagen=$nombre;
         $nuevo->imagen2=$nombre2;
     	$nuevo->save();

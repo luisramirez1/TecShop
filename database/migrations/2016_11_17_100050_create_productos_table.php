@@ -21,6 +21,7 @@ class CreateProductosTable extends Migration
             $table->string('imagen2');
             $table->integer('precio');
             $table->integer('categoria');
+            $table->integer('marca');
             $table->rememberToken();
             $table->timestamps();
         });

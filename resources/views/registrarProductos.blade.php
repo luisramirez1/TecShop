@@ -36,7 +36,16 @@
                             <option value="{{$c->id}}">{{$c->name}}</option>
                         @endforeach
                     </select>
-                </article>                             
+                </article>
+                <article class="form-group">
+                    <label for="Marca">Marca:</label>
+                    <select name="marca" class="form-control" required>
+                        <option value="">Marca</option>
+                        @foreach($marca as $m)
+                            <option value="{{$m->id}}">{{$m->name}}</option>
+                        @endforeach
+                    </select>
+                </article>                           
                 <article class="form-group">
                     <label for="Imagen">Imagen:</label>
                     <input name="imagen" type="file" class="form-control" accept="image/*" required>
