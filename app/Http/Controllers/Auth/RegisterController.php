@@ -108,9 +108,12 @@ class RegisterController extends Controller
         if(!$socialProvider)
         {
             //create a new user and provider
+            $tipo = 2;
             $user = User::firstOrCreate(
                 ['email' => $socialUser->getEmail()],
-                ['name' => $socialUser->getName()]
+                ['name' => $socialUser->getName()],
+                ['tipoUsuario' => $tipo]
+
             );
             $user->socialProviders()->create(
                 ['provider_id' => $socialUser->getId(), 'provider' => $provider]

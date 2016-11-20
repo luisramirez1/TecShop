@@ -38,13 +38,13 @@ return [
     'facebook' => [
         'client_id' => '789924487817445',
         'client_secret' => '3f0ddedd7e0957f71cdc6497b78f6879',
-        'redirect' => 'http://localhost/TecShop/public/auth/facebook/callback',
+        'redirect' => 'http://104.131.114.114/TecShop/public/auth/facebook/callback',
     ],
 
     'twitter' => [
         'client_id' => 'Qgi5X9mhltNy5HF0zxF07FwCb',
         'client_secret' => 'xKg4vxCGo67L9ZfqqsH90ESHJ4d5N3BeNk1ww9wCIGWSBhK0No',
-        'redirect' => 'http://localhost/TecShop/public/auth/twitter/callback',
+        'redirect' => 'http://104.131.114.114/TecShop/public/auth/twitter/callback',
     ],
 
     'google' => [
