@@ -11,17 +11,17 @@
     </div>
     <div class="jumbotron" id="jum2">
         <section id="seccion1">
-        <h2>;Acerca de Tecshop</h2>
+        <h2><strong>; Acerca de Tecshop</strong></h2>
             <br>
             <strong>Nuestra Pagina</strong>
-            <p>.- Muchas personas en el pais utilizan TecShop para mantenerse en contacto con las nuevas
-            tecnologias.</p>
-            <br>
+            <h3><p>.- Muchas personas en el pais utilizan TecShop para mantenerse en contacto con las nuevas
+            tecnologias.</p></h3>
+            
             <strong>Nuestra Misión</strong>
-            <p>TecShop comenzó como una nueva alternativa para la compra de aparatos tecnologicos. nuestros productos ahora son de la mas alta calidad en el mercado internacional.</p>
-            <br>
-            <strong>Nuestro Equipo</strong>
-            <p>TecShop es una empresa fundada por Luis Ramirez y Mario Sanz, quienes trabajaron en conjunto para el desarrollo de la pagina, enfocada a ser un servicio rapido y confiable en cualquier parte.</p>
+            <h3><p>.- TecShop comenzó como una nueva alternativa para la compra de aparatos tecnologicos. nuestros productos ahora son de la mas alta calidad en el mercado internacional.</p></h3>
+            
+            <h3><strong>Nuestro Equipo</strong>
+            <p>.- TecShop es una empresa fundada por Luis Ramirez y Mario Sanz, quienes trabajaron en conjunto para el desarrollo de la pagina, enfocada a ser un servicio rapido y confiable en cualquier parte.</p></h3>
         </section>
     </div>
 @stop
