@@ -1,5 +1,3 @@
-b 
-
 @extends('principal')
 
 @section('contenido')
