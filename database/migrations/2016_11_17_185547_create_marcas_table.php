@@ -155,6 +155,12 @@ class CreateMarcasTable extends Migration
             ]
         );
 
+         DB::table('marcas')->insert([
+                'name' => 'Sony',
+                'categoria' => '3'
+            ]
+        );
+
 
     }
 

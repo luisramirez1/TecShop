@@ -39,11 +39,6 @@ class CreateCategoriasTable extends Migration
                 'name' => 'Electronica'
             ]
         );
-
-        DB::table('categorias')->insert([
-                'name' => 'Audio y Video'
-            ]
-        );
     }
 
     /**
