@@ -48,9 +48,9 @@ return [
     ],
 
     'google' => [
-        'client_id' => '580800787993-e4n19hr845kamrqds8q275ia2q5o6p0m.apps.googleusercontent.com',
-        'client_secret' => '8wHQeyU9PHffUzVYm73mhKOI',
-        'redirect' => 'http://tecshopweb.tk/TecShop/public/auth/google/callback',
+        'client_id' => '514759440638-ht0io9ho7i6vt1uvsqqs6chtebp7hp50.apps.googleusercontent.com',
+        'client_secret' => 'D64-B2G5r98J4WnREdovRsK2',
+        'redirect' => 'http://tecshopweb.tk/auth/google/callback',
     ],
 
 
