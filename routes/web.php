@@ -14,14 +14,11 @@ use App\Categorias;
 
 Route::get('/', function () {
 	$categorias = Categorias::all();
-    return view('principal', compact('categorias'));
+    return view('inicio', compact('categorias'));
 });
 
 Auth::routes();
 
-Route::get('/acercade','HomeController@acerca');
-Route::get('/contactanos','HomeController@contactanos');
-Route::get('/preguntasFrecuentes','HomeController@FAQs');
 Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
 
