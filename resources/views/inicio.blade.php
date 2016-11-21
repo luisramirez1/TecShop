@@ -30,31 +30,8 @@
 					</div>
 
 				</div>
-				<div class="col-sm-7 banner-right wow fadeInRight animated" data-wow-delay=".5s">			
-					<section class="slider grid">
-						<div class="flexslider">
-							<ul class="slides">
-								<li>
-									<h4>-25%</h4>
-									<img src="{{asset("images/productos")}}/{{$celular->imagen}}" alt="">
-								</li>
-								<li>
-									<h4>-40%</h4>
-									<img src="{{asset("images/productos")}}/{{$mac->imagen}}" alt="">
-								</li>
-								<li>
-									<h4>-10%</h4>
-									<img src="{{asset("images/productos")}}/{{$xbox->imagen}}" alt="">
-								</li>
-								<li>
-									<h4>-20%</h4>
-									<img src="{{asset("images/productos")}}/{{$xbox->imagen}}" alt="">
-								</li>
-							</ul>
-						</div>
-					</section>
-					<!--FlexSlider-->
-					<script defer src="js/jquery.flexslider.js"></script>
+				
+				<script defer src="js/jquery.flexslider.js"></script>
 					<script type="text/javascript">
 						$(window).load(function(){
 						  $('.flexslider').flexslider({
@@ -64,7 +41,7 @@
 							}
 						  });
 						});
-					</script>
+					</script> 
 					<!--End-slider-script-->
 				</div>
 				<div class="clearfix"> </div>

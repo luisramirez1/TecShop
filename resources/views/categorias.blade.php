@@ -21,10 +21,10 @@
                     <div>
                     <div class="product-grids simpleCart_shelfItem wow fadeInUp animated" data-wow-delay=".5s">
                         <div class="new-top" id="imgproductos">
-                            <a href="single.html"><img src="{{asset("images/productos")}}/{{$p->imagen}}" class="img-responsive" alt=""/></a>
+                            <a href="{{url('/vistaRapida')}}/{{$p->id}}"><img src="{{asset("images/productos")}}/{{$p->imagen}}" class="img-responsive" alt=""/></a>
                             <div class="new-text">
                                 <ul>
-                                    <li><a href="single.html">Vista Rapida </a></li>
+                                    <li><a href="{{url('/vistaRapida')}}/{{$p->id}}">Vista Rapida </a></li>
                                     @if (Auth::guest())
                                     @else
                                         <li><input type="number" class="item_quantity" min="1" value="1"></li>
@@ -34,7 +34,7 @@
                             </div>
                         </div>
                         <div class="new-bottom">
-                            <h5><a class="name" href="single.html">{{$p->name}}</a></h5>
+                            <h5><a class="name" href="{{url('/vistaRapida')}}/{{$p->id}}">{{$p->name}}</a></h5>
                             <div class="rating">
                                 <span class="on">☆</span>
                                 <span class="on">☆</span>
@@ -63,12 +63,11 @@
                     </div>  
                 </div>
                 <div class="gallery-grid ">
-                    <h6>YOU MAY ALSO LIKE</h6>
-                    <a href="single.html"><img src="{{asset("images/b1.png")}}" class="img-responsive" alt=""/></a>
+                    <h6>Te puede interesar!</h6>
+                    <a href="{{url('/vistaRapida')}}/{{$iphone->id}}"><img src="{{asset("images/productos")}}/{{$iphone->imagen}}" class="img-responsive" alt=""/></a>
                     <div class="gallery-text simpleCart_shelfItem">
-                        <h5><a class="name" href="single.html">Full Sleeves Romper</a></h5>
-                        <p><span class="item_price">60$</span></p>
-                        <h4 class="sizes">Sizes: <a href="#"> s</a> - <a href="#">m</a> - <a href="#">l</a> - <a href="#">xl</a> </h4>
+                        <h5><a class="name" href="{{url('/vistaRapida')}}/{{$iphone->id}}">{{$iphone->name}}</a></h5>
+                        <p><span class="item_price">${{$iphone->precio}}</span></p>
                         <ul>
                             <li><a href="#"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></a></li>
                             <li><a class="item_add" href="#"><span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>

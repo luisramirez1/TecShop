@@ -8,6 +8,8 @@ use DB;
 use Illuminate\Support\Facades\Input;
 use App\Usuarios;
 use App\Categorias;
+use App\Marcas;
+use App\Productos;
 
 
 class HomeController extends Controller
@@ -37,8 +39,34 @@ class HomeController extends Controller
     {
         $usuarios = Usuarios::find($id);
         $categorias = Categorias::all();
+        $marcas1 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->limit('6')
+           ->get();
+        $marcas2 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->orderBy('id', 'desc')
+           ->limit('5')
+           ->get();
+        $celulares1 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->limit('6')
+           ->get();
+        $celulares2 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->orderBy('id', 'desc')
+           ->limit('2')
+           ->get();
+        $electronica =DB::table('marcas')
+           ->where('categoria', '=', 4)
+           ->limit('4')
+           ->get();
+        $consola =DB::table('marcas')
+           ->where('categoria', '=', 3)
+           ->limit('4')
+           ->get();
 
-        return view('/editar', compact('usuarios', 'categorias'));
+        return view('/editar', compact('usuarios', 'categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola'));
     }
 
     public function actualizar($id, Request $datos){

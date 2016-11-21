@@ -16,7 +16,33 @@ class ProductosController extends Controller {
     public function registrarV() {
     	$categorias= Categorias::all();
         $marca= Marcas::all();
-        return view('/registrarProductos', compact('categorias', 'marca'));
+        $marcas1 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->limit('6')
+           ->get();
+        $marcas2 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->orderBy('id', 'desc')
+           ->limit('5')
+           ->get();
+        $celulares1 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->limit('6')
+           ->get();
+        $celulares2 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->orderBy('id', 'desc')
+           ->limit('2')
+           ->get();
+        $electronica =DB::table('marcas')
+           ->where('categoria', '=', 4)
+           ->limit('4')
+           ->get();
+        $consola =DB::table('marcas')
+           ->where('categoria', '=', 3)
+           ->limit('4')
+           ->get();
+        return view('/registrarProductos', compact('categorias', 'marca', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola'));
     }
 
     public function registrar(Request $datos) {
@@ -44,7 +70,33 @@ class ProductosController extends Controller {
 
     public function registrarCV() {
         $categorias = Categorias::all();
-        return view('/registrarCategorias', compact('categorias'));
+        $marcas1 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->limit('6')
+           ->get();
+        $marcas2 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->orderBy('id', 'desc')
+           ->limit('5')
+           ->get();
+        $celulares1 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->limit('6')
+           ->get();
+        $celulares2 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->orderBy('id', 'desc')
+           ->limit('2')
+           ->get();
+        $electronica =DB::table('marcas')
+           ->where('categoria', '=', 4)
+           ->limit('4')
+           ->get();
+        $consola =DB::table('marcas')
+           ->where('categoria', '=', 3)
+           ->limit('4')
+           ->get();
+        return view('/registrarCategorias', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola'));
     }
 
     public function registrarC(Request $datos){
@@ -57,7 +109,33 @@ class ProductosController extends Controller {
 
     public function registrarMarcaV() {
         $categorias = Categorias::all();
-        return view('/registrarMarcas', compact('categorias'));
+        $marcas1 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->limit('6')
+           ->get();
+        $marcas2 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->orderBy('id', 'desc')
+           ->limit('5')
+           ->get();
+        $celulares1 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->limit('6')
+           ->get();
+        $celulares2 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->orderBy('id', 'desc')
+           ->limit('2')
+           ->get();
+        $electronica =DB::table('marcas')
+           ->where('categoria', '=', 4)
+           ->limit('4')
+           ->get();
+        $consola =DB::table('marcas')
+           ->where('categoria', '=', 3)
+           ->limit('4')
+           ->get();
+        return view('/registrarMarcas', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola'));
     }
 
     public function registrarM(Request $datos) {
@@ -72,26 +150,114 @@ class ProductosController extends Controller {
 
     public function categorias($id) {
         $categorias = Categorias::all();
+        $marcas1 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->limit('6')
+           ->get();
+        $marcas2 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->orderBy('id', 'desc')
+           ->limit('5')
+           ->get();
+        $celulares1 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->limit('6')
+           ->get();
+        $celulares2 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->orderBy('id', 'desc')
+           ->limit('2')
+           ->get();
+        $electronica =DB::table('marcas')
+           ->where('categoria', '=', 4)
+           ->limit('4')
+           ->get();
+        $consola =DB::table('marcas')
+           ->where('categoria', '=', 3)
+           ->limit('4')
+           ->get();
         $productos = Productos::all();
         $marcas = Marcas::all();
         $productos=DB::table('productos')
             ->where('categoria', '=', $id)
             ->get();
-        return view('/categorias', compact('categorias', 'productos', 'marcas'));
+        $iphone = Productos::find(33);
+        return view('/categorias', compact('categorias', 'productos', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'iphone'));
     }
 
     public function marcas($id) {
         $categorias = Categorias::all();
+        $marcas1 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->limit('6')
+           ->get();
+        $marcas2 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->orderBy('id', 'desc')
+           ->limit('5')
+           ->get();
+        $celulares1 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->limit('6')
+           ->get();
+        $celulares2 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->orderBy('id', 'desc')
+           ->limit('2')
+           ->get();
+        $electronica =DB::table('marcas')
+           ->where('categoria', '=', 4)
+           ->limit('4')
+           ->get();
+        $consola =DB::table('marcas')
+           ->where('categoria', '=', 3)
+           ->limit('4')
+           ->get();
         $productos = Productos::all();
         $marcas = Marcas::all();
         $productoss=DB::table('productos')
             ->where('marca', '=', $id)
             ->get();
+        $iphone = Productos::find(33);
+        return view('/marcas', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'iphone'));
+    }
+
+    public function vistaRapida($id) {
+        $categorias = Categorias::all();
         $marcas1 =DB::table('marcas')
            ->where('categoria', '=', 2)
            ->limit('6')
            ->get();
-        return view('/marcas', compact('categorias', 'productoss', 'marcas', 'marcas1'));
+        $marcas2 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->orderBy('id', 'desc')
+           ->limit('5')
+           ->get();
+        $celulares1 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->limit('6')
+           ->get();
+        $celulares2 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->orderBy('id', 'desc')
+           ->limit('2')
+           ->get();
+        $electronica =DB::table('marcas')
+           ->where('categoria', '=', 4)
+           ->limit('4')
+           ->get();
+        $consola =DB::table('marcas')
+           ->where('categoria', '=', 3)
+           ->limit('4')
+           ->get();
+        $productos = Productos::all();
+        $marcas = Marcas::all();
+        $productoss=DB::table('productos')
+            ->where('marca', '=', $id)
+            ->get();
+        $productoVR= Productos::find($id);
+        
+        return view('/vistaRapida', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'productoVR'));
     }
 
 }

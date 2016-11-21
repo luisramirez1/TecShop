@@ -17,11 +17,9 @@
   <!--Custom Theme files -->
   <link href="{{asset("css/bootstrap.css")}}" rel="stylesheet" type="text/css" media="all" />
   <link href="{{asset("css/style.css")}}" rel="stylesheet" type="text/css" media="all" />
-  <link rel="stylesheet" href="{{asset("css/flexslider.css")}}" type="text/css" media="screen" />
   <!--//Custom Theme files -->
   <!--js-->
   <script src="{{asset("js/jquery-1.11.1.min.js")}}"></script>
-  <script src="{{asset("js/modernizr.custom.js")}}"></script>
   <!--//js-->
   <!--cart-->
   <script src="{{asset("js/simpleCart.min.js")}}"></script>

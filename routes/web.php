@@ -44,11 +44,7 @@ Route::get('/', function () {
            ->where('categoria', '=', 3)
            ->limit('4')
            ->get();
-    $celular = Productos::find(33);
-    $mac = Productos::find(5);
-    $xbox = Productos::find(24);
-    $tele = Productos::find(31);
-    return view('inicio', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'celular', 'mac', 'xbox', 'tele'));
+    return view('inicio', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola'));
 
 
 });
@@ -57,6 +53,7 @@ Auth::routes();
 
 Route::get('/categorias/{id}','ProductosController@categorias');
 Route::get('/marcas/{id}','ProductosController@marcas');
+Route::get('/vistaRapida/{id}','ProductosController@vistaRapida');
 Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
 
