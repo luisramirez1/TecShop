@@ -113,7 +113,7 @@
         </div>
         <div class="nav navbar-nav navbar-right header-two-right">
           <div class="header-right my-account">
-            <a href="{{url('/contactanos')}}"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>CONTÁCTANOS</a>       
+            <a href="#" data-toggle="modal" data-target="#myModalC"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>CONTÁCTANOS</a>       
           </div>
           
           @if (Auth::guest())
@@ -495,29 +495,29 @@
     <div class="container">
       <div class="footer-info">
         <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".5s">
-          <h4 class="footer-logo"><a href="{{url('/')}}">Tec <b>Shop</b> <span class="tag">Tecnologia a la Moda </span> </a></h4>
-          <p>© 2016 Tec Shop . All rights reserved</p>
-          <br>
-          <i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a>
-            Culiacan, Sinaloa.</a><br>
-            <i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">  tecShop@gmail.com</a><br>
-            <i class="glyphicon glyphicon-earphone" aria-hidden="true"></i> +6671234567
+          <h4 class="footer-logo"><a href="{{url('/')}}">Tec<b>Shop</b> <span class="tag">Tecnología a la Moda</span></a></h4>
+          <br>© 2016 TecShop.<br>
+          Todos los derechos reservados.
+          <br><br>
+          <i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a>  Culiacan, Sinaloa.</a><br>
+          <i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a>  tecShop2@gmail.com </a><br>
+          <i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>  6671234567 </a>
         </div>
         <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".7s">
-          <h3>Popular</h3>
+          <h4 class="footer-logo"><b>Empresa</b></h4>
+          <br>
           <ul>
-            <li><a href="{{url('/acercade')}}">Acerca de</a></li>
-            <li><a href="{{url('/contactanos')}}">Contáctanos</a></li>
-            <li><a href="{{url('/preguntasFrecuentes')}}">FAQ's</a></li>
-           </ul>
-           
+            <li><a href="#" data-toggle="modal" data-target="#myModalA">Acerca de</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#myModalC">Contáctanos</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#myModalF">FAQ's</a></li>
+          </ul>
         </div>
         <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".9s">
-          <h3>Subscribe</h3>
-          <p>Regístrese ahora para obtener más información <br> Sobre nuestra compañía </p>
+          <h4 class="footer-logo"><b>Subscríbete</b></h4>
+          <br>Regístrese ahora para obtener más información <br> Sobre nuestra compañía. <br> 
           <form>
-            <input type="text" placeholder="Enter Your Email" required="">
-            <input type="submit" value="Go">
+            <input type="text" placeholder="Introduce tu email" required="">
+            <input type="submit" value="Enviar">
           </form>
         </div>
         <div class="clearfix"></div>
@@ -525,8 +525,8 @@
     </div>
   </div>
 
-@if (Auth::guest())
-@else
+  @if (Auth::guest())
+  @else
   <div class="modal fade md" id="myModal89" tabindex="-1" role="dialog" aria-labelledby="myModal89"
     aria-hidden="true">
     <div class="modal-dialog modal-md">
@@ -563,7 +563,138 @@
                       <a href="#" data-toggle="modal" data-target="#myModal89"><img id="imagen2" src="{{asset("images/usuarios")}}/{{Auth::user()->imagen}}" alt=""></a> 
                     @endif
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
   @endif
+
+  <!--.................................................................................................................-->
+  <!--.............................................  A C E R C A   D E   ..............................................-->
+  <!--.................................................................................................................-->
+
+   <div class="modal fade lg" id="myModalA" tabindex="-1" role="dialog" aria-labelledby="myModalA" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times;</button>
+           <h2>Acerca de TecShop:</h2>  
+        </div>
+        <div class="modal-body modal-body-sub">
+          <div class="row">
+            <div class="col-md-12 modal_body_left modal_body_left1">
+              <div class="sap_tabs">  
+                <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                  <div class="col-md-12">
+                    <section id="seccion1">
+                      <strong>Nuestra Pagina</strong>
+                        <h3><p>.- Muchas personas en el pais utilizan TecShop para mantenerse en contacto con las nuevas tecnologias.</p></h3><br>
+                      <strong>Nuestra Misión</strong>
+                        <h3><p>.- TecShop comenzó como una nueva alternativa para la compra de aparatos tecnologicos. nuestros productos ahora son de la mas alta calidad en el mercado internacional.</p></h3><br>
+                      <strong>Nuestro Equipo</strong>
+                        <h3><p>.- TecShop es una empresa fundada por Luis Ramirez y Mario Sanz, quienes trabajaron en conjunto para el desarrollo de la pagina, enfocada a ser un servicio rapido y confiable en cualquier parte.</p></h3>
+                        <br>
+                        <hr>
+                        <div class="text-center">TecShop &copy; 2016 .</div>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--.................................................................................................................-->
+  <!--..........................................  C O N T Á C T A N O S  ..............................................-->
+  <!--.................................................................................................................-->
+
+  <div class="modal fade lg" id="myModalC" tabindex="-1" role="dialog" aria-labelledby="myModalC" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times;</button>
+           <h2>Contáctanos:</h2>  
+        </div>
+        <div class="modal-body modal-body-sub">
+          <div class="row">
+            <div class="col-md-12 modal_body_left modal_body_left1">
+              <div class="sap_tabs">  
+                <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                  <div class="col-md-12">
+                    <section>
+                      <strong>Soporte técnico</strong>
+                        <h3><p>.- Por favor, contacta con nuestro soporte técnico: <a>support@tecshop.com</a></p></h3><br>
+                      <strong>Preguntas sobre la privacidad</strong>
+                        <h3><p>.- Si tienes preguntas sobre nuestra Política de privacidad, por favor contáctanos.</p></h3><br>
+                      <strong>Consultas empresariales</strong>
+                        <h3><p>.- Por favor, contacta con nuestro equipo de negocios: <a>bd@tecshop.com</a></p></h3><br>
+                      <strong>Dirección corporativa</strong>
+                        <h3><p>TecShop Inc.<br>
+                        Culiacan, Sinaloa México.</p></h3>
+                        <br>
+                        <hr>
+                        <div class="text-center">TecShop &copy; 2016 .</div>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--.................................................................................................................-->
+  <!--.............................................  P R E G U N T A S  ...............................................-->
+  <!--.................................................................................................................-->
+
+<div class="modal fade lg" id="myModalF" tabindex="-1" role="dialog" aria-labelledby="myModalF" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times;</button>
+           <h2>Preguntas Más Frecuentes:</h2>  
+        </div>
+        <div class="modal-body modal-body-sub">
+          <div class="row">
+            <div class="col-md-12 modal_body_left modal_body_left1">
+              <div class="sap_tabs">  
+                <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                  <div class="col-md-12">
+                    <section>
+                      <strong>¿Que es TecShop?</strong>
+                        <h3><p>.- Somos una tienda virtual, es un negocio electronico que basicamente se encarga de publicar productos de diferentes proveedores para que dichos proveedores puedan llamar la atencion de usuarios registrados.</p></h3><br>
+                      <strong>¿Requisitos para vender en TecShop?</strong>
+                        <h3><p>.- Cualquier vendedor internacional puede registrarse para vender en TecShop a través de la plataforma. Sin embargo, nosotros colocamos ciertos límites en nuevas cuentas, y nuestras herramientas y sistemas actuales están dirigidos a los vendedores de mayor volumen en comparación con los individuos.</p></h3><br>
+                      <strong>¿Que paises son compatibles?</strong>
+                       <h3><p>.- El programa está abierto a los vendedores en todo el mundo.</p></h3><br>
+                      <strong>¿Como puedo vender mas en TecShop?</strong>
+                        <h3><p>Hay varias cosas que puede hacer para mejorar sus ventas en TecShop. Estas son algunas de las estrategias que han funcionado para algunos de nuestros vendedores:</p><br>
+
+                        <p>.- Encontrar el método óptimo para el envío / venta.</p><br>
+
+                        <p>.- Responder a las preguntas de pre-venta rápido: Culturalmente, los compradores latinoamericanos gusta hacer preguntas antes de comprar. vendedores exitosos locales a responder a las preguntas en cuestión de minutos.
+                        Cuanto más rápido se puede responder a las preguntas, mayor será la probabilidad de conversión. </p></h3>
+                        <br>
+                        <hr>
+                        <div class="text-center">TecShop &copy; 2016 .</div>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <!--//footer-->   
   <!--search jQuery-->
