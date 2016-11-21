@@ -99,21 +99,4 @@ class ProductosController extends Controller
         return view('/marcas', compact('categorias', 'productoss', 'marcas', 'marcas1'));
     }
 
-    public function acerca() {
-        $categorias = Categorias::all();
-
-        return view('/acercaDe', compact('categorias'));
-    }
-
-    public function contactanos() {
-        $categorias = Categorias::all();
-
-        return view('/contactanos', compact('categorias'));
-    }
-
-    public function FAQs() {
-        $categorias = Categorias::all();
-
-        return view('/FAQ', compact('categorias'));
-    }
 }

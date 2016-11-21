@@ -17,7 +17,7 @@ use App\Marcas;
 
 Route::get('/', function () {
 	$categorias = Categorias::all();
-<<<<<<< HEAD
+
 	$marcas1 =DB::table('marcas')
            ->where('categoria', '=', 2)
            ->limit('6')
@@ -44,22 +44,15 @@ Route::get('/', function () {
            ->where('categoria', '=', 3)
            ->limit('4')
            ->get();
-    return view('principal', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola'));
-=======
-    return view('inicio', compact('categorias'));
->>>>>>> d3ec3a47d52ab686be874b934db1e0dc8f01aad1
+    return view('inicio', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola'));
+
+
 });
 
 Auth::routes();
 
-<<<<<<< HEAD
-Route::get('/acercade','ProductosController@acerca');
-Route::get('/contactanos','ProductosController@contactanos');
-Route::get('/preguntasFrecuentes','ProductosController@FAQs');
 Route::get('/categorias/{id}','ProductosController@categorias');
 Route::get('/marcas/{id}','ProductosController@marcas');
-=======
->>>>>>> d3ec3a47d52ab686be874b934db1e0dc8f01aad1
 Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
 
