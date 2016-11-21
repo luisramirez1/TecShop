@@ -38,7 +38,7 @@ return [
     'facebook' => [
         'client_id' => '1831243600483691',
         'client_secret' => '6137f994b4ea170588aeae39d8909b05',
-        'redirect' => 'http://tecshopweb.tk/TecShop/public/auth/facebook/callback',
+        'redirect' => 'http://tecshopweb.tk/auth/facebook/callback',
     ],
 
     'twitter' => [
