@@ -509,29 +509,28 @@
     <div class="container">
       <div class="footer-info">
         <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".5s">
-          <h4 class="footer-logo"><a href="{{url('/')}}">Tec <b>Shop</b> <span class="tag">Tecnologia a la Moda </span> </a></h4>
-          <p>© 2016 Tec Shop . All rights reserved</p>
-          <br>
-          <i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a>
-            Culiacan, Sinaloa.</a><br>
-            <i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">  tecShop@gmail.com</a><br>
-            <i class="glyphicon glyphicon-earphone" aria-hidden="true"></i> +6671234567
+          <h4 class="footer-logo"><a href="{{url('/')}}">Tec<b>Shop</b> <span class="tag">Tecnología a la Moda</span></a></h4>
+          <br>© 2016 TecShop.<br>
+          Todos los derechos reservados.
+          <br><br>
+          <i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a>  Culiacan, Sinaloa.</a><br>
+          <i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a>  tecShop2@gmail.com </a><br>
+          <i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>  6671234567 </a>
         </div>
         <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".7s">
-          <h3>Popular</h3>
+          <h4 class="footer-logo"><b>Empresa</b></h4>
           <ul>
             <li><a href="{{url('/acercade')}}">Acerca de</a></li>
             <li><a href="{{url('/contactanos')}}">Contáctanos</a></li>
             <li><a href="{{url('/preguntasFrecuentes')}}">FAQ's</a></li>
-           </ul>
-           
+          </ul>
         </div>
         <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".9s">
-          <h3>Subscribe</h3>
-          <p>Regístrese ahora para obtener más información <br> Sobre nuestra compañía </p>
+          <h4 class="footer-logo"><b>Subscríbete</b></h4>
+          <br>Regístrese ahora para obtener más información <br> Sobre nuestra compañía. <br> 
           <form>
-            <input type="text" placeholder="Enter Your Email" required="">
-            <input type="submit" value="Go">
+            <input type="text" placeholder="Introduce tu email" required="">
+            <input type="submit" value="Enviar">
           </form>
         </div>
         <div class="clearfix"></div>
@@ -539,8 +538,8 @@
     </div>
   </div>
 
-@if (Auth::guest())
-@else
+  @if (Auth::guest())
+  @else
   <div class="modal fade md" id="myModal89" tabindex="-1" role="dialog" aria-labelledby="myModal89"
     aria-hidden="true">
     <div class="modal-dialog modal-md">
