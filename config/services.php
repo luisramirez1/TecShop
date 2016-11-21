@@ -42,9 +42,9 @@ return [
     ],
 
     'twitter' => [
-        'client_id' => 'Qgi5X9mhltNy5HF0zxF07FwCb',
-        'client_secret' => 'xKg4vxCGo67L9ZfqqsH90ESHJ4d5N3BeNk1ww9wCIGWSBhK0No',
-        'redirect' => 'http://tecshopweb.tk/TecShop/public/auth/twitter/callback',
+        'client_id' => 'B8WF5JV1hB2Q79OZ2rshv4Ge3',
+        'client_secret' => 'Bc075Y9wJFvVsbwbI9emxArNEhpasjQRB49qTUkqefkQks34p6',
+        'redirect' => 'http://tecshopweb.tk/auth/twitter/callback',
     ],
 
     'google' => [
