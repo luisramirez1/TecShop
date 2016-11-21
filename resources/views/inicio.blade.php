@@ -6,14 +6,14 @@
 		<div class="container">
 			<div class="banner-text">			
 				<div class="col-sm-5 banner-left wow fadeInLeft animated" data-wow-delay=".5s">			
-					<h2>On Entire Fashion range</h2>
-					<h3>Coming Soon </h3>
-					<h4>Our New Designs</h4>
+					<h2>Tecnologia de gama Alta</h2>
+					<h3>Proximamente </h3>
+					<h4>Nuevos Productos</h4>
 					<div class="count main-row">
 						<ul id="example">
-							<li><span class="hours">00</span><p class="hours_text">Hours</p></li>
-							<li><span class="minutes">00</span><p class="minutes_text">Minutes</p></li>
-							<li><span class="seconds">00</span><p class="seconds_text">Seconds</p></li>
+							<li><span class="hours">00</span><p class="">Horas</p></li>
+							<li><span class="minutes">00</span><p class="">Minutos</p></li>
+							<li><span class="seconds">00</span><p class="">Segundos</p></li>
 						</ul>
 							<div class="clearfix"> </div>
 							<script type="text/javascript" src="js/jquery.countdown.min.js"></script>
@@ -35,16 +35,20 @@
 						<div class="flexslider">
 							<ul class="slides">
 								<li>
-									<h4>-30%</h4>
-									<img src="images/b1.png" alt="">
-								</li>
-								<li>
 									<h4>-25%</h4>
-									<img src="images/b2.png" alt="">
+									<img src="{{asset("images/productos")}}/{{$celular->imagen}}" alt="">
 								</li>
 								<li>
-									<h4>-32%</h4>
-									<img src="images/b3.png" alt="">
+									<h4>-40%</h4>
+									<img src="{{asset("images/productos")}}/{{$mac->imagen}}" alt="">
+								</li>
+								<li>
+									<h4>-10%</h4>
+									<img src="{{asset("images/productos")}}/{{$xbox->imagen}}" alt="">
+								</li>
+								<li>
+									<h4>-20%</h4>
+									<img src="{{asset("images/productos")}}/{{$xbox->imagen}}" alt="">
 								</li>
 							</ul>
 						</div>

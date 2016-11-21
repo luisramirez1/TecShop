@@ -12,7 +12,7 @@
 */
 use App\Categorias;
 use App\Marcas;
-
+use App\Productos;
 
 
 Route::get('/', function () {
@@ -44,7 +44,11 @@ Route::get('/', function () {
            ->where('categoria', '=', 3)
            ->limit('4')
            ->get();
-    return view('inicio', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola'));
+    $celular = Productos::find(33);
+    $mac = Productos::find(5);
+    $xbox = Productos::find(24);
+    $tele = Productos::find(31);
+    return view('inicio', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'celular', 'mac', 'xbox', 'tele'));
 
 
 });
