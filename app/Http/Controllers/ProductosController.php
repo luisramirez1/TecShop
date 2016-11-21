@@ -72,4 +72,48 @@ class ProductosController extends Controller
 
 
     }
+
+    public function categorias($id)
+    {
+        $categorias = Categorias::all();
+        $productos = Productos::all();
+        $marcas = Marcas::all();
+        $productos=DB::table('productos')
+            ->where('categoria', '=', $id)
+            ->get();
+        return view('/categorias', compact('categorias', 'productos', 'marcas'));
+    }
+
+    public function marcas($id)
+    {
+        $categorias = Categorias::all();
+        $productos = Productos::all();
+        $marcas = Marcas::all();
+        $productoss=DB::table('productos')
+            ->where('marca', '=', $id)
+            ->get();
+        $marcas1 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->limit('6')
+           ->get();
+        return view('/marcas', compact('categorias', 'productoss', 'marcas', 'marcas1'));
+    }
+
+    public function acerca() {
+        $categorias = Categorias::all();
+
+        return view('/acercaDe', compact('categorias'));
+    }
+
+    public function contactanos() {
+        $categorias = Categorias::all();
+
+        return view('/contactanos', compact('categorias'));
+    }
+
+    public function FAQs() {
+        $categorias = Categorias::all();
+
+        return view('/FAQ', compact('categorias'));
+    }
 }

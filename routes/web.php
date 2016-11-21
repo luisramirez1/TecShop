@@ -11,17 +11,48 @@
 |
 */
 use App\Categorias;
+use App\Marcas;
+
+
 
 Route::get('/', function () {
 	$categorias = Categorias::all();
-    return view('principal', compact('categorias'));
+	$marcas1 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->limit('6')
+           ->get();
+    $marcas2 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->orderBy('id', 'desc')
+           ->limit('5')
+           ->get();
+    $celulares1 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->limit('6')
+           ->get();
+    $celulares2 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->orderBy('id', 'desc')
+           ->limit('2')
+           ->get();
+    $electronica =DB::table('marcas')
+           ->where('categoria', '=', 4)
+           ->limit('4')
+           ->get();
+    $consola =DB::table('marcas')
+           ->where('categoria', '=', 3)
+           ->limit('4')
+           ->get();
+    return view('principal', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola'));
 });
 
 Auth::routes();
 
-Route::get('/acercade','HomeController@acerca');
-Route::get('/contactanos','HomeController@contactanos');
-Route::get('/preguntasFrecuentes','HomeController@FAQs');
+Route::get('/acercade','ProductosController@acerca');
+Route::get('/contactanos','ProductosController@contactanos');
+Route::get('/preguntasFrecuentes','ProductosController@FAQs');
+Route::get('/categorias/{id}','ProductosController@categorias');
+Route::get('/marcas/{id}','ProductosController@marcas');
 Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
 

@@ -153,56 +153,49 @@
             <ul class="nav navbar-nav top-nav-info">
               <li><a href="{{url('/')}}" class="active">Inicio</a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorias<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Marcas<b class="caret"></b></a>
                 <ul class="dropdown-menu multi-column multi-column1">
                   <div class="row">
                     <div class="col-sm-4 menu-grids menulist1">
                       <h4>Computadoras</h4>
                       <ul class="multi-column-dropdown ">
-                        <li><a class="list" href="">Acer</a></li>
-                        <li><a class="list" href="">Apple</a></li>
-                        <li><a class="list" href="">Asus</a></li>
-                        <li><a class="list" href="">Dell</a></li>
-                        <li><a class="list" href="">Gateway</a></li>
-                        <li><a class="list" href="">HP</a></li>
+                        @foreach($marcas1 as $m)
+                        <li><a class="list" href="{{url('/marcas')}}/{{$m->id}}">{{$m->name}}</a></li>
+                        @endforeach
                       </ul>
                       <ul class="multi-column-dropdown">
-                        <li><a class="list" href="">Lenovo</a></li>
-                        <li><a class="list" href="">Sony</a></li>
-                        <li><a class="list" href="">Toshiba</a></li>
-                        <li><a class="list" href="">Alienware</a></li>
-                        <li><a class="list" href="">Compaq</a></li>
+                        @foreach($marcas2 as $m)
+                        <li><a class="list" href="{{url('/marcas')}}/{{$m->id}}">{{$m->name}}</a></li>
+                        @endforeach
                         <li><h6><a class="list" href="">Promociones</a></h6></li>
                       </ul>
                     </div>                                    
                     <div class="col-sm-2 menu-grids">
                       <h4>Smartphone's</h4>
                       <ul class="multi-column-dropdown">
-                        <li><a class="list" href="">Apple</a></li>
-                        <li><a class="list" href="">Blackberry</a></li>
-                        <li><a class="list" href="">HTC</a></li>
-                        <li><a class="list" href="">Huawei</a></li>
-                        <li><a class="list" href="">Lg</a></li>
-                        <li><a class="list" href="">Samsung</a></li>
+                        @foreach($celulares1 as $c)
+                        <li><a class="list" href="{{url('/marcas')}}/{{$c->id}}">{{$c->name}}</a></li>
+                        @endforeach
                       </ul>
                     </div>
                     <div class="col-sm-3 menu-grids">
                       <ul class="multi-column-dropdown">
-                        <li><a class="list" href="">Sony</a></li>
-                        <li><a class="list" href="">Xiaomi</a></li>
+                        @foreach($celulares2 as $c)
+                          <li><a class="list" href="{{url('/marcas')}}/{{$c->id}}">{{$c->name}}</a></li>
+                        @endforeach
                         <h4>Electronica</h4>
-                        <li><a class="list" href="">Audio y Video</a></li>
-                        <li><a class="list" href="">Impresoras 3D</a></li>
-                        <li><a class="list" href="">Smart TV</a></li>
-                        <li><a class="list" href="">Accesorios / smartphone</a></li>
+                        @foreach($electronica as $e)
+                          <li><a class="list" href="{{url('/marcas')}}/{{$e->id}}">{{$e->name}}</a></li>
+                        @endforeach
                       </ul>
                     </div>
                     <div class="col-sm-3 menu-grids">
                       <ul class="multi-column-dropdown">
                         <li><h6><a class="list" href="">Promociones</a></h6></li>
                         <h4>Consolas</h4>
-                        <li><a class="list" href="">Play Station 4</a></li>
-                        <li><a class="list" href="">Xbox one S</a></li>
+                        @foreach($consola as $c)
+                          <li><a class="list" href="{{url('/marcas')}}/{{$c->id}}">{{$c->name}}</a></li>
+                        @endforeach
                       </ul>
                     </div>
                     <div class="clearfix"> </div>
@@ -211,16 +204,14 @@
               </li>
 
               <li class="dropdown grid">
-                <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Ofertas Especiales<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Categorias<b class="caret"></b></a>
                 <ul class="dropdown-menu multi-column menu-two multi-column3">
                   <div class="row">
                     <div class="col-sm-4 menu-grids">
                       <ul class="multi-column-dropdown">
-                        <li><a class="list" href="">Audio y Video</a></li>
-                        <li><a class="list" href="">Computadoras</a></li>
-                        <li><a class="list" href="">Consolas</a></li>
-                        <li><a class="list" href="">Electronica</a></li>
-                        <li><a class="list" href="">Smartphone's</a></li>
+                        @foreach($categorias as $c)
+                          <li><a class="list" href="{{url('/categorias')}}/{{$c->id}}">{{$c->name}}</a></li>
+                        @endforeach
                       </ul>
                     </div>
                     <div class="col-sm-8 menu-grids">
@@ -266,7 +257,7 @@
             <ul class="nav navbar-nav top-nav-info">
               <li><a href="{{url('/')}}" class="active">Inicio</a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorias<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Marcas<b class="caret"></b></a>
                 <ul class="dropdown-menu multi-column multi-column1">
                   <div class="row">
                     <div class="col-sm-4 menu-grids menulist1">
@@ -324,16 +315,14 @@
               </li>
 
               <li class="dropdown grid">
-                <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Ofertas Especiales<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Categorias<b class="caret"></b></a>
                 <ul class="dropdown-menu multi-column menu-two multi-column3">
                   <div class="row">
                     <div class="col-sm-4 menu-grids">
                       <ul class="multi-column-dropdown">
                         @foreach($categorias as $c)
-                        <li><a class="list" href="">{{$c->name}}</a></li>
-                        @endforeach
-
-                        
+                        <li><a class="list" href="{{url('/categorias')}}/{{$c->id}}">{{$c->name}}</a></li>
+                        @endforeach                        
                       </ul>
                     </div>
                     <div class="col-sm-8 menu-grids">
@@ -393,18 +382,15 @@
             <ul class="nav navbar-nav top-nav-info">
               <li><a href="{{url('/')}}" class="active">Inicio</a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorias<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Marcas<b class="caret"></b></a>
                 <ul class="dropdown-menu multi-column multi-column1">
                   <div class="row">
                     <div class="col-sm-4 menu-grids menulist1">
                       <h4>Computadoras</h4>
                       <ul class="multi-column-dropdown ">
-                        <li><a class="list" href="">Acer</a></li>
-                        <li><a class="list" href="">Apple</a></li>
-                        <li><a class="list" href="">Asus</a></li>
-                        <li><a class="list" href="">Dell</a></li>
-                        <li><a class="list" href="">Gateway</a></li>
-                        <li><a class="list" href="">HP</a></li>
+                        @foreach($marcas1 as $m)
+                        <li><a class="list" href="">{{$marcas1->name}}</a></li>
+                        @endforeach
                       </ul>
                       <ul class="multi-column-dropdown">
                         <li><a class="list" href="">Lenovo</a></li>
@@ -451,13 +437,13 @@
               </li>
 
               <li class="dropdown grid">
-                <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Ofertas Especiales<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Categorias<b class="caret"></b></a>
                 <ul class="dropdown-menu multi-column menu-two multi-column3">
                   <div class="row">
                     <div class="col-sm-4 menu-grids">
                       <ul class="multi-column-dropdown">
                         @foreach($categorias as $c)
-                        <li><a class="list" href="">{{$c->name}}</a></li>
+                        <li><a class="list" href="{{url('/categorias')}}/{{$c->id}}">{{$c->name}}</a></li>
                         @endforeach
                       </ul>
                     </div>
