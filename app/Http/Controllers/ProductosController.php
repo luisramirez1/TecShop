@@ -11,16 +11,15 @@ use App\Categorias;
 use App\Pro_Cate;
 use App\Marcas;
 
-class ProductosController extends Controller
-{
-    public function registrarV()
-    {
+class ProductosController extends Controller {
+    
+    public function registrarV() {
     	$categorias= Categorias::all();
         $marca= Marcas::all();
         return view('/registrarProductos', compact('categorias', 'marca'));
     }
 
-    public function registrar(Request $datos){
+    public function registrar(Request $datos) {
     	$nuevo = new Productos;
         $procate = new Pro_Cate;
         $file = Input::file('imagen');
@@ -43,8 +42,7 @@ class ProductosController extends Controller
 
 
 
-    public function registrarCV()
-    {
+    public function registrarCV() {
         $categorias = Categorias::all();
         return view('/registrarCategorias', compact('categorias'));
     }
@@ -57,8 +55,7 @@ class ProductosController extends Controller
     	return Redirect('/registrarCategorias');
     }
 
-    public function registrarMarcaV()
-    {
+    public function registrarMarcaV() {
         $categorias = Categorias::all();
         return view('/registrarMarcas', compact('categorias'));
     }
@@ -73,8 +70,7 @@ class ProductosController extends Controller
 
     }
 
-    public function categorias($id)
-    {
+    public function categorias($id) {
         $categorias = Categorias::all();
         $productos = Productos::all();
         $marcas = Marcas::all();
@@ -84,8 +80,7 @@ class ProductosController extends Controller
         return view('/categorias', compact('categorias', 'productos', 'marcas'));
     }
 
-    public function marcas($id)
-    {
+    public function marcas($id) {
         $categorias = Categorias::all();
         $productos = Productos::all();
         $marcas = Marcas::all();
