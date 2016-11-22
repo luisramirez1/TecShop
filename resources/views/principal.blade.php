@@ -332,14 +332,16 @@
                 <a href="">Lo mas popular</a>
               </li>
               <li class="dropdown grid">
-                <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Registrar<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Configuraciones<b class="caret"></b></a>
                 <ul class="dropdown-menu multi-column menu-two multi-column3">
                   <div class="row">
                     <div class="col-sm-12 menu-grids">
                       <ul class="multi-column-dropdown">
-                        <li><a class="list" href="{{url('/registrarProductos')}}">Productos</a></li>
-                        <li><a class="list" href="{{url('/registrarCategorias')}}">Categorias</a></li>
-                        <li><a class="list" href="{{url('/registrarMarcas')}}">Marcas</a></li>
+                        <li><a class="list" href="{{url('/registrarProductos')}}">Registrar Productos</a></li>
+                        <li><a class="list" href="{{url('/registrarCategorias')}}">Registrar Categorias</a></li>
+                        <li><a class="list" href="{{url('/registrarMarcas')}}">Registrar Marcas</a></li>
+                        <li><a class="list" href="{{url('/consultaUsuarios')}}">Consulta Usuarios</a></li>
+
                       </ul>
                     </div>
                     <div class="clearfix"> </div>

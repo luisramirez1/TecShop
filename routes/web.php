@@ -64,7 +64,10 @@ Route::group(['middleware' => ['admin']], function () {
 	Route::get('/registrarCategorias', 'ProductosController@registrarCV');
 	Route::post('/guardarCategorias', 'ProductosController@registrarC');
 	Route::get('/registrarMarcas','ProductosController@registrarMarcaV');
-	Route::post('/guardarMarcas','ProductosController@registrarM');		
+	Route::post('/guardarMarcas','ProductosController@registrarM');
+  Route::get('/consultaUsuarios', 'ProductosController@consultarU');
+  Route::get('/eliminarUsuarios/{id}', 'ProductosController@eliminar');
+
 });
 
 Route::group(['middleware' => ['auth']], function () {

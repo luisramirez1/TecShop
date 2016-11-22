@@ -36,6 +36,16 @@
     to   { opacity: 1; }
 }
 
+#botones
+{
+	text-align: center;
+	margin: 0 auto;
+}
+#imagenUsarios
+{
+	width: 250px; 
+	height: 333px;
+}
 #imagen 
 {
 	margin-left: -55px;
