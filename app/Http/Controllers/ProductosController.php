@@ -10,11 +10,56 @@ use App\Productos;
 use App\Categorias;
 use App\Pro_Cate;
 use App\Marcas;
+<<<<<<< HEAD
 use App\Pro_Cal;
 use App\Comentarios;
 
+=======
+use App\Usuarios;
+>>>>>>> f1ab7b52acbc6e86460e175bbacace9d39e0f455
 
 class ProductosController extends Controller {
+
+    public function eliminar($id) {
+        Usuarios::find($id)->delete();
+        return Redirect('consultaUsuarios');
+    }
+
+
+    public function consultarU() {
+        $categorias= Categorias::all();
+        $marca= Marcas::all();
+        $marcas1 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->limit('6')
+           ->get();
+        $marcas2 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->orderBy('id', 'desc')
+           ->limit('5')
+           ->get();
+        $celulares1 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->limit('6')
+           ->get();
+        $celulares2 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->orderBy('id', 'desc')
+           ->limit('2')
+           ->get();
+        $electronica =DB::table('marcas')
+           ->where('categoria', '=', 4)
+           ->limit('4')
+           ->get();
+        $consola =DB::table('marcas')
+           ->where('categoria', '=', 3)
+           ->limit('4')
+           ->get();
+        $usuarios =DB::table('users')
+           ->where('tipoUsuario', '=', 2)
+           ->get();
+      return view('/consultaUsuarios', compact('categorias', 'marca', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'usuarios'));
+    }
     
     public function registrarV() {
     	$categorias= Categorias::all();

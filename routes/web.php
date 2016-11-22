@@ -66,10 +66,15 @@ Route::group(['middleware' => ['admin']], function () {
   Route::post('/calificacion/{id}', 'ProductosController@calificacion');
 	Route::get('/registrarMarcas','ProductosController@registrarMarcaV');
 	Route::post('/guardarMarcas','ProductosController@registrarM');
+<<<<<<< HEAD
   Route::get('/editarComentarioV/{id}','ProductosController@editarComentarioV');
   Route::get('/eliminarComentario/{id}','ProductosController@eliminarComentario');
   Route::post('/editarComentario/{id}','ProductosController@editarComentario');
 
+=======
+  Route::get('/consultaUsuarios', 'ProductosController@consultarU');
+  Route::get('/eliminarUsuarios/{id}', 'ProductosController@eliminar');
+>>>>>>> f1ab7b52acbc6e86460e175bbacace9d39e0f455
 
 });
 

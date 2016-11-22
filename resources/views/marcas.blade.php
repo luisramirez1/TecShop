@@ -15,7 +15,6 @@
     
     <div class="products">   
         <div class="container">
-
                 <div class="col-md-9 product-model-sec">
                 @foreach($productoss as $p)
                     <div>
