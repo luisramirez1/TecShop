@@ -16,7 +16,7 @@
 							<li><span class="seconds">00</span><p class="">Segundos</p></li>
 						</ul>
 							<div class="clearfix"> </div>
-							<script type="text/javascript" src="js/jquery.countdown.min.js"></script>
+							<script type="text/javascript" src="{{asset("js/jquery.countdown.min.js")}}"></script>
 							<script type="text/javascript">
 								$('#example').countdown({
 									date: '12/24/2020 15:59:59',
@@ -31,7 +31,7 @@
 
 				</div>
 				
-				<script defer src="js/jquery.flexslider.js"></script>
+				<script defer src="{{asset("js/jquery.flexslider.js")}}"></script>
 					<script type="text/javascript">
 						$(window).load(function(){
 						  $('.flexslider').flexslider({
@@ -51,40 +51,19 @@
 	<!--//banner-->
 
 <!-- for-mobile-apps -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Modern Shoppe Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-		function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--//for-mobile-apps -->
 <!--Custom Theme files -->
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="{{asset("css/flexslider.css")}}" type="text/css" media="screen" />
 <!--//Custom Theme files -->
 <!--js-->
-<script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/modernizr.custom.js"></script>
+<script src="{{asset("js/modernizr.custom.js")}}"></script>
 <!--//js-->
 <!--cart-->
-<script src="js/simpleCart.min.js"></script>
+<script src="{{asset("js/simpleCart.min.js")}}"></script>
 <!--cart-->
 <!--web-fonts-->
-<link href='//fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,200italic,300,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic' rel='stylesheet' type='text/css'><link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Pompiere' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Fascinate' rel='stylesheet' type='text/css'>
 <!--web-fonts-->
 <!--animation-effect-->
-<link href="css/animate.min.css" rel="stylesheet"> 
-<script src="js/wow.min.js"></script>
-	<script>
-	 new WOW().init();
-	</script>
-<!--//animation-effect-->
-<!--start-smooth-scrolling-->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>	
 <script type="text/javascript">
 		jQuery(document).ready(function($) {
 			$(".scroll").click(function(event){		
@@ -97,7 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--//header-->
 	
 					<!--FlexSlider-->
-					<script defer src="js/jquery.flexslider.js"></script>
+					<script defer src="{{asset("js/jquery.flexslider.js")}}"></script>
 					<script type="text/javascript">
 						$(window).load(function(){
 						  $('.flexslider').flexslider({
@@ -125,7 +104,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul class="slides">
 							<li>
 								<div class="col-md-5 trend-left">
-									<img id="imagenesCarrusel" src="images/carrusel/t1.png" alt=""/>
+									<img id="imagenesCarrusel" src="{{asset("images/carrusel/t1.png")}}" alt=""/>
 								</div>
 								<div class="col-md-7 trend-right">
 									<h4>TENDENCIAS <span>PARA TI!</span></h4>
@@ -136,7 +115,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</li>
 							<li>
 								<div class="col-md-5 trend-left">
-									<img id="imagenesCarrusel2" src="images/carrusel/t2.png" alt=""/>
+									<img id="imagenesCarrusel2" src="{{asset("images/carrusel/t2.png")}}" alt=""/>
 								</div>
 								<div class="col-md-7 trend-right">
 									<h4>LOS MEJORES <span>PRODUCTOS!</span></h4>
@@ -147,7 +126,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</li>
 							<li>
 								<div class="col-md-5 trend-left">
-									<img id="imagenesCarrusel" src="images/carrusel/t3.png" alt=""/>
+									<img id="imagenesCarrusel" src="{{asset("images/carrusel/t3.png")}}" alt=""/>
 								</div>
 								<div class="col-md-7 trend-right">
 									<h4>TENDENCIAS <span>PARA TI!</span></h4>
@@ -158,7 +137,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</li>
 							<li>
 								<div class="col-md-5 trend-left">
-									<img id="imagenesCarrusel" src="images/carrusel/t4.png" alt=""/>
+									<img id="imagenesCarrusel" src="{{asset("images/carrusel/t4.png")}}" alt=""/>
 								</div>
 								<div class="col-md-7 trend-right">
 									<h4>LOS MEJORES <span>PRODUCTOS!</span></h4>
@@ -205,7 +184,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 
 	<!--search jQuery-->
-	<script src="js/main.js"></script>
+	<script src="{{asset("js/main.js")}}"></script>
 	<!--//search jQuery-->
 	<!--smooth-scrolling-of-move-up-->
 	<script type="text/javascript">
