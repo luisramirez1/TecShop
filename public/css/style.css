@@ -1283,7 +1283,7 @@ input#amount {
 
 .starRating:not(old) > label {
     float: right;
-    background: url(../images/star.PNG);
+    background: url(../images/star.png);
     background-size: contain;
 	margin-right: 2px;
 }
@@ -1293,7 +1293,7 @@ input#amount {
   display         : block;
   width           : 18px;
   height          : 18px;
-  background      : url(../images/star1.PNG);
+  background      : url(../images/star1.png);
   background-size : contain;
   opacity         : 0;
   transition      : opacity 0.2s linear;

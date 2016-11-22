@@ -47,7 +47,7 @@ class ConfirmationEmail extends Mailable
            ->where('categoria', '=', 3)
            ->limit('4')
            ->get();
-        $this->user = $user, compact('categorias', 'marca', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola');
+        return $this->user = $user, compact('categorias', 'marca', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola');
     }
 
    
