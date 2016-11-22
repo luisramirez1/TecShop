@@ -524,7 +524,7 @@ ul.multi-column-dropdown:nth-child(3) {
 
     background: #33414e;
     padding: 9em 0;
-	background:url(../images/2.png)no-repeat 0px 0px;
+	background:url(public/images/2.png)no-repeat 0px 0px;
 	background-size:cover;
 }
 .banner-right{
