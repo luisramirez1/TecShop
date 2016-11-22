@@ -13,6 +13,7 @@
 use App\Categorias;
 use App\Marcas;
 use App\Productos;
+use App\Pro_Cal;
 
 
 Route::get('/', function () {
@@ -44,9 +45,12 @@ Route::get('/', function () {
            ->where('categoria', '=', 3)
            ->limit('4')
            ->get();
-    return view('inicio', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola'));
-
-
+    $populares =DB::table('productos')
+           ->where('calificacion', '>', 0)
+           ->orderBy('calificacion', 'desc')
+           ->limit('8')
+           ->get();
+    return view('inicio', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'populares'));
 });
 
 Auth::routes();
@@ -66,15 +70,18 @@ Route::group(['middleware' => ['admin']], function () {
   Route::post('/calificacion/{id}', 'ProductosController@calificacion');
 	Route::get('/registrarMarcas','ProductosController@registrarMarcaV');
 	Route::post('/guardarMarcas','ProductosController@registrarM');
-<<<<<<< HEAD
+  Route::get('/editarProductoV/{id}','ProductosController@editarProductoV');
+  Route::post('/editarProducto/{id}','ProductosController@editarProducto');
+  Route::get('/eliminarProducto/{id}','ProductosController@eliminarProducto');
   Route::get('/editarComentarioV/{id}','ProductosController@editarComentarioV');
   Route::get('/eliminarComentario/{id}','ProductosController@eliminarComentario');
   Route::post('/editarComentario/{id}','ProductosController@editarComentario');
+  Route::get('/consultaProductos', 'ProductosController@consultarP');
 
-=======
+
   Route::get('/consultaUsuarios', 'ProductosController@consultarU');
   Route::get('/eliminarUsuarios/{id}', 'ProductosController@eliminar');
->>>>>>> f1ab7b52acbc6e86460e175bbacace9d39e0f455
+
 
 });
 

@@ -215,7 +215,6 @@
                     <div class="col-sm-8 menu-grids">
                       <a href="">
                         <div class="new-add">
-                          <h5>30% OFF <br> Today Only</h5>
                         </div>  
                       </a>
                     </div>  
@@ -341,7 +340,7 @@
                         <li><a class="list" href="{{url('/registrarCategorias')}}">Registrar Categorias</a></li>
                         <li><a class="list" href="{{url('/registrarMarcas')}}">Registrar Marcas</a></li>
                         <li><a class="list" href="{{url('/consultaUsuarios')}}">Consulta Usuarios</a></li>
-
+                        <li><a class="list" href="{{url('/consultaProductos')}}">Consulta Productos</a></li>
                       </ul>
                     </div>
                     <div class="clearfix"> </div>

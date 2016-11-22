@@ -175,6 +175,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<!--//trend-->
 	
+	<div class="gallery">
+		<div class="container">
+			<div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
+				<h3 class="title">Productos<span> Populares</span></h3>
+			</div>
+			<div class="gallery-info">
+				@foreach($populares as $p)
+
+				<div class="col-md-3 gallery-grid wow flipInY animated" data-wow-delay=".5s">
+
+					<a href="{{url('/vistaRapida')}}/{{$p->id}}"><img src="{{asset("images/productos/$p->imagen")}}" class="img-responsive" alt=""/></a>
+					<div class="gallery-text simpleCart_shelfItem">
+						<h5><a class="name" href="{{url('/vistaRapida')}}/{{$p->id}}">{{$p->name}}</a></h5>
+						<p><span class="item_price">${{$p->precio}}</span></p>
+						<ul>
+							<li><a href="#"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></a></li>
+							<li><a class="item_add" href="#"><span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
+							<li><a href="#"><span class="glyphicon glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a></li>
+						</ul>
+					</div>
+
+				</div>
+				@endforeach
+
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
 	<!--search jQuery-->
 	<script src="js/main.js"></script>
 	<!--//search jQuery-->

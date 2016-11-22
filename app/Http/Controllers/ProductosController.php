@@ -10,13 +10,10 @@ use App\Productos;
 use App\Categorias;
 use App\Pro_Cate;
 use App\Marcas;
-<<<<<<< HEAD
 use App\Pro_Cal;
 use App\Comentarios;
-
-=======
 use App\Usuarios;
->>>>>>> f1ab7b52acbc6e86460e175bbacace9d39e0f455
+
 
 class ProductosController extends Controller {
 
@@ -324,9 +321,12 @@ class ProductosController extends Controller {
         $usuario = Auth::user()->id;
         $nuevo->id = $usuario;
         $nuevo->id_pro=$id;
-
+        $producto = Productos::find($id);
+        $calificacion = $producto->calificacion;
+        $producto->calificacion = $calificacion + $datos->input('rating');
         $nuevo->calificacion=$datos->input('rating');
         $nuevo->save();
+        $producto->save();
 
       return back()->withInput();
     }
@@ -383,4 +383,97 @@ class ProductosController extends Controller {
         return back()->withInput();
       }
 
+      public function consultarP() {
+        $categorias= Categorias::all();
+        $marca= Marcas::all();
+        $marcas1 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->limit('6')
+           ->get();
+        $marcas2 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->orderBy('id', 'desc')
+           ->limit('5')
+           ->get();
+        $celulares1 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->limit('6')
+           ->get();
+        $celulares2 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->orderBy('id', 'desc')
+           ->limit('2')
+           ->get();
+        $electronica =DB::table('marcas')
+           ->where('categoria', '=', 4)
+           ->limit('4')
+           ->get();
+        $consola =DB::table('marcas')
+           ->where('categoria', '=', 3)
+           ->limit('4')
+           ->get();
+        $productos = Productos::all();
+      return view('/consultaProductos', compact('categorias', 'marca', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'productos'));
+    }
+
+    public function editarProductoV($id) {
+        $categorias = Categorias::all();
+        $marcas1 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->limit('6')
+           ->get();
+        $marcas2 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->orderBy('id', 'desc')
+           ->limit('5')
+           ->get();
+        $celulares1 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->limit('6')
+           ->get();
+        $celulares2 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->orderBy('id', 'desc')
+           ->limit('2')
+           ->get();
+        $electronica =DB::table('marcas')
+           ->where('categoria', '=', 4)
+           ->limit('4')
+           ->get();
+        $consola =DB::table('marcas')
+           ->where('categoria', '=', 3)
+           ->limit('4')
+           ->get();
+        $marca= Marcas::all();
+        $producto = Productos::find($id);
+        
+                
+        return view('/editarProducto', compact('categorias', 'producto', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'marca'));
+      }
+
+      public function editarProducto($id,Request $datos) {
+        $nuevo = Productos::find($id);
+        $procate = new Pro_Cate;
+        $file = Input::file('imagen');
+        $nombre = $file->getClientOriginalName();
+        $file->move('images/productos', $nombre);
+        $file2 = Input::file('imagen2');
+        $nombre2 = $file2->getClientOriginalName();
+        $file2->move('images/productos', $nombre2);
+        $nuevo->name=$datos->input('name');
+        $nuevo->precio=$datos->input('precio');
+        $nuevo->descripcion=$datos->input('descripcion');
+        $nuevo->categoria=$datos->input('categoria');
+        $nuevo->marca=$datos->input('marca');
+        $nuevo->imagen=$nombre;
+        $nuevo->imagen2=$nombre2;
+        $nuevo->save();
+
+      return back()->withInput();
+    }
+
+    public function eliminarProducto($id){
+        $nuevo = Productos::find($id)->delete();
+        return back()->withInput();
+    }
 }
