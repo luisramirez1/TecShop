@@ -10,6 +10,9 @@ use App\Productos;
 use App\Categorias;
 use App\Pro_Cate;
 use App\Marcas;
+use App\Pro_Cal;
+use App\Comentarios;
+
 
 class ProductosController extends Controller {
     
@@ -46,7 +49,7 @@ class ProductosController extends Controller {
     }
 
     public function registrar(Request $datos) {
-    	$nuevo = new Productos;
+    	  $nuevo = new Productos;
         $procate = new Pro_Cate;
         $file = Input::file('imagen');
         $nombre = $file->getClientOriginalName();
@@ -54,14 +57,14 @@ class ProductosController extends Controller {
         $file2 = Input::file('imagen2');
         $nombre2 = $file2->getClientOriginalName();
         $file2->move('images/productos', $nombre2);
-    	$nuevo->name=$datos->input('name');
-    	$nuevo->precio=$datos->input('precio');
-    	$nuevo->descripcion=$datos->input('descripcion');
+    	  $nuevo->name=$datos->input('name');
+    	  $nuevo->precio=$datos->input('precio');
+    	  $nuevo->descripcion=$datos->input('descripcion');
         $nuevo->categoria=$datos->input('categoria');
         $nuevo->marca=$datos->input('marca');
-    	$nuevo->imagen=$nombre;
+    	  $nuevo->imagen=$nombre;
         $nuevo->imagen2=$nombre2;
-    	$nuevo->save();
+    	  $nuevo->save();
 
     	return Redirect('/registrarProductos');
     }
@@ -256,8 +259,83 @@ class ProductosController extends Controller {
             ->where('marca', '=', $id)
             ->get();
         $productoVR= Productos::find($id);
+          //$usuario = Auth::user()->id;
+          //$procal2 = Pro_Cal::find($usuario);
+        //$comentario = DB::table('comentarios')->count();
+        $comentario = Comentarios::where(['id_pro' => $id])->count();
+        $comentarioV=DB::table('comentarios')
+            ->where('id_pro', '=', $id)
+            ->get();
         
-        return view('/vistaRapida', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'productoVR'));
+        $usuarioC=DB::table('users AS u')
+            ->join('comentarios AS c', 'u.id', '=', 'c.id_usuario')
+            ->where('c.id_pro', '=', $id)
+            ->get();
+        return view('/vistaRapida', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'productoVR', 'comentario', 'comentarioV', 'usuarioC'));
     }
+
+    public function calificacion($id, Request $datos) {
+        $nuevo = new Pro_Cal;
+        $usuario = Auth::user()->id;
+        $nuevo->id = $usuario;
+        $nuevo->id_pro=$id;
+
+        $nuevo->calificacion=$datos->input('rating');
+        $nuevo->save();
+
+      return back()->withInput();
+    }
+
+    public function editarComentarioV($id) {
+        $categorias = Categorias::all();
+        $marcas1 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->limit('6')
+           ->get();
+        $marcas2 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->orderBy('id', 'desc')
+           ->limit('5')
+           ->get();
+        $celulares1 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->limit('6')
+           ->get();
+        $celulares2 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->orderBy('id', 'desc')
+           ->limit('2')
+           ->get();
+        $electronica =DB::table('marcas')
+           ->where('categoria', '=', 4)
+           ->limit('4')
+           ->get();
+        $consola =DB::table('marcas')
+           ->where('categoria', '=', 3)
+           ->limit('4')
+           ->get();
+        $productos = Productos::all();
+        $marcas = Marcas::all();
+        $productoss=DB::table('productos')
+            ->where('categoria', '=', $id)
+            ->get();
+        $comentario = DB::select("SELECT id_comentario, comentario FROM comentarios WHERE id_comentario = $id LIMIT 1");
+                
+        return view('/editarComentario', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'comentario'));
+      }
+
+      public function editarComentario($id, Request $datos){
+        $comentario = $datos->input('comentario');
+        $nuevo= Comentarios::where('id_comentario', $id)
+          ->update(['comentario' => $comentario]);
+      
+        return back()->withInput();
+      }
+
+      public function eliminarComentario($id){
+        $nuevo= Comentarios::where('id_comentario', $id)
+          ->delete();
+        return back()->withInput();
+      }
 
 }

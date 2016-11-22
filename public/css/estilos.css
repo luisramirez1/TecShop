@@ -52,6 +52,23 @@
 
 }
 
+#comentarioU h3
+{
+	color: black;
+}
+#nombreC 
+{
+	color: #ff590f;
+}
+
+#imagenC 
+{
+	width: 65px; 
+	height: 65px;
+	border-radius: 100px;
+
+}
+
 #editar
 {
 	margin-top: 10px;
@@ -112,4 +129,16 @@
 {
 	background-color: #d34836;
 	border-color: #d34836;
+}
+
+
+.rating2
+{
+       pointer-events: none;
+       cursor: default;
+} 
+
+#comentar
+{
+	
 }

@@ -10,6 +10,7 @@ use App\Usuarios;
 use App\Categorias;
 use App\Marcas;
 use App\Productos;
+use App\Comentarios;
 
 
 class HomeController extends Controller
@@ -89,6 +90,15 @@ class HomeController extends Controller
         //$tipo->save();
 
         return Redirect('/');
+    }
+
+    public function comentario($idU, $idP, Request $datos){
+        $nuevo = new Comentarios;
+        $nuevo->comentario=$datos->input('comentario');
+        $nuevo->id_usuario=$idU;
+        $nuevo->id_pro=$idP;
+        $nuevo->save();
+        return back()->withInput();
     }
 
 

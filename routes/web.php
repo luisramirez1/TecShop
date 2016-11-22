@@ -63,11 +63,18 @@ Route::group(['middleware' => ['admin']], function () {
 	Route::post('/guardarProductos', 'ProductosController@registrar');
 	Route::get('/registrarCategorias', 'ProductosController@registrarCV');
 	Route::post('/guardarCategorias', 'ProductosController@registrarC');
+  Route::post('/calificacion/{id}', 'ProductosController@calificacion');
 	Route::get('/registrarMarcas','ProductosController@registrarMarcaV');
-	Route::post('/guardarMarcas','ProductosController@registrarM');		
+	Route::post('/guardarMarcas','ProductosController@registrarM');
+  Route::get('/editarComentarioV/{id}','ProductosController@editarComentarioV');
+  Route::get('/eliminarComentario/{id}','ProductosController@eliminarComentario');
+  Route::post('/editarComentario/{id}','ProductosController@editarComentario');
+
+
 });
 
 Route::group(['middleware' => ['auth']], function () {
 	Route::get('/editar/{id}', 'HomeController@editar');
 	Route::post('/actualizar/{id}', 'HomeController@actualizar');
+  Route::post('/comentar/{idU}/{idP}', 'HomeController@comentario');
 });

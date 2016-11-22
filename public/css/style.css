@@ -1305,6 +1305,45 @@ input#amount {
   -moz-opacity : 1;
   opacity : 1;
 }
+
+.starRating2:not(old) {
+    display: inline-block;
+    height: 18px;
+    width:100px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.starRating2:not(old) > input{
+  margin-right : -100%;
+  opacity      : 0;
+}
+
+.starRating2:not(old) > label {
+    float: right;
+    background: url(../images/star.png);
+    background-size: contain;
+    margin-right: 2px;
+}
+
+.starRating2:not(old) > label:before{
+  content         : '';
+  display         : block;
+  width           : 18px;
+  height          : 18px;
+  background-size : contain;
+  opacity         : 0;
+  transition      : opacity 0.2s linear;
+}
+
+.starRating2:not(old) > label:hover:before,
+.starRating2:not(old) > label:hover ~ label:before,
+.starRating2:not(:hover) > :checked ~ label:before{
+  -moz-opacity : 1;
+  opacity : 1;
+}
+
+
 /*--//single-ratings--*/
 .single-info .single-rating p {
     display: inline-block;
