@@ -524,7 +524,7 @@ ul.multi-column-dropdown:nth-child(3) {
 
     background: #33414e;
     padding: 9em 0;
-	background:url(public/images/2.png)no-repeat 0px 0px;
+	background:url(../images/2.PNG)no-repeat 0px 0px;
 	background-size:cover;
 }
 .banner-right{
@@ -1283,7 +1283,7 @@ input#amount {
 
 .starRating:not(old) > label {
     float: right;
-    background: url(../images/star.png);
+    background: url(../images/star.PNG);
     background-size: contain;
 	margin-right: 2px;
 }
@@ -1293,7 +1293,7 @@ input#amount {
   display         : block;
   width           : 18px;
   height          : 18px;
-  background      : url(../images/star1.png);
+  background      : url(../images/star1.PNG);
   background-size : contain;
   opacity         : 0;
   transition      : opacity 0.2s linear;
