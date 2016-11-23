@@ -302,8 +302,7 @@ class ProductosController extends Controller {
             ->where('marca', '=', $id)
             ->get();
         $productoVR= Productos::find($id);
-        $userV = DB::select("SELECT verified FROM pro_cal WHERE id_pro = $id AND id = $u LIMIT 1");
-        
+        //$userV = DB::select("SELECT verified FROM pro_cal WHERE id_pro = $id AND id = $u LIMIT 1");
         /*$userV = DB::table('pro_cal')->where([
           ['id_usuario', '=', $u],
           ['id_pro', '=', $id],
@@ -320,7 +319,7 @@ class ProductosController extends Controller {
             ->join('comentarios AS c', 'u.id', '=', 'c.id_usuario')
             ->where('c.id_pro', '=', $id)
             ->get();
-        return view('/vistaRapida', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'productoVR', 'comentario', 'comentarioV', 'usuarioC', 'userV', 'userV'));
+        return view('/vistaRapida', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'productoVR', 'comentario', 'comentarioV', 'usuarioC'));
     }
 
     public function calificacion($id, Request $datos) {
