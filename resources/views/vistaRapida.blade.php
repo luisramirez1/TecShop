@@ -56,7 +56,7 @@ $(window).load(function() {
     <div class="single">
         <div class="container">
             <div class="single-info">       
-                <div class="col-md-6 single-top wow fadeInLeft animated" data-wow-delay=".5s">  
+                <div class="col-md-6 single-top wow fadeInLeft animated" data-wow-delay=".5s"> 
                     <div class="flexslider">
                         <ul class="slides">
                             <li data-thumb="{{asset("images/productos")}}/{{$productoVR->imagen}}">
@@ -69,6 +69,10 @@ $(window).load(function() {
                     </div>
                 </div>
                 <div class="col-md-6 single-top-left simpleCart_shelfItem wow fadeInRight animated" data-wow-delay=".5s">
+                   <!--  <div class="alert alert-danger alert-dismissible" id="alertaC" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Espera!</strong> Ya calificaste este producto.
+                    </div> -->     
                     <h3>{{$productoVR->name}}</h3>
                     @if (Auth::guest())
                     <div class="single-rating">
@@ -86,6 +90,7 @@ $(window).load(function() {
                         </span>
                     </div>
                     @else
+
                     <form id="myForm" action="{{url('/calificacion')}}/{{$productoVR->id}}" method="POST">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="single-rating">

@@ -17,6 +17,7 @@ class CreateProCalTable extends Migration
             $table->integer('id');
             $table->integer('id_pro');
             $table->integer('calificacion');
+            $table->boolean('verified')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

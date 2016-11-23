@@ -295,12 +295,19 @@ class ProductosController extends Controller {
            ->where('categoria', '=', 3)
            ->limit('4')
            ->get();
+        $u = Auth::user()->id;
         $productos = Productos::all();
         $marcas = Marcas::all();
         $productoss=DB::table('productos')
             ->where('marca', '=', $id)
             ->get();
         $productoVR= Productos::find($id);
+        $userV = DB::select("SELECT verified FROM pro_cal WHERE id_pro = $id AND id = $u LIMIT 1");
+        
+        /*$userV = DB::table('pro_cal')->where([
+          ['id_usuario', '=', $u],
+          ['id_pro', '=', $id],
+        ])->get();*/
           //$usuario = Auth::user()->id;
           //$procal2 = Pro_Cal::find($usuario);
         //$comentario = DB::table('comentarios')->count();
@@ -313,7 +320,7 @@ class ProductosController extends Controller {
             ->join('comentarios AS c', 'u.id', '=', 'c.id_usuario')
             ->where('c.id_pro', '=', $id)
             ->get();
-        return view('/vistaRapida', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'productoVR', 'comentario', 'comentarioV', 'usuarioC'));
+        return view('/vistaRapida', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'productoVR', 'comentario', 'comentarioV', 'usuarioC', 'userV', 'userV'));
     }
 
     public function calificacion($id, Request $datos) {
@@ -323,6 +330,7 @@ class ProductosController extends Controller {
         $nuevo->id_pro=$id;
         $producto = Productos::find($id);
         $calificacion = $producto->calificacion;
+        $nuevo->verified = true;
         $producto->calificacion = $calificacion + $datos->input('rating');
         $nuevo->calificacion=$datos->input('rating');
         $nuevo->save();
