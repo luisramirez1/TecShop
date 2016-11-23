@@ -295,7 +295,6 @@ class ProductosController extends Controller {
            ->where('categoria', '=', 3)
            ->limit('4')
            ->get();
-        $u = Auth::user()->id;
         $productos = Productos::all();
         $marcas = Marcas::all();
         $productoss=DB::table('productos')
