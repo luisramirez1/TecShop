@@ -302,7 +302,6 @@ class ProductosController extends Controller {
             ->where('marca', '=', $id)
             ->get();
         $productoVR= Productos::find($id);
-        //$userV = DB::select("SELECT verified FROM pro_cal WHERE id_pro = $id AND id = $u LIMIT 1");
         /*$userV = DB::table('pro_cal')->where([
           ['id_usuario', '=', $u],
           ['id_pro', '=', $id],
