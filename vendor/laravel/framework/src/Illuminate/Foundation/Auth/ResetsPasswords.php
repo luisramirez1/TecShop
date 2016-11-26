@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\Password;
 use App\Categorias;
 use App\Marcas;
 use App\Productos;
+use App\Pro_Cal;
 use DB;
+
 trait ResetsPasswords
 {
     use RedirectsUsers;
@@ -26,6 +28,7 @@ trait ResetsPasswords
     public function showResetForm(Request $request, $token = null)
     {
         $categorias = Categorias::all();
+
         $marcas1 =DB::table('marcas')
            ->where('categoria', '=', 2)
            ->limit('6')
@@ -52,7 +55,12 @@ trait ResetsPasswords
            ->where('categoria', '=', 3)
            ->limit('4')
            ->get();
-        return view('auth.passwords.reset', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola'))->with(
+        $populares =DB::table('productos')
+           ->where('calificacion', '>', 0)
+           ->orderBy('calificacion', 'desc')
+           ->limit('8')
+           ->get();
+        return view('auth.passwords.reset', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'populares'))->with(
             ['token' => $token, 'email' => $request->email]
         );
     }

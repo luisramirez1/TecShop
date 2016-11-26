@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Password;
 use App\Categorias;
 use App\Marcas;
 use App\Productos;
+use App\Pro_Cal;
 use DB;
 
 trait SendsPasswordResetEmails
@@ -18,7 +19,8 @@ trait SendsPasswordResetEmails
      */
     public function showLinkRequestForm()
     {
-        $categorias = Categorias::all();
+         $categorias = Categorias::all();
+
         $marcas1 =DB::table('marcas')
            ->where('categoria', '=', 2)
            ->limit('6')
@@ -45,7 +47,12 @@ trait SendsPasswordResetEmails
            ->where('categoria', '=', 3)
            ->limit('4')
            ->get();
-        return view('auth.passwords.email', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola'));
+        $populares =DB::table('productos')
+           ->where('calificacion', '>', 0)
+           ->orderBy('calificacion', 'desc')
+           ->limit('8')
+           ->get();
+        return view('auth.passwords.email', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'populares'));
     }
 
     /**

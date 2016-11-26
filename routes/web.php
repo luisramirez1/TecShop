@@ -19,7 +19,7 @@ use App\Pro_Cal;
 Route::get('/', function () {
 	$categorias = Categorias::all();
 
-	$marcas1 =DB::table('marcas')
+	 $marcas1 =DB::table('marcas')
            ->where('categoria', '=', 2)
            ->limit('6')
            ->get();
@@ -76,12 +76,10 @@ Route::group(['middleware' => ['admin']], function () {
   Route::get('/eliminarComentario/{id}','ProductosController@eliminarComentario');
   Route::post('/editarComentario/{id}','ProductosController@editarComentario');
   Route::get('/consultaProductos', 'ProductosController@consultarP');
-
-
   Route::get('/consultaUsuarios', 'ProductosController@consultarU');
   Route::get('/eliminarUsuarios/{id}', 'ProductosController@eliminar');
-
-
+  Route::post('/importar','ExcelController@importar');
+  Route::get('/exportar','ExcelController@exportar');
 });
 
 Route::group(['middleware' => ['auth']], function () {

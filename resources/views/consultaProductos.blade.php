@@ -7,11 +7,13 @@
             <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
                 <li><a href="{{url('/')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Inicio</a></li>
                 <li class="active">Productos Registrados</li>
+                <li><a href="{{url('/exportar')}}" id="exportar"><span class="glyphicon glyphicon-download-alt" aria-hidden="true" id="exportar"></span >Exportar CSV</a></li>
             </ol>
         </div>
     </div>
     <br>
-    <div class="products">   
+
+    <div class="products">
         <div class="container">
                 <div class="col-md-11 product-model-sec">
                 @foreach($productos as $p)

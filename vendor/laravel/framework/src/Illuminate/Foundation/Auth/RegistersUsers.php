@@ -8,6 +8,7 @@ use Illuminate\Auth\Events\Registered;
 use App\Categorias;
 use App\Marcas;
 use App\Productos;
+use App\Pro_Cal;
 use DB;
 
 trait RegistersUsers
@@ -22,6 +23,7 @@ trait RegistersUsers
     public function showRegistrationForm()
     {
         $categorias = Categorias::all();
+
         $marcas1 =DB::table('marcas')
            ->where('categoria', '=', 2)
            ->limit('6')
@@ -48,7 +50,12 @@ trait RegistersUsers
            ->where('categoria', '=', 3)
            ->limit('4')
            ->get();
-        return view('auth.register', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola'));
+        $populares =DB::table('productos')
+           ->where('calificacion', '>', 0)
+           ->orderBy('calificacion', 'desc')
+           ->limit('8')
+           ->get();
+        return view('auth.register', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'populares'));
     }
 
     /**

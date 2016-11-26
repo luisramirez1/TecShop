@@ -55,9 +55,44 @@
                     <input name="imagen2" type="file" class="form-control" accept="image/*" required>
                 </article>
                 <input type="submit" value="Registrar" class="btn btn-info" id="botonEditar">
+                <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#myModalCsv">Importar Csv</a>
                 <a href="{{url('/')}}" class="btn btn-primary">Cancelar</a>
             </section>
     </form>
 </article>
+
+<div class="modal fade md" id="myModalCsv" tabindex="-1" role="dialog" aria-labelledby="myModalCsv" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times;</button>
+           <h2>Importar: Productos CSV</h2>  
+        </div>
+        <div class="modal-body modal-body-sub">
+          <div class="row">
+            <div class="col-md-12 modal_body_left modal_body_left1">
+              <div class="sap_tabs">  
+                <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                  <div class="col-md-12">
+                    <form action="{{url('/importar')}}" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                    <section>
+                        <article class="form-group">
+                            <label for="Csv">Csv:</label>
+                            <input name="csv" type="file" class="form-control" placeholder="Csv" required accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+                        </article>                       
+                        <br>
+                        <input type="submit" class="btn btn-info btn-sm" value="Importar">
+                    </form>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 @endsection
