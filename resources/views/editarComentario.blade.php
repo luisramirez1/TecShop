@@ -14,7 +14,7 @@
     <br>
 @foreach($comentario as $c)
 <article id="jum">
-    <form action="{{url('/editarComentario')}}/{{$c->id_comentario}}" method="POST" class="jumbotron" id="form1" enctype="multipart/form-data">
+    <form action="{{url('/editarComentario')}}/{{$c->id}}" method="POST" class="jumbotron" id="form1" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="{{csrf_token()}}">
             <section id="seccion1">
                 <article class="form-group">

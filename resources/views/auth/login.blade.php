@@ -17,9 +17,15 @@
         @if ($errors->has('email'))
             <div class="alert alert-danger alert-dismissible" id="alerta" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Espera!</strong> Necesitas confirmar tu cuenta. Por favor consulta tu Correo Electrónico.
+                <strong>Genial!</strong> Necesitas confirmar tu cuenta. Por favor consulta tu Correo Electrónico.
             </div>            
         @endif
+
+          <script>
+              $("#alerta").fadeTo(5000, 1000).slideUp(1000, function(){
+              $("#alerta").slideUp(1000);
+              });
+          </script>
 
         <div class="widget-shadow">
             <div class="login-top wow fadeInUp animated" data-wow-delay=".7s">

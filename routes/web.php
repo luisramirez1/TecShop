@@ -67,7 +67,6 @@ Route::group(['middleware' => ['admin']], function () {
 	Route::post('/guardarProductos', 'ProductosController@registrar');
 	Route::get('/registrarCategorias', 'ProductosController@registrarCV');
 	Route::post('/guardarCategorias', 'ProductosController@registrarC');
-  Route::post('/calificacion/{id}', 'ProductosController@calificacion');
 	Route::get('/registrarMarcas','ProductosController@registrarMarcaV');
 	Route::post('/guardarMarcas','ProductosController@registrarM');
   Route::get('/editarProductoV/{id}','ProductosController@editarProductoV');
@@ -86,6 +85,7 @@ Route::group(['middleware' => ['admin']], function () {
 });
 
 Route::group(['middleware' => ['auth']], function () {
+  Route::post('/calificacion/{id}', 'ProductosController@calificacion');
 	Route::get('/editar/{id}', 'HomeController@editar');
 	Route::post('/actualizar/{id}', 'HomeController@actualizar');
   Route::post('/comentar/{idU}/{idP}', 'HomeController@comentario');

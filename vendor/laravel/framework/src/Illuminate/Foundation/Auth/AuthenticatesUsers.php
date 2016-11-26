@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Lang;
 use App\Categorias;
 use App\Marcas;
 use App\Productos;
+use App\Usuarios;
 use DB;
 
 trait AuthenticatesUsers

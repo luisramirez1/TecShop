@@ -301,18 +301,16 @@ class ProductosController extends Controller {
             ->where('marca', '=', $id)
             ->get();
         $productoVR= Productos::find($id);
-        /*$userV = DB::table('pro_cal')->where([
-          ['id_usuario', '=', $u],
-          ['id_pro', '=', $id],
-        ])->get();*/
-          //$usuario = Auth::user()->id;
-          //$procal2 = Pro_Cal::find($usuario);
-        //$comentario = DB::table('comentarios')->count();
+        if (Auth::guest()){
+
+        }else{
+          $usuario = Auth::user()->id;
+        }
+        $query = DB::select("SELECT verified FROM pro_cal WHERE id_pro=23 AND id=7 LIMIT 1");
         $comentario = Comentarios::where(['id_pro' => $id])->count();
         $comentarioV=DB::table('comentarios')
             ->where('id_pro', '=', $id)
             ->get();
-        
         $usuarioC=DB::table('users AS u')
             ->join('comentarios AS c', 'u.id', '=', 'c.id_usuario')
             ->where('c.id_pro', '=', $id)
@@ -323,18 +321,28 @@ class ProductosController extends Controller {
     public function calificacion($id, Request $datos) {
         $nuevo = new Pro_Cal;
         $usuario = Auth::user()->id;
-        $nuevo->id = $usuario;
-        $nuevo->id_pro=$id;
         $producto = Productos::find($id);
-        $calificacion = $producto->calificacion;
-        $nuevo->verified = true;
-        $producto->calificacion = $calificacion + $datos->input('rating');
-        $nuevo->calificacion=$datos->input('rating');
-        $nuevo->save();
-        $producto->save();
+        $cali=$datos->input('rating');
+        $exists=Pro_Cal::where('id_pro', '=', $id)->where('id', '=',$usuario)->exists();
+        if(!$exists){
+          $nuevo->id = $usuario;
+          $nuevo->id_pro=$id;
+          $calificacion = $producto->calificacion;
+          $nuevo->verified = true;
+          $producto->calificacion = $calificacion + $datos->input('rating');
+          $nuevo->calificacion=$datos->input('rating');
+          $nuevo->save();
+          $producto->save();
+          return back()->withInput();
+        }else{
+          $update=DB::table('pro_cal')->where('id_pro', '=', $id)->where('id', '=',$usuario)->update(['calificacion' => $cali]);
+          $cali2=DB::table('pro_cal')->where('id_pro', '=', $id)->sum('calificacion');
+          $update2=DB::table('productos')->where('id', '=', $id)->update(['calificacion' => $cali2]);
+          return back()->withInput();
 
-      return back()->withInput();
-    }
+        }
+          return back()->withInput();
+    }        
 
     public function editarComentarioV($id) {
         $categorias = Categorias::all();
@@ -369,21 +377,21 @@ class ProductosController extends Controller {
         $productoss=DB::table('productos')
             ->where('categoria', '=', $id)
             ->get();
-        $comentario = DB::select("SELECT id_comentario, comentario FROM comentarios WHERE id_comentario = $id LIMIT 1");
+        $comentario = DB::select("SELECT id, comentario FROM comentarios WHERE id = $id LIMIT 1");
                 
         return view('/editarComentario', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'comentario'));
       }
 
       public function editarComentario($id, Request $datos){
         $comentario = $datos->input('comentario');
-        $nuevo= Comentarios::where('id_comentario', $id)
+        $nuevo= Comentarios::where('id', $id)
           ->update(['comentario' => $comentario]);
-      
-        return back()->withInput();
+        $id = comentarios::find($id);
+        return redirect('/vistaRapida/' . $id->id_pro);
       }
 
       public function eliminarComentario($id){
-        $nuevo= Comentarios::where('id_comentario', $id)
+        $nuevo= Comentarios::where('id', $id)
           ->delete();
         return back()->withInput();
       }

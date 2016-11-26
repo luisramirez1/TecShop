@@ -111,7 +111,7 @@
         </div>
         <div class="nav navbar-nav navbar-right header-two-right">
           <div class="header-right my-account">
-            <a href="#" data-toggle="modal" data-target="#myModalC"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>CONTÁCTANOS</a>       
+            <a href="#" data-toggle="modal" data-target="#myModalCon"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>CONTÁCTANOS</a>       
           </div>
           
           @if (Auth::guest())
@@ -145,6 +145,21 @@
             </button>
           </div>
           <!--navbar-header-->
+          @if(Auth::guest())
+          @else
+          @if(Auth::user()->imagen == null)
+            <div class="alert alert-danger alert-dismissible" id="alerta" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Espera!</strong> Se recomienda editar tu información <a href="{{url('editar')}}/{{Auth::user()->id}}">Ir a editar</a>.
+            </div>  
+          @endif
+          <script>
+              $("#alerta").fadeTo(5000, 1000).slideUp(1000, function(){
+              $("#alerta").slideUp(1000);
+              });
+          </script>
+          @endif
+        
 <!--............................................................................................... No logueado -->
           @if (Auth::guest())
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -494,7 +509,7 @@
           <br>
           <ul>
             <li><a href="#" data-toggle="modal" data-target="#myModalA">Acerca de</a></li>
-            <li><a href="#" data-toggle="modal" data-target="#myModalC">Contáctanos</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#myModalCon">Contáctanos</a></li>
             <li><a href="#" data-toggle="modal" data-target="#myModalF">FAQ's</a></li>
           </ul>
         </div>
@@ -510,52 +525,6 @@
       </div>
     </div>
   </div>
-
-  @if (Auth::guest())
-  @else
-  <div class="modal fade md" id="myModal89" tabindex="-1" role="dialog" aria-labelledby="myModal89"
-    aria-hidden="true">
-    <div class="modal-dialog modal-md">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-            &times;</button>
-          <h3 class="modal-title" id="nombrem">
-            <b>{{ Auth::user()->name }}</b> <br>
-          </h3>
-        </div>
-        <div class="modal-body modal-body-sub">
-          <div class="row">
-            <div class="col-md-12 modal_body_left modal_body_left1">
-              <div class="sap_tabs">  
-                <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
-                  <div class="col-md-6">
-                    <ul>
-                      <b>Tipo de Usuario:</b>   @if(Auth::user()->tipoUsuario==1)
-                                  Administrador
-                                @endif
-                                @if(Auth::user()->tipoUsuario==2)
-                                  Invitado
-                                @endif<br>
-                      <b>Correo:</b> {{Auth::user()->email}} <br>
-                      <b>Celular:</b> {{Auth::user()->tel}}<br>
-                    </ul>
-                    <a href="{{url('/editar')}}/{{Auth::user()->id}}" class="btn btn-info btn-sm" id="editar">Editar</a>
-                  </div>
-                  <div>
-                    @if(Auth::user()->imagen == null)
-                      <a href="#" data-toggle="modal" data-target="#myModal89"><img id="imagen2" src="{{asset("images/usuarios/user.png")}}" alt=""></a> 
-                    @else
-                      <a href="#" data-toggle="modal" data-target="#myModal89"><img id="imagen2" src="{{asset("images/usuarios")}}/{{Auth::user()->imagen}}" alt=""></a> 
-                    @endif
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-  @endif
 
   <!--.................................................................................................................-->
   <!--.............................................  A C E R C A   D E   ..............................................-->
@@ -594,12 +563,12 @@
       </div>
     </div>
   </div>
-  
-  <!--.................................................................................................................-->
+
+   <!--.................................................................................................................-->
   <!--..........................................  C O N T Á C T A N O S  ..............................................-->
   <!--.................................................................................................................-->
 
-  <div class="modal fade lg" id="myModalC" tabindex="-1" role="dialog" aria-labelledby="myModalC" aria-hidden="true">
+  <div class="modal fade lg" id="myModalCon" tabindex="-1" role="dialog" aria-labelledby="myModalCon" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -680,7 +649,53 @@
       </div>
     </div>
   </div>
+  
 
+  @if (Auth::guest())
+  @else
+  <div class="modal fade md" id="myModal89" tabindex="-1" role="dialog" aria-labelledby="myModal89"
+    aria-hidden="true">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            &times;</button>
+          <h3 class="modal-title" id="nombrem">
+            <b>{{ Auth::user()->name }}</b> <br>
+          </h3>
+        </div>
+        <div class="modal-body modal-body-sub">
+          <div class="row">
+            <div class="col-md-12 modal_body_left modal_body_left1">
+              <div class="sap_tabs">  
+                <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                  <div class="col-md-6">
+                    <ul>
+                      <b>Tipo de Usuario:</b>   @if(Auth::user()->tipoUsuario==1)
+                                  Administrador
+                                @endif
+                                @if(Auth::user()->tipoUsuario==2)
+                                  Invitado
+                                @endif<br>
+                      <b>Correo:</b> {{Auth::user()->email}} <br>
+                      <b>Celular:</b> {{Auth::user()->tel}}<br>
+                    </ul>
+                    <a href="{{url('/editar')}}/{{Auth::user()->id}}" class="btn btn-info btn-sm" id="editar">Editar</a>
+                  </div>
+                  <div>
+                    @if(Auth::user()->imagen == null)
+                      <a href="#" data-toggle="modal" data-target="#myModal89"><img id="imagen2" src="{{asset("images/usuarios/user.png")}}" alt=""></a> 
+                    @else
+                      <a href="#" data-toggle="modal" data-target="#myModal89"><img id="imagen2" src="{{asset("images/usuarios")}}/{{Auth::user()->imagen}}" alt=""></a> 
+                    @endif
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  @endif
 
   <!--//footer-->   
   <!--search jQuery-->

@@ -63,6 +63,11 @@
 			font-weight: bold;
 			padding: 5px 5px;
 		}
+        #link
+        {
+            color: #FF590F;
+            text-decoration: underline;
+        }
     </style>
 
 </head>
@@ -152,7 +157,10 @@ $style = [
 
     									<strong>Solo falta confirmar tu correo electronico</strong> <br>
 								        	<p>Presiona el Boton para confirmar tu cuenta</p>
-								        	<button type="button" class="btn btn-info btn-lg" id="btn"><a href="{{url('register/confirm')}}/{{$user->token}}" id="confir"> Confirmar Correo</a></button>
+								        	<button type="button" class="btn btn-info btn-lg" id="btn"><a href="{{url('register/confirm')}}/{{$user->token}}" id="confir"> Confirmar Correo</a></button> <br>
+                                            <p>O por medio de link</p>
+                                            <a href="{{url('register/confirm')}}/{{$user->token}}" id="link">Confirmar Correo</a>
+
 							       	 	</p>
 							        	<h2 id="acerca">Acerca de Tecshop</h2>
 							            <br>

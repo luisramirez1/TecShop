@@ -18,7 +18,11 @@
                     <div>
                         <div class="product-grids simpleCart_shelfItem wow fadeInUp animated" data-wow-delay=".5s">
                             <div class="new-top" >
-                                <a href="{{url('/vistaRapida')}}/{{$u->id}}"><img id="imagenUsarios" src="{{asset("images/usuarios")}}/{{$u->imagen}}" class="img-responsive" alt=""/></a>                            
+                                @if($u->imagen == null)
+                                    <img id="imagenUsarios" src="{{asset("images/usuarios/user.png")}}" alt="">
+                                @else
+                                    <img id="imagenUsarios" class="img-responsive" src="{{asset("images/usuarios")}}/{{$u->imagen}}"  alt=""/>
+                                @endif                          
                             </div>
                             <div class="new-bottom">
                                 <h5><a class="name" href="{{url('/vistaRapida')}}/{{$u->id}}">{{$u->name}}</a></h5>

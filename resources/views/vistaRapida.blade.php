@@ -72,20 +72,30 @@ $(window).load(function() {
                    <!--  <div class="alert alert-danger alert-dismissible" id="alertaC" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <strong>Espera!</strong> Ya calificaste este producto.
-                    </div> -->     
+                    </div> -->
+                    <!-- Alerta cuando calificaste el producto -->
+                    <div class="alert alert-success alert-dismissible" id="alertaSi" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Espera!</strong> Estamos procesando tu calificacion. Gracias por calificar: {{$productoVR->name}}.
+                    </div>
+                    <!-- Alerta cuando no has iniciado sesion -->
+                    <div class="alert alert-danger alert-dismissible" id="alertaL" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Espera!</strong> Necesitas <a href="{{url('login')}}">INICIAR SESION</a> para calificar este producto: {{$productoVR->name}}.
+                    </div> 
                     <h3>{{$productoVR->name}}</h3>
                     @if (Auth::guest())
                     <div class="single-rating">
-                        <span class="starRating2">
-                            <input id="rating5" type="radio" name="" value="">
+                        <span class="starRating">
+                            <input id="rating5" type="radio" name="" value="" onclick="alertaL()">
                             <label for="rating5">5</label>
-                            <input id="rating4" type="radio" name="" value="">
+                            <input id="rating4" type="radio" name="" value="" onclick="alertaL()">
                             <label for="rating4">4</label>
-                            <input id="rating3" type="radio" name="" value="">
+                            <input id="rating3" type="radio" name="" value="" onclick="alertaL()">
                             <label for="rating3">3</label>
-                            <input id="rating2" type="radio" name="" value="">
+                            <input id="rating2" type="radio" name="" value="" onclick="alertaL()">
                             <label for="rating2">2</label>
-                            <input id="rating1" type="radio" name="" value="">
+                            <input id="rating1" type="radio" name="" value="" onclick="alertaL()">
                             <label for="rating1">1</label>
                         </span>
                     </div>
@@ -108,7 +118,6 @@ $(window).load(function() {
                         </span>
                         @if (Auth::guest())
                         @else
-                            <p>5.00 out of 5</p>
                             <a href="#" data-toggle="modal" data-target="#myModalC">Agregar Comentario</a>
                         @endif
                     </div>
@@ -117,8 +126,17 @@ $(window).load(function() {
                     
                     <script>
                         function submitt() {
-                        document.getElementById("myForm").submit();
+                        $("#alertaSi").fadeTo(4000, 1000).slideUp(1000, function(){
+                            $("#alertaSi").slideUp(1000);
+                            document.getElementById("myForm").submit();
+                            });
                         }
+                        function alertaL() {
+                            $("#alertaL").fadeTo(8000, 1000).slideUp(1000, function(){
+                            $("#alertaL").slideUp(1000);
+                            });
+                        }
+
                     </script>
                             <h6 class="item_price">${{$productoVR->precio}}</h6>         
                             <p>{{$productoVR->descripcion}}</p>
@@ -173,7 +191,11 @@ $(window).load(function() {
                                         <strong><h2>{{$u->name}}</h2></strong>
                                     </article>
                                     <article class="col-xs-4">
-                                        <img id="imagenC" src="{{asset("images/usuarios")}}/{{$u->imagen}}" alt="">   
+                                        @if($u->imagen == null)
+                                            <img id="imagenC" src="{{asset("images/usuarios/user.png")}}" alt="">
+                                        @else
+                                            <img id="imagenC" src="{{asset("images/usuarios")}}/{{$u->imagen}}" alt="">
+                                        @endif      
                                     </article>
                                     <article class="col-xs-6" id="comentarioU">
                                         <h3><em>"{{$u->comentario}}"</em></h3> 
@@ -228,7 +250,11 @@ $(window).load(function() {
                                         <strong><h2>{{$u->name}}</h2></strong>
                                     </article>
                                     <article class="col-xs-4">
-                                        <img id="imagenC" src="{{asset("images/usuarios")}}/{{$u->imagen}}" alt="">   
+                                        @if($u->imagen == null)
+                                            <img id="imagenC" src="{{asset("images/usuarios/user.png")}}" alt="">
+                                        @else
+                                            <img id="imagenC" src="{{asset("images/usuarios")}}/{{$u->imagen}}" alt="">
+                                        @endif    
                                     </article>
                                     <article class="col-xs-6" id="comentarioU">
                                         <h3><em>"{{$u->comentario}}"</em></h3> 
@@ -237,8 +263,8 @@ $(window).load(function() {
                                         {{$u->created_at}}
                                     </article> <br>
                                     <article>
-                                        <a href="{{url('/editarComentarioV')}}/{{$u->id_comentario}}" class="btn-info btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                                        <a href="{{url('/eliminarComentario')}}/{{$u->id_comentario}}" class="btn-danger btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                                        <a href="{{url('/editarComentarioV')}}/{{$u->id}}" class="btn-info btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                                        <a href="{{url('/eliminarComentario')}}/{{$u->id}}" class="btn-danger btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
                                     </article>
                                 </section>
                                 @if($comentario > 1)
@@ -286,7 +312,11 @@ $(window).load(function() {
                                         <strong><h2>{{$u->name}}</h2></strong>
                                     </article>
                                     <article class="col-xs-4">
-                                        <img id="imagenC" src="{{asset("images/usuarios")}}/{{$u->imagen}}" alt="">   
+                                        @if($u->imagen == null)
+                                        <img id="imagenC" src="{{asset("images/usuarios/user.png")}}" alt="">
+                                        @else
+                                        <img id="imagenC" src="{{asset("images/usuarios")}}/{{$u->imagen}}" alt="">
+                                        @endif   
                                     </article>
                                     <article class="col-xs-6" id="comentarioU">
                                         <h3><em>"{{$u->comentario}}"</em></h3> 
