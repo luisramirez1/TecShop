@@ -57,7 +57,7 @@ Auth::routes();
 
 Route::get('/categorias/{id}','ProductosController@categorias');
 Route::get('/marcas/{id}','ProductosController@marcas');
-Route::get('/vistaRapida/{id}','ProductosController@vistaRapida');
+Route::get('/vistaRapida/{id}/{idC}','ProductosController@vistaRapida');
 Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
 

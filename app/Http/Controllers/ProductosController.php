@@ -267,7 +267,7 @@ class ProductosController extends Controller {
         return view('/marcas', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'iphone'));
     }
 
-    public function vistaRapida($id) {
+    public function vistaRapida($id, $idC) {
         $categorias = Categorias::all();
         $marcas1 =DB::table('marcas')
            ->where('categoria', '=', 2)
@@ -315,7 +315,12 @@ class ProductosController extends Controller {
             ->join('comentarios AS c', 'u.id', '=', 'c.id_usuario')
             ->where('c.id_pro', '=', $id)
             ->get();
-        return view('/vistaRapida', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'productoVR', 'comentario', 'comentarioV', 'usuarioC'));
+        $relacionados=DB::table('productos')
+            ->where('id', '!=', $id)
+            ->where('categoria', '=',$idC)
+            ->limit('4')
+            ->get();
+        return view('/vistaRapida', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'productoVR', 'comentario', 'comentarioV', 'usuarioC', 'relacionados'));
     }
 
     public function calificacion($id, Request $datos) {
@@ -335,9 +340,16 @@ class ProductosController extends Controller {
           $producto->save();
           return back()->withInput();
         }else{
-          $update=DB::table('pro_cal')->where('id_pro', '=', $id)->where('id', '=',$usuario)->update(['calificacion' => $cali]);
-          $cali2=DB::table('pro_cal')->where('id_pro', '=', $id)->sum('calificacion');
-          $update2=DB::table('productos')->where('id', '=', $id)->update(['calificacion' => $cali2]);
+          $update=DB::table('pro_cal')
+              ->where('id_pro', '=', $id)
+              ->where('id', '=',$usuario)
+              ->update(['calificacion' => $cali]);
+          $cali2=DB::table('pro_cal')
+              ->where('id_pro', '=', $id)
+              ->sum('calificacion');
+          $update2=DB::table('productos')
+              ->where('id', '=', $id)
+              ->update(['calificacion' => $cali2]);
           return back()->withInput();
 
         }

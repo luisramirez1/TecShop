@@ -24,7 +24,7 @@
                             <a href="{{url('/vistaRapida')}}/{{$p->id}}"><img src="{{asset("images/productos")}}/{{$p->imagen}}" class="img-responsive" alt=""/></a>
                             <div class="new-text">
                                 <ul>
-                                    <li><a href="{{url('/vistaRapida')}}/{{$p->id}}">Vista Rapida </a></li>
+                                    <li><a href="{{url('/vistaRapida')}}/{{$p->id}}/{{$p->categoria}}">Vista Rapida </a></li>
                                     @if (Auth::guest())
                                     @else
                                         <li><input type="number" class="item_quantity" min="1" value="1"></li>

@@ -375,6 +375,51 @@ $(window).load(function() {
       </div>
     </div>
   </div>
+    <div class="single">
+        <div class="container">
+            <div class="related-products">
+                <div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
+                    <h3 class="title">Productos<span> Relacionados</span></h3>
+                </div>
+                <div class="related-products-info">
+                    
+                @foreach($relacionados as $r)
+
+                    <div class="col-md-3 new-grid simpleCart_shelfItem wow flipInY animated" data-wow-delay=".5s">
+                        <div class="new-top">
+                            <a href="single.html"><img src="{{asset("images/productos")}}/{{$r->imagen}}" class="img-responsive" alt=""/></a>
+                            <div class="new-text">
+                                <ul>
+                                    <li><a href="{{url('/vistaRapida')}}/{{$r->id}}/{{$r->categoria}}">Vista Rapida </a></li>
+                                    @if (Auth::guest())
+                                    @else
+                                        <li><input type="number" class="item_quantity" min="1" value="1"></li>
+                                        <li><a class="item_add" href=""> Agregar al carro</a></li>
+                                    @endif
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="new-bottom">
+                            <h5><a class="name" href="{{url('/vistaRapida')}}/{{$r->id}}">{{$r->name}}</a></h5>
+                            <div class="rating">
+                                <span class="on">☆</span>
+                                <span class="on">☆</span>
+                                <span class="on">☆</span>
+                                <span class="on">☆</span>
+                                <span>☆</span>
+                            </div>  
+                            <div class="ofr">
+                                <p class="pric1"><del>${{$r->precio + 500}}</del></p>
+                                <p><span class="item_price">${{$r->precio}}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--search jQuery-->
     <script src="{{asset("js/main.js")}}"></script>
     <!--//search jQuery-->
