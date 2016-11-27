@@ -226,8 +226,11 @@ class ProductosController extends Controller {
         $productos=DB::table('productos')
             ->where('categoria', '=', $id)
             ->get();
-        $iphone = Productos::find(33);
-        return view('/categorias', compact('categorias', 'productos', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'iphone'));
+        $interesar=DB::table('productos')
+            ->limit('1')
+            ->inRandomOrder()
+            ->get();
+        return view('/categorias', compact('categorias', 'productos', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'interesar'));
     }
 
     public function marcas($id) {
@@ -263,8 +266,11 @@ class ProductosController extends Controller {
         $productoss=DB::table('productos')
             ->where('marca', '=', $id)
             ->get();
-        $iphone = Productos::find(33);
-        return view('/marcas', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'iphone'));
+        $interesar=DB::table('productos')
+            ->limit('1')
+            ->inRandomOrder()
+            ->get();
+        return view('/marcas', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'interesar'));
     }
 
     public function vistaRapida($id, $idC) {
@@ -319,6 +325,7 @@ class ProductosController extends Controller {
             ->where('id', '!=', $id)
             ->where('categoria', '=',$idC)
             ->limit('4')
+            ->inRandomOrder()
             ->get();
         return view('/vistaRapida', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'productoVR', 'comentario', 'comentarioV', 'usuarioC', 'relacionados'));
     }

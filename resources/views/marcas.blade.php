@@ -63,16 +63,18 @@
                 </div>
                 <div class="gallery-grid ">
                     <h6>Te puede interesar!</h6>
-                    <a href="{{url('/vistaRapida')}}/{{$iphone->id}}/{{$iphone->categoria}}"><img src="{{asset("images/productos")}}/{{$iphone->imagen}}" class="img-responsive" alt=""/></a>
+                    @foreach($interesar as $i)
+                    <a href="{{url('/vistaRapida')}}/{{$i->id}}/{{$i->categoria}}"><img id="interesar" src="{{asset("images/productos")}}/{{$i->imagen}}" class="img-responsive" alt=""/></a>
                     <div class="gallery-text simpleCart_shelfItem">
-                        <h5><a class="name" href="{{url('/vistaRapida')}}/{{$iphone->id}}/{{$iphone->categoria}}">{{$iphone->name}}</a></h5>
-                        <p><span class="item_price">${{$iphone->precio}}</span></p>
+                        <h5><a class="name" href="{{url('/vistaRapida')}}/{{$i->id}}/{{$i->categoria}}">{{$i->name}}</a></h5>
+                        <p><span class="item_price">${{$i->precio}}</span></p> <br>
                         <ul>
                             <li><a href="#"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></a></li>
                             <li><a class="item_add" href="#"><span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
                             <li><a href="#"><span class="glyphicon glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a></li>
                         </ul>
                     </div>
+                    @endforeach
                 </div>
             </div>
             <div class="clearfix"> </div>
