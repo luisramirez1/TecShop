@@ -20,10 +20,10 @@
                     <div>
                     <div class="product-grids simpleCart_shelfItem wow fadeInUp animated" data-wow-delay=".5s">
                         <div class="new-top" id="imgproductos">
-                            <a href="{{url('/vistaRapida')}}/{{$p->id}}"><img src="{{asset("images/productos")}}/{{$p->imagen}}" class="img-responsive" alt=""/></a>
+                            <a href="{{url('/vistaRapida')}}/{{$p->id}}/{{$p->categoria}}"><img src="{{asset("images/productos")}}/{{$p->imagen}}" class="img-responsive" alt=""/></a>
                             <div class="new-text">
                                 <ul>
-                                    <li><a href="{{url('/vistaRapida')}}/{{$p->id}}">Vista Rapida </a></li>
+                                    <li><a href="{{url('/vistaRapida')}}/{{$p->id}}/{{$p->categoria}}">Vista Rapida </a></li>
                                     @if (Auth::guest())
                                     @else
                                         <li><input type="number" class="item_quantity" min="1" value="1"></li>
@@ -33,7 +33,7 @@
                             </div>
                         </div>
                         <div class="new-bottom">
-                            <h5><a class="name" href="{{url('/vistaRapida')}}/{{$p->id}}">{{$p->name}}</a></h5>
+                            <h5><a class="name" href="{{url('/vistaRapida')}}/{{$p->id}}/{{$p->categoria}}">{{$p->name}}</a></h5>
                             <div class="rating">
                                 <span class="on">☆</span>
                                 <span class="on">☆</span>
@@ -63,9 +63,9 @@
                 </div>
                 <div class="gallery-grid ">
                     <h6>Te puede interesar!</h6>
-                    <a href="{{url('/vistaRapida')}}/{{$iphone->id}}"><img src="{{asset("images/productos")}}/{{$iphone->imagen}}" class="img-responsive" alt=""/></a>
+                    <a href="{{url('/vistaRapida')}}/{{$iphone->id}}/{{$iphone->categoria}}"><img src="{{asset("images/productos")}}/{{$iphone->imagen}}" class="img-responsive" alt=""/></a>
                     <div class="gallery-text simpleCart_shelfItem">
-                        <h5><a class="name" href="{{url('/vistaRapida')}}/{{$iphone->id}}">{{$iphone->name}}</a></h5>
+                        <h5><a class="name" href="{{url('/vistaRapida')}}/{{$iphone->id}}/{{$iphone->categoria}}">{{$iphone->name}}</a></h5>
                         <p><span class="item_price">${{$iphone->precio}}</span></p>
                         <ul>
                             <li><a href="#"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></a></li>

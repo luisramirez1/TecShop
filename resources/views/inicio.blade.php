@@ -164,9 +164,9 @@
 
 				<div class="col-md-3 gallery-grid wow flipInY animated" data-wow-delay=".5s">
 
-					<a href="{{url('/vistaRapida')}}/{{$p->id}}"><img src="{{asset("images/productos/$p->imagen")}}" class="img-responsive" alt=""/></a>
+					<a href="{{url('/vistaRapida')}}/{{$p->id}}/{{$p->categoria}}"><img src="{{asset("images/productos/$p->imagen")}}" class="img-responsive" alt=""/></a>
 					<div class="gallery-text simpleCart_shelfItem">
-						<h5><a class="name" href="{{url('/vistaRapida')}}/{{$p->id}}">{{$p->name}}</a></h5>
+						<h5><a class="name" href="{{url('/vistaRapida')}}/{{$p->id}}/{{$p->categoria}}">{{$p->name}}</a></h5>
 						<p><span class="item_price">${{$p->precio}}</span></p>
 						<ul>
 							<li><a href="#"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></a></li>

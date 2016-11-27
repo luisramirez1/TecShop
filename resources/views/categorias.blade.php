@@ -34,7 +34,7 @@
                             </div>
                         </div>
                         <div class="new-bottom">
-                            <h5><a class="name" href="{{url('/vistaRapida')}}/{{$p->id}}">{{$p->name}}</a></h5>
+                            <h5><a class="name" href="{{url('/vistaRapida')}}/{{$p->id}}/{{$p->categoria}}">{{$p->name}}</a></h5>
                             <div class="rating">
                                 <span class="on">☆</span>
                                 <span class="on">☆</span>
@@ -64,9 +64,9 @@
                 </div>
                 <div class="gallery-grid ">
                     <h6>Te puede interesar!</h6>
-                    <a href="{{url('/vistaRapida')}}/{{$iphone->id}}"><img src="{{asset("images/productos")}}/{{$iphone->imagen}}" class="img-responsive" alt=""/></a>
+                    <a href="{{url('/vistaRapida')}}/{{$iphone->id}}/{{$iphone->categoria}}"><img src="{{asset("images/productos")}}/{{$iphone->imagen}}" class="img-responsive" alt=""/></a>
                     <div class="gallery-text simpleCart_shelfItem">
-                        <h5><a class="name" href="{{url('/vistaRapida')}}/{{$iphone->id}}">{{$iphone->name}}</a></h5>
+                        <h5><a class="name" href="{{url('/vistaRapida')}}/{{$iphone->id}}/{{$iphone->categoria}}">{{$iphone->name}}</a></h5>
                         <p><span class="item_price">${{$iphone->precio}}</span></p>
                         <ul>
                             <li><a href="#"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></a></li>
