@@ -66,8 +66,14 @@ class HomeController extends Controller
            ->where('categoria', '=', 3)
            ->limit('4')
            ->get();
-
-        return view('/editar', compact('usuarios', 'categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola'));
+        $usuario = Auth::user()->id;
+        $cantidadPro=DB::table('pro_car')
+          ->where('id_usuario', '=', $usuario)
+          ->sum('cantidad');
+        $cantidadPagar=DB::table('pro_car')
+          ->where('id_usuario', '=', $usuario)
+          ->sum('totalapagar');
+        return view('/editar', compact('usuarios', 'categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'cantidadPro', 'cantidadPagar'));
     }
 
     public function actualizar($id, Request $datos){
@@ -100,6 +106,4 @@ class HomeController extends Controller
         $nuevo->save();
         return back()->withInput();
     }
-
-
 }

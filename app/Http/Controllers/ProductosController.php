@@ -8,7 +8,7 @@ use DB;
 use Illuminate\Support\Facades\Input;
 use App\Productos;
 use App\Categorias;
-use App\Pro_Cate;
+use App\Pro_Car;
 use App\Marcas;
 use App\Pro_Cal;
 use App\Comentarios;
@@ -55,7 +55,14 @@ class ProductosController extends Controller {
         $usuarios =DB::table('users')
            ->where('tipoUsuario', '=', 2)
            ->get();
-      return view('/consultaUsuarios', compact('categorias', 'marca', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'usuarios'));
+        $usuario = Auth::user()->id;
+        $cantidadPro=DB::table('pro_car')
+            ->where('id_usuario', '=', $usuario)
+            ->sum('cantidad');
+        $cantidadPagar=DB::table('pro_car')
+          ->where('id_usuario', '=', $usuario)
+          ->sum('totalapagar');
+      return view('/consultaUsuarios', compact('categorias', 'marca', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'usuarios', 'cantidadPro', 'cantidadPagar'));
     }
     
     public function registrarV() {
@@ -87,7 +94,14 @@ class ProductosController extends Controller {
            ->where('categoria', '=', 3)
            ->limit('4')
            ->get();
-        return view('/registrarProductos', compact('categorias', 'marca', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola'));
+        $usuario = Auth::user()->id;
+        $cantidadPro=DB::table('pro_car')
+            ->where('id_usuario', '=', $usuario)
+            ->sum('cantidad');
+        $cantidadPagar=DB::table('pro_car')
+          ->where('id_usuario', '=', $usuario)
+          ->sum('totalapagar');
+        return view('/registrarProductos', compact('categorias', 'marca', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'cantidadPro', 'cantidadPagar'));
     }
 
     public function registrar(Request $datos) {
@@ -110,8 +124,6 @@ class ProductosController extends Controller {
 
     	return Redirect('/registrarProductos');
     }
-
-
 
     public function registrarCV() {
         $categorias = Categorias::all();
@@ -141,7 +153,14 @@ class ProductosController extends Controller {
            ->where('categoria', '=', 3)
            ->limit('4')
            ->get();
-        return view('/registrarCategorias', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola'));
+        $usuario = Auth::user()->id;
+        $cantidadPro=DB::table('pro_car')
+            ->where('id_usuario', '=', $usuario)
+            ->sum('cantidad');
+        $cantidadPagar=DB::table('pro_car')
+          ->where('id_usuario', '=', $usuario)
+          ->sum('totalapagar');
+        return view('/registrarCategorias', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'cantidadPro', 'cantidadPagar'));
     }
 
     public function registrarC(Request $datos){
@@ -180,7 +199,14 @@ class ProductosController extends Controller {
            ->where('categoria', '=', 3)
            ->limit('4')
            ->get();
-        return view('/registrarMarcas', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola'));
+        $usuario = Auth::user()->id;
+        $cantidadPro=DB::table('pro_car')
+            ->where('id_usuario', '=', $usuario)
+            ->sum('cantidad');
+        $cantidadPagar=DB::table('pro_car')
+          ->where('id_usuario', '=', $usuario)
+          ->sum('totalapagar');
+        return view('/registrarMarcas', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'cantidadPro', 'cantidadPagar'));
     }
 
     public function registrarM(Request $datos) {
@@ -230,7 +256,17 @@ class ProductosController extends Controller {
             ->limit('1')
             ->inRandomOrder()
             ->get();
-        return view('/categorias', compact('categorias', 'productos', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'interesar'));
+        if(Auth::guest()){
+        }else{
+          $usuario = Auth::user()->id;
+          $cantidadPro=DB::table('pro_car')
+              ->where('id_usuario', '=', $usuario)
+              ->sum('cantidad');
+          $cantidadPagar=DB::table('pro_car')
+          ->where('id_usuario', '=', $usuario)
+          ->sum('totalapagar');
+        }
+        return view('/categorias', compact('categorias', 'productos', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'interesar', 'cantidadPro', 'cantidadPagar'));
     }
 
     public function marcas($id) {
@@ -270,7 +306,17 @@ class ProductosController extends Controller {
             ->limit('1')
             ->inRandomOrder()
             ->get();
-        return view('/marcas', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'interesar'));
+        if(Auth::guest()){
+        }else{
+          $usuario = Auth::user()->id;
+          $cantidadPro=DB::table('pro_car')
+              ->where('id_usuario', '=', $usuario)
+              ->sum('cantidad');
+          $cantidadPagar=DB::table('pro_car')
+          ->where('id_usuario', '=', $usuario)
+          ->sum('totalapagar');
+        }
+        return view('/marcas', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'interesar', 'cantidadPro', 'cantidadPagar'));
     }
 
     public function vistaRapida($id, $idC) {
@@ -327,7 +373,17 @@ class ProductosController extends Controller {
             ->limit('4')
             ->inRandomOrder()
             ->get();
-        return view('/vistaRapida', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'productoVR', 'comentario', 'comentarioV', 'usuarioC', 'relacionados'));
+        if(Auth::guest()){
+        }else{
+          $usuario = Auth::user()->id;
+          $cantidadPro=DB::table('pro_car')
+              ->where('id_usuario', '=', $usuario)
+              ->sum('cantidad');
+          $cantidadPagar=DB::table('pro_car')
+          ->where('id_usuario', '=', $usuario)
+          ->sum('totalapagar');
+        }
+        return view('/vistaRapida', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'productoVR', 'comentario', 'comentarioV', 'usuarioC', 'relacionados', 'cantidadPro', 'cantidadPagar'));
     }
 
     public function calificacion($id, Request $datos) {
@@ -397,8 +453,14 @@ class ProductosController extends Controller {
             ->where('categoria', '=', $id)
             ->get();
         $comentario = DB::select("SELECT id, comentario FROM comentarios WHERE id = $id LIMIT 1");
-                
-        return view('/editarComentario', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'comentario'));
+        $usuario = Auth::user()->id;
+        $cantidadPro=DB::table('pro_car')
+            ->where('id_usuario', '=', $usuario)
+            ->sum('cantidad');
+        $cantidadPagar=DB::table('pro_car')
+          ->where('id_usuario', '=', $usuario)
+          ->sum('totalapagar');
+        return view('/editarComentario', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'comentario', 'cantidadPro', 'cantidadPagar'));
       }
 
       public function editarComentario($id, Request $datos){
@@ -445,7 +507,14 @@ class ProductosController extends Controller {
            ->limit('4')
            ->get();
         $productos = Productos::all();
-      return view('/consultaProductos', compact('categorias', 'marca', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'productos'));
+        $usuario = Auth::user()->id;
+        $cantidadPro=DB::table('pro_car')
+            ->where('id_usuario', '=', $usuario)
+            ->sum('cantidad');
+        $cantidadPagar=DB::table('pro_car')
+          ->where('id_usuario', '=', $usuario)
+          ->sum('totalapagar');
+      return view('/consultaProductos', compact('categorias', 'marca', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'productos', 'cantidadPro', 'cantidadPagar'));
     }
 
     public function editarProductoV($id) {
@@ -478,9 +547,15 @@ class ProductosController extends Controller {
            ->get();
         $marca= Marcas::all();
         $producto = Productos::find($id);
-        
+        $usuario = Auth::user()->id;
+        $cantidadPro=DB::table('pro_car')
+            ->where('id_usuario', '=', $usuario)
+            ->sum('cantidad');
+        $cantidadPagar=DB::table('pro_car')
+          ->where('id_usuario', '=', $usuario)
+          ->sum('totalapagar');
                 
-        return view('/editarProducto', compact('categorias', 'producto', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'marca'));
+        return view('/editarProducto', compact('categorias', 'producto', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'marca', 'cantidadPro', 'cantidadPagar'));
       }
 
       public function editarProducto($id,Request $datos) {
@@ -507,5 +582,104 @@ class ProductosController extends Controller {
     public function eliminarProducto($id){
         $nuevo = Productos::find($id)->delete();
         return back()->withInput();
+    }
+
+    public function carritoV($id){
+      $categorias= Categorias::all();
+        $marca= Marcas::all();
+        $marcas1 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->limit('6')
+           ->get();
+        $marcas2 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->orderBy('id', 'desc')
+           ->limit('5')
+           ->get();
+        $celulares1 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->limit('6')
+           ->get();
+        $celulares2 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->orderBy('id', 'desc')
+           ->limit('2')
+           ->get();
+        $electronica =DB::table('marcas')
+           ->where('categoria', '=', 4)
+           ->limit('4')
+           ->get();
+        $consola =DB::table('marcas')
+           ->where('categoria', '=', 3)
+           ->limit('4')
+           ->get();
+      $carrito =DB::table('pro_car')
+           ->where('id_usuario', '=', $id)
+           ->get();
+      $carrito=DB::table('productos AS p')
+            ->join('pro_car AS pc', 'p.id', '=', 'pc.id_pro')
+            ->where('pc.id_usuario', '=', $id)
+            ->get();
+      $cantidad=DB::table('pro_car')
+              ->where('id_usuario', '=', $id)
+              ->sum('cantidad');
+      $usuario = Auth::user()->id;
+      $cantidadPro=DB::table('pro_car')
+          ->where('id_usuario', '=', $usuario)
+          ->sum('cantidad');
+      $cantidadPagar=DB::table('pro_car')
+          ->where('id_usuario', '=', $usuario)
+          ->sum('totalapagar');
+        return view('/carrito', compact('categorias', 'marca', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'carrito', 'cantidad', 'cantidadPro', 'cantidadPagar'));
+    }
+
+    public function agregarCarrito($id, Request $datos) {
+        $nuevo = new Pro_Car;
+        $producto = Productos::find($id);
+        $usuario = Auth::user()->id;
+        $precio= $producto->precio;
+        $exis = $producto->existencia;
+        $total= $datos->input('cantidad') * $precio;
+        $exists=Pro_Car::where('id_pro', '=', $id)->where('id_usuario', '=',$usuario)->exists();
+        if(!$exists){
+          $nuevo->id_usuario=$usuario;
+          $nuevo->id_pro=$id;
+          $nuevo->cantidad=$datos->input('cantidad');
+          $producto->existencia= $exis - $datos->input('cantidad');
+          $nuevo->totalapagar=$total;
+          $nuevo->save();
+          $producto->save();
+          return back()->withInput();
+        }else{
+          $idpro_car=Pro_Car::where('id_pro', '=', $id)->where('id_usuario', '=',$usuario)->limit(1)->get();
+          foreach ($idpro_car as $i) {
+            $canti2 = $i->cantidad;
+            $producto->existencia= $exis - $i->cantidad;
+          }
+          $producto->save();
+          $canti = $datos->input('cantidad') + $canti2;
+          $total2 = $canti * $precio;
+          $update=DB::table('pro_car')
+              ->where('id_pro', '=', $id)
+              ->where('id_usuario', '=',$usuario)
+              ->update(['cantidad' => $canti, 'totalapagar' => $total2]);
+
+          return back()->withInput();
+        }
+      return back()->withInput();
+    }
+
+    public function eliminarCarri($id) {
+        $nuevo = Pro_Car::find($id);
+        $idPro = $nuevo->id_pro;
+        $pro = Productos::find($idPro);
+        $pro2 = $pro->existencia;
+        $cantidad = $nuevo->cantidad;
+        $canti = $pro2 + $cantidad;
+        $nuevo =DB::table('productos')
+              ->where('id', '=', $idPro)
+              ->update(['existencia' => $canti]);
+        Pro_Car::find($id)->delete();
+        return back();
     }
 }

@@ -17,13 +17,14 @@ class CreateProductosTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('descripcion');
-            $table->string('descripcion2');
+            $table->string('descripcion2')->nullable();
             $table->string('imagen');
             $table->string('imagen2');
             $table->integer('precio');
             $table->integer('categoria');
             $table->integer('marca');
             $table->integer('calificacion');
+            $table->integer('existencia')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
@@ -36,6 +37,6 @@ class CreateProductosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('categorias');
+        Schema::drop('productos');
     }
 }

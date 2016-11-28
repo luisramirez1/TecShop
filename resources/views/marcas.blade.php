@@ -21,16 +21,23 @@
                     <div class="product-grids simpleCart_shelfItem wow fadeInUp animated" data-wow-delay=".5s">
                         <div class="new-top" id="imgproductos">
                             <a href="{{url('/vistaRapida')}}/{{$p->id}}/{{$p->categoria}}"><img src="{{asset("images/productos")}}/{{$p->imagen}}" class="img-responsive" alt=""/></a>
+                            <form id="myForm3" action="{{url('/agregarCarrito')}}/{{$p->id}}" method="POST">
                             <div class="new-text">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                                 <ul>
                                     <li><a href="{{url('/vistaRapida')}}/{{$p->id}}/{{$p->categoria}}">Vista Rapida </a></li>
                                     @if (Auth::guest())
                                     @else
-                                        <li><input type="number" class="item_quantity" min="1" value="1"></li>
-                                        <li><a class="item_add" href=""> Agregar al carro</a></li>
+                                        <li><input min="1" max="{{$p->existencia}}" type="number" name="cantidad" value="1" class="item_quantity"></li>
+                                        @if($p->existencia == 0)
+                                            <li><a id="carritoB" class="add-cart item_add" onclick="alertaVacio()">Agregar al Carrito</a></li>
+                                        @else
+                                            <li><a id="carritoB" class="add-cart item_add" onclick="submitt3()">Agregar al Carrito</a></li>
+                                        @endif
                                     @endif
                                 </ul>
                             </div>
+                            </form>
                         </div>
                         <div class="new-bottom">
                             <h5><a class="name" href="{{url('/vistaRapida')}}/{{$p->id}}/{{$p->categoria}}">{{$p->name}}</a></h5>
@@ -49,6 +56,16 @@
                     </div>
                     </div>
                 @endforeach
+                    <script>
+                        function submitt3() {
+                            document.getElementById("myForm3").submit();
+                        }
+                        function alertaVacio() {
+                            $("#alertaVacio").fadeTo(8000, 1000).slideUp(1000, function(){
+                            $("#alertaVacio").slideUp(1000);
+                            });
+                        }
+                    </script>
             </div>
             <div class="col-md-3 rsidebar">
                 <div class="rsidebar-top">

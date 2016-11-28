@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProCateTable extends Migration
+class CreateProCarTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateProCateTable extends Migration
      */
     public function up()
     {
-        Schema::create('pro_cate', function (Blueprint $table) {
-            $table->integer('id');
-            $table->integer('id_cate');
+        Schema::create('pro_car', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('id_usuario');
+            $table->integer('id_pro');
+            $table->integer('cantidad');
+            $table->integer('totalapagar');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -28,6 +31,6 @@ class CreateProCateTable extends Migration
      */
     public function down()
     {
-        Schema::drop('pro_cate');
+        Schema::drop('pro_car');
     }
 }

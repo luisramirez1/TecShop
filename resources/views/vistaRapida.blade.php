@@ -82,6 +82,10 @@ $(window).load(function() {
                     <div class="alert alert-danger alert-dismissible" id="alertaL" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <strong>Espera!</strong> Necesitas <a href="{{url('login')}}">INICIAR SESION</a> para calificar este producto: {{$productoVR->name}}.
+                    </div>
+                    <div class="alert alert-danger alert-dismissible" id="alertaVacio" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Espera!</strong> Por el momento no tenemos en existencia este producto: {{$productoVR->name}}.
                     </div> 
                     <h3>{{$productoVR->name}}</h3>
                     @if (Auth::guest())
@@ -144,17 +148,36 @@ $(window).load(function() {
                     @if (Auth::guest())
                     @else
                         <div class="clearfix"> </div>
-                        <div class="quantity">
-                            <p class="qty"> Cantidad :  </p><input min="1" type="number" value="1" class="item_quantity">
-                        </div>
-                        <div class="btn_form">
-                            <a href="#" class="add-cart item_add">Agregar al Carrito</a>    
-                        </div>
+                        <form id="myForm2" action="{{url('/agregarCarrito')}}/{{$productoVR->id}}" method="POST">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
+                            <div class="quantity">
+                                <p class="qty"> Existencia :  </p><input min="1" type="number" name="cantidad" value="{{$productoVR->existencia}}" class="item_quantity" disabled=""> <br>
+                                <p class="qty"> Cantidad :  </p><input min="1" max="{{$productoVR->existencia}}" type="number" name="cantidad" value="1" class="item_quantity">
+                            </div>
+                            <div class="btn_form">
+                            @if($productoVR->existencia == 0)
+                                <a id="carritoB" class="add-cart item_add" onclick="alertaVacio()">Agregar al Carrito</a>
+                            @else
+                                <a id="carritoB" class="add-cart item_add" onclick="submitt2()">Agregar al Carrito</a>
+                            @endif 
+                            </div>
+                        </form>
                     @endif
             
                 </div>
                <div class="clearfix"> </div>
             </div>
+
+                    <script>
+                        function submitt2() {
+                            document.getElementById("myForm2").submit();
+                        }
+                        function alertaVacio() {
+                            $("#alertaVacio").fadeTo(8000, 1000).slideUp(1000, function(){
+                            $("#alertaVacio").slideUp(1000);
+                            });
+                        }
+                    </script>
             <!--collapse-tabs-->
             
             <!--//collapse -->

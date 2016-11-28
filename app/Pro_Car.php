@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pro_Cate extends Model
+class Pro_Car extends Model
 {
-    protected $table = 'pro_cate';
+    protected $table = 'pro_car';
 }

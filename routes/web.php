@@ -10,11 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 use App\Categorias;
 use App\Marcas;
 use App\Productos;
 use App\Pro_Cal;
-
+use App\Pro_Car;
 
 Route::get('/', function () {
 	$categorias = Categorias::all();
@@ -50,7 +51,17 @@ Route::get('/', function () {
            ->orderBy('calificacion', 'desc')
            ->limit('8')
            ->get();
-    return view('inicio', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'populares'));
+    if(Auth::guest()){
+    }else{
+    $usuario = Auth::user()->id;
+    $cantidadPro=DB::table('pro_car')
+          ->where('id_usuario', '=', $usuario)
+          ->sum('cantidad');
+    $cantidadPagar=DB::table('pro_car')
+          ->where('id_usuario', '=', $usuario)
+          ->sum('totalapagar');
+    }
+    return view('inicio', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'populares', 'cantidadPro', 'cantidadPagar'));
 });
 
 Auth::routes();
@@ -87,4 +98,7 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/editar/{id}', 'HomeController@editar');
 	Route::post('/actualizar/{id}', 'HomeController@actualizar');
   Route::post('/comentar/{idU}/{idP}', 'HomeController@comentario');
+  Route::get('/carrito/{id}', 'ProductosController@carritoV');
+  Route::post('/agregarCarrito/{id}', 'ProductosController@agregarCarrito');
+  Route::get('/eliminarCarri/{id}', 'ProductosController@eliminarCarri');
 });
