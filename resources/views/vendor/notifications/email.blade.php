@@ -90,7 +90,7 @@ $style = [
                                                 @if ($level == 'error')
                                                     Whoops!
                                                 @else
-                                                    Hello!
+                                                    Hola!
                                                 @endif
                                             @endif
                                         </h1>
@@ -140,7 +140,7 @@ $style = [
 
                                         <!-- Salutation -->
                                         <p style="{{ $style['paragraph'] }}">
-                                            Regards,<br>{{ config('app.name') }}
+                                            Saludos,<br>{{ config('app.name') }}
                                         </p>
 
                                         <!-- Sub Copy -->
@@ -149,8 +149,9 @@ $style = [
                                                 <tr>
                                                     <td style="{{ $fontFamily }}">
                                                         <p style="{{ $style['paragraph-sub'] }}">
-                                                            If you’re having trouble clicking the "{{ $actionText }}" button,
-                                                            copy and paste the URL below into your web browser:
+                                                            Si tiene problemas al hacer clic en el "{{ $actionText }}" botón,
+                                                            
+                                                            Copie y pegue la URL a continuación en su navegador web:
                                                         </p>
 
                                                         <p style="{{ $style['paragraph-sub'] }}">

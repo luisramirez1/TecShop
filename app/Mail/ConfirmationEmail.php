@@ -8,6 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use DB;
+use Auth;
 use App\Categorias;
 use App\Marcas;
 
@@ -54,6 +55,16 @@ class ConfirmationEmail extends Mailable
                ->where('categoria', '=', 3)
                ->limit('4')
                ->get();
-        return $this->view('emails.confirmation', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola'));
+        if(Auth::guest()){
+        }else{
+        $usuario = Auth::user()->id;
+        $cantidadPro=DB::table('pro_car')
+              ->where('id_usuario', '=', $usuario)
+              ->sum('cantidad');
+        $cantidadPagar=DB::table('pro_car')
+              ->where('id_usuario', '=', $usuario)
+              ->sum('totalapagar');
+        }
+        return $this->view('emails.confirmation', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'cantidadPro', 'cantidadPagar'));
     }
 }
