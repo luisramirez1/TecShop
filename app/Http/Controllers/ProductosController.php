@@ -247,7 +247,6 @@ class ProductosController extends Controller {
            ->where('categoria', '=', 3)
            ->limit('4')
            ->get();
-        $productos = Productos::all();
         $marcas = Marcas::all();
         $productos=DB::table('productos')
             ->where('categoria', '=', $id)
@@ -266,6 +265,7 @@ class ProductosController extends Controller {
           ->where('id_usuario', '=', $usuario)
           ->sum('totalapagar');
         }
+
         return view('/categorias', compact('categorias', 'productos', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'interesar', 'cantidadPro', 'cantidadPagar'));
     }
 

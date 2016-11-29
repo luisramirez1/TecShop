@@ -410,7 +410,7 @@ $(window).load(function() {
 
                     <div class="col-md-3 new-grid simpleCart_shelfItem wow flipInY animated" data-wow-delay=".5s">
                         <div class="new-top">
-                            <a href="single.html"><img src="{{asset("images/productos")}}/{{$r->imagen}}" class="img-responsive" alt=""/></a>
+                            <a href="{{url('/vistaRapida')}}/{{$r->id}}/{{$r->categoria}}"><img src="{{asset("images/productos")}}/{{$r->imagen}}" class="img-responsive" alt=""/></a>
                             <div class="new-text">
                                 <ul>
                                     <li><a href="{{url('/vistaRapida')}}/{{$r->id}}/{{$r->categoria}}">Vista Rapida </a></li>
@@ -423,7 +423,7 @@ $(window).load(function() {
                             </div>
                         </div>
                         <div class="new-bottom">
-                            <h5><a class="name" href="{{url('/vistaRapida')}}/{{$r->id}}">{{$r->name}}</a></h5>
+                            <h5><a class="name" href="{{url('/vistaRapida')}}/{{$r->id}}/{{$r->categoria}}">{{$r->name}}</a></h5>
                             <div class="rating">
                                 <span class="on">☆</span>
                                 <span class="on">☆</span>
