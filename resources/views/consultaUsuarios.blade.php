@@ -25,7 +25,15 @@
                                 @endif                          
                             </div>
                             <div class="new-bottom">
+                            @if($u->verifiedLogin == false)
                                 <h5><a class="name" href="{{url('/vistaRapida')}}/{{$u->id}}">{{$u->name}}</a></h5>
+                                 <span style="background: rgb(165, 165, 165); border-radius: 50%; display: inline-block; height: 12px; margin-left: 4px; width: 12px;">
+                                </span>
+                            @else
+                                <h5><a class="name" href="{{url('/vistaRapida')}}/{{$u->id}}">{{$u->name}}</a></h5>
+                                 <span style="background: rgb(66, 183, 42); border-radius: 50%; display: inline-block; height: 12px; margin-left: 4px; width: 12px;">
+                                </span>
+                            @endif
                                 <div class="ofr">
                                     {{$u->email}}<br>
                                     <span class="item_price">{{$u->tel}}</span><br>
