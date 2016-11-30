@@ -82,6 +82,7 @@ Route::group(['middleware' => ['admin']], function () {
 	Route::post('/guardarMarcas','ProductosController@registrarM');
   Route::get('/editarProductoV/{id}','ProductosController@editarProductoV');
   Route::post('/editarProducto/{id}','ProductosController@editarProducto');
+  Route::post('/editarExistencia/{id}','ProductosController@editarExistencia');
   Route::get('/eliminarProducto/{id}','ProductosController@eliminarProducto');
   Route::get('/editarComentarioV/{id}','ProductosController@editarComentarioV');
   Route::get('/eliminarComentario/{id}','ProductosController@eliminarComentario');

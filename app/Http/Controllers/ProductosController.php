@@ -579,6 +579,15 @@ class ProductosController extends Controller {
       return back()->withInput();
     }
 
+    public function editarExistencia($id,Request $datos) {
+        $nuevo = Productos::find($id);
+        $exist = $nuevo->existencia;
+        $nuevo->existencia=$exist + $datos->input('existencia');
+        $nuevo->save();
+
+      return back()->withInput();
+    }
+
     public function eliminarProducto($id){
         $nuevo = Productos::find($id)->delete();
         return back()->withInput();

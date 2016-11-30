@@ -20,21 +20,34 @@
                     <div>
                     <div class="product-grids simpleCart_shelfItem wow fadeInUp animated" data-wow-delay=".5s">
                         <div class="new-top" id="imgproductos">
-                            <a href="{{url('/vistaRapida')}}/{{$p->id}}"><img src="{{asset("images/productos")}}/{{$p->imagen}}" class="img-responsive" alt=""/></a>
+                            <a href="{{url('/vistaRapida')}}/{{$p->id}}/{{$p->categoria}}"><img src="{{asset("images/productos")}}/{{$p->imagen}}" class="img-responsive" alt=""/></a>
                             <div class="new-text">
                                 <ul>
-                                    <li><a href="{{url('/vistaRapida')}}/{{$p->id}}">Vista Rapida </a></li>
+
+                                    <li><a href="{{url('/vistaRapida')}}/{{$p->id}}/{{$p->categoria}}">Vista Rapida </a></li>
                                     @if (Auth::guest())
                                     @else
+                                    <form action="{{url('/editarExistencia')}}/{{$p->id}}" method="POST">
+
+                                        <input type="hidden" name="_token" value="{{csrf_token()}}">
                                         <!-- <li><input type="number" class="item_quantity" min="1" value="1"></li> -->
                                         <li><a class="item_add" href="{{url('/editarProductoV')}}/{{$p->id}}"> Editar</a></li>
-                                        <li><a class="item_add" href="{{url('/eliminarProducto')}}/{{$p->id}}"> Eliminar</a></li>
+                                        <li><a class="item_add" href="{{url('/eliminarProducto')}}/{{$p->id}}"> Eliminar</a></li> <br>
+                                        <div class="input-group">
+                                          <input type="number" name="existencia" class="form-control" min="1" placeholder="Existencia: {{$p->existencia}}">
+                                          <span class="input-group-btn">
+                                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-plus"></span></button>
+                                          </span>
+                                        </div>
+                                    </form>
+
                                     @endif
                                 </ul>
+
                             </div>
                         </div>
                         <div class="new-bottom">
-                            <h5><a class="name" href="{{url('/vistaRapida')}}/{{$p->id}}">{{$p->name}}</a></h5>
+                            <h5><a class="name" href="{{url('/vistaRapida')}}/{{$p->id}}/{{$p->categoria}}">{{$p->name}}</a></h5>
                             <div class="rating">
                                 <span class="on">☆</span>
                                 <span class="on">☆</span>
