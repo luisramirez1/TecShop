@@ -10,6 +10,9 @@ use App\Marcas;
 use App\Productos;
 use App\Pro_Cal;
 use DB;
+use App\Mail\usuarioLogin;
+use Illuminate\Support\Facades\Mail;
+
 
 trait AuthenticatesUsers
 {
@@ -151,7 +154,14 @@ trait AuthenticatesUsers
      */
     protected function authenticated(Request $request, $user)
     {
-        //
+        if(Auth::check()){
+          $id = Auth::user()->id;
+          $update2=DB::table('users')
+            ->where('id', '=', $id)
+            ->update(['verifiedLogin' => 1]);
+          Mail::to('luisramirez.lfrs@gmail.com')->send(new usuarioLogin(Auth::user()));
+        }else{
+        }
     }
 
     /**

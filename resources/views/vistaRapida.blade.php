@@ -86,7 +86,8 @@ $(window).load(function() {
                     <div class="alert alert-danger alert-dismissible" id="alertaVacio" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <strong>Espera!</strong> Por el momento no tenemos en existencia este producto: {{$productoVR->name}}.
-                    </div> 
+                    </div>
+                    @include('partials.flash')
                     <h3>{{$productoVR->name}}</h3>
                     @if (Auth::guest())
                     <div class="single-rating">

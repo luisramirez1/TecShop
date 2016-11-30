@@ -62,13 +62,7 @@ Route::get('/', function () {
           ->sum('totalapagar');
     }
     
-    if(Auth::check()){
-      $id = Auth::user()->id;
-      $update2=DB::table('users')
-        ->where('id', '=', $id)
-        ->update(['verifiedLogin' => 1]);
-    }else{
-    }
+    
 
     return view('inicio', compact('categorias', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'populares', 'cantidadPro', 'cantidadPagar'));
 });

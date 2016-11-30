@@ -13,6 +13,7 @@ use App\Marcas;
 use App\Pro_Cal;
 use App\Comentarios;
 use App\Usuarios;
+use Session;
 
 
 class ProductosController extends Controller {
