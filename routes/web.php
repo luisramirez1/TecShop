@@ -92,6 +92,7 @@ Route::group(['middleware' => ['admin']], function () {
   Route::post('/editarComentario/{id}','ProductosController@editarComentario');
   Route::get('/consultaProductos', 'ProductosController@consultarP');
   Route::get('/consultaUsuarios', 'ProductosController@consultarU');
+  Route::get('/vistaRapidaU/{id}','ProductosController@vistaRapidaU');
   Route::get('/eliminarUsuarios/{id}', 'ProductosController@eliminar');
   Route::post('/importar','ExcelController@importar');
   Route::get('/exportar','ExcelController@exportar');

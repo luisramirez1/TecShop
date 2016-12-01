@@ -104,7 +104,7 @@
 }
 #imagenUsarios
 {
-	
+
 	margin: 0 auto;
 	width: 250px; 
 	height: 333px;
@@ -198,6 +198,13 @@
 {
 	background-color: #4099FF;
 	border-color: #4099FF;
+}
+
+#pM
+{
+	color: #00a6d6;
+	font-size: 1.3em;
+	font-weight: bold;
 }
 
 #google
