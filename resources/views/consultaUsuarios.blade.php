@@ -11,37 +11,41 @@
         </div>
     </div>
     <br>
-    <div class="products">   
+
+    <div class="products">
         <div class="container">
-            <div class="col-md-11 product-model-sec">
+                <div class="col-md-11 product-model-sec">
                 @foreach($usuarios as $u)
-                    <div>
-                        <div class="product-grids simpleCart_shelfItem wow fadeInUp animated" data-wow-delay=".5s">
-                            <div class="new-top" >
-                                @if($u->imagen == null)
-                                    <img id="imagenUsarios" src="{{asset("images/usuarios/user.png")}}" alt="">
-                                @else
-                                    <img id="imagenUsarios" class="img-responsive" src="{{asset("images/usuarios")}}/{{$u->imagen}}"  alt=""/>
-                                @endif                          
+                    <div class="product-grids simpleCart_shelfItem wow fadeInUp animated" data-wow-delay=".5s">
+                        <div class="new-top" id="imgproductos">
+                            @if($u->imagen == null)
+                                <a href="{{url('/vistaRapidaU')}}/{{$u->id}}"><img src="{{asset("images/usuarios/user.png")}}" class="img-responsive" alt=""/></a>
+                            @else
+                                <a id="imagenUsarios" href="{{url('/vistaRapidaU')}}/{{$u->id}}"><img src="{{asset("images/usuarios")}}/{{$u->imagen}}" class="img-responsive" alt=""/></a>
+                            @endif
+                            <div class="new-text">
+                                <ul>
+                                    <li><a href="{{url('/vistaRapidaU')}}/{{$u->id}}">Vista Rapida </a></li>
+                                    <li><a href="{{url('/eliminarUsuarios')}}/{{$u->id}}">Eliminar </a></li>
+                                </ul>
+
                             </div>
-                            <div class="new-bottom">
+                        </div>
+                        <div class="new-bottom">
                             @if($u->verifiedLogin == false)
-                                <h5><a class="name" href="{{url('/vistaRapida')}}/{{$u->id}}">{{$u->name}}</a></h5>
-                                 <span style="background: rgb(165, 165, 165); border-radius: 50%; display: inline-block; height: 12px; margin-left: 4px; width: 12px;">
+                                <h5><a class="name" href="{{url('/vistaRapidaU')}}/{{$u->id}}">{{$u->name}}</a></h5>
+                                <span style="background: rgb(165, 165, 165); border-radius: 50%; display: inline-block; height: 12px; margin-left: 4px; width: 12px;">
                                 </span>
                             @else
-                                <h5><a class="name" href="{{url('/vistaRapida')}}/{{$u->id}}">{{$u->name}}</a></h5>
-                                 <span style="background: rgb(66, 183, 42); border-radius: 50%; display: inline-block; height: 12px; margin-left: 4px; width: 12px;">
+                                <h5><a class="name" href="{{url('/vistaRapidaU')}}/{{$u->id}}">{{$u->name}}</a></h5>
+                                <span style="background: rgb(66, 183, 42); border-radius: 50%; display: inline-block; height: 12px; margin-left: 4px; width: 12px;">
                                 </span>
                             @endif
-                                <div class="ofr">
-                                    {{$u->email}}<br>
-                                    <span class="item_price">{{$u->tel}}</span><br>
-                                    <br>
-                                    <div id="botones">
-                                        <a href="{{url('/eliminarUsuarios')}}/{{$u->id}}" class="btn-danger btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-                                    </div>
-                                </div>
+                            <div class="rating">
+                            </div>
+                            <div class="ofr">
+                                <p><span class="item_price">{{$u->email}}</span></p>
+                                <p><span class="item_price">{{$u->tel}}</span></p>
                             </div>
                         </div>
                     </div>
@@ -50,37 +54,38 @@
             <div class="clearfix"> </div>
         </div>
     </div>
+</div>
 
-    <script type="text/javascript" src="{{asset("js/jquery.jscrollpane.min.js")}}"></script>
-        <script type="text/javascript" id="sourcecode">
-            $(function()
-            {
-                $('.scroll-pane').jScrollPane();
-            });
-        </script>
-        <!-- //the jScrollPane script -->
-        <script type="text/javascript" src="{{asset("js/jquery.mousewheel.js")}}"></script>
-        <!-- the mousewheel plugin -->
-        <!--search jQuery-->
-        <script src="{{asset("js/main.js")}}"></script>
-        <!--//search jQuery-->
-        <!--smooth-scrolling-of-move-up-->
-        <script type="text/javascript">
-            $(document).ready(function() {
+<script type="text/javascript" src="{{asset("js/jquery.jscrollpane.min.js")}}"></script>
+            <script type="text/javascript" id="sourcecode">
+                $(function()
+                {
+                    $('.scroll-pane').jScrollPane();
+                });
+            </script>
+    <!-- //the jScrollPane script -->
+    <script type="text/javascript" src="{{asset("js/jquery.mousewheel.js")}}"></script>
+    <!-- the mousewheel plugin -->
+    <!--search jQuery-->
+    <script src="{{asset("js/main.js")}}"></script>
+    <!--//search jQuery-->
+    <!--smooth-scrolling-of-move-up-->
+    <script type="text/javascript">
+        $(document).ready(function() {
+        
+            var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear' 
+            };
             
-                var defaults = {
-                    containerID: 'toTop', // fading element id
-                    containerHoverID: 'toTopHover', // fading element hover id
-                    scrollSpeed: 1200,
-                    easingType: 'linear' 
-                };
-                
-                $().UItoTop({ easingType: 'easeOutQuart' });
-                
-            });
-        </script>
-        <!--//smooth-scrolling-of-move-up-->
-        <!--Bootstrap core JavaScript
-        ================================================== -->
-        <!--Placed at the end of the document so the pages load faster -->
+            $().UItoTop({ easingType: 'easeOutQuart' });
+            
+        });
+    </script>
+    <!--//smooth-scrolling-of-move-up-->
+    <!--Bootstrap core JavaScript
+    ================================================== -->
+    <!--Placed at the end of the document so the pages load faster -->
 @endsection
