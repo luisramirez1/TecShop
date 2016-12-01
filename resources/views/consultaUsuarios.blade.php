@@ -19,9 +19,9 @@
                     <div class="product-grids simpleCart_shelfItem wow fadeInUp animated" data-wow-delay=".5s">
                         <div class="new-top" id="imgproductos">
                             @if($u->imagen == null)
-                                <a href="{{url('/vistaRapidaU')}}/{{$u->id}}"><img src="{{asset("images/usuarios/user.png")}}" class="img-responsive" alt=""/></a>
+                                <a href="{{url('/vistaRapidaU')}}/{{$u->id}}"><img id="imagenUsarios" src="{{asset("images/usuarios/user.png")}}" class="img-responsive" alt=""/></a>
                             @else
-                                <a id="imagenUsarios" href="{{url('/vistaRapidaU')}}/{{$u->id}}"><img src="{{asset("images/usuarios")}}/{{$u->imagen}}" class="img-responsive" alt=""/></a>
+                                <a href="{{url('/vistaRapidaU')}}/{{$u->id}}"><img id="imagenUsarios" src="{{asset("images/usuarios")}}/{{$u->imagen}}" class="img-responsive" alt=""/></a>
                             @endif
                             <div class="new-text">
                                 <ul>
@@ -44,7 +44,7 @@
                             <div class="rating">
                             </div>
                             <div class="ofr">
-                                <p><span class="item_price">{{$u->email}}</span></p>
+                                <p><span class="item_price">{{$u->email}}</span></p> <br>
                                 <p><span class="item_price">{{$u->tel}}</span></p>
                             </div>
                         </div>
