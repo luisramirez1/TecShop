@@ -14,6 +14,8 @@ use App\Pro_Cal;
 use App\Comentarios;
 use App\Usuarios;
 use App\Compras;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\comprasTecShop;
 use Session;
 
 
@@ -656,6 +658,7 @@ class ProductosController extends Controller {
         $delete =DB::table('pro_car')
               ->where('id_usuario', '=', $id)
               ->delete();
+        Mail::to(Auth::user()->email)->send(new comprasTecShop(Auth::user()));
         return back()->withInput();  
     }
 
