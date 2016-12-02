@@ -122,7 +122,10 @@
                 <span> ${{$cantidadPagar}}.00 </span> (<span id="simpleCart_quantity"> {{$cantidadPro}} </span>) 
             </a></h4>
             <div class="cart-box">
-              <p><a href="javascript:;" class="simpleCart_empty">Vaciar carrito</a></p>
+              @if($cantidadPro == 0)
+              @else
+                <p><a href="{{url('/comprar')}}/{{Auth::user()->id}}" class="simpleCart_empty">Finalizar Compra</a></p>
+              @endif
               <div class="clearfix"> </div>
             </div>
           </div>
@@ -238,11 +241,6 @@
                 </ul>
               </li>       
             
-<!--............................................................................................... Lo mas popular -->
-              <li>
-                <a href="">Lo mas popular</a>
-              </li>
-
             </ul> 
             <div class="clearfix"> </div>
             <!--//navbar-collapse-->
@@ -283,13 +281,14 @@
                         @foreach($marcas2 as $m)
                           <li><a class="list" href="{{url('/marcas')}}/{{$m->id}}">{{$m->name}}</a></li>
                         @endforeach
+                        <li><h6><a class="list" href="">Promociones</a></h6></li>
                       </ul>
                     </div>                                    
                     <div class="col-sm-2 menu-grids">
                       <h4>Smartphone's</h4>
                       <ul class="multi-column-dropdown">
                         @foreach($celulares1 as $c)
-                          <li><a class="list" href="{{url('/marcas')}}/{{$c->id}}">{{$c->name}}</a></li>
+                        <li><a class="list" href="{{url('/marcas')}}/{{$c->id}}">{{$c->name}}</a></li>
                         @endforeach
                       </ul>
                     </div>
@@ -308,16 +307,15 @@
                       <ul class="multi-column-dropdown">
                         <li><h6><a class="list" href="">Promociones</a></h6></li>
                         <h4>Consolas</h4>
-                          @foreach($consola as $c)
-                            <li><a class="list" href="{{url('/marcas')}}/{{$c->id}}">{{$c->name}}</a></li>
-                          @endforeach
+                        @foreach($consola as $c)
+                          <li><a class="list" href="{{url('/marcas')}}/{{$c->id}}">{{$c->name}}</a></li>
+                        @endforeach
                       </ul>
                     </div>
                     <div class="clearfix"> </div>
                   </div>
                 </ul>
               </li>
-
               <li class="dropdown grid">
                 <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Categorias<b class="caret"></b></a>
                 <ul class="dropdown-menu multi-column menu-two multi-column3">
@@ -332,7 +330,6 @@
                     <div class="col-sm-8 menu-grids">
                       <a href="">
                         <div class="new-add">
-                          <h5>30% OFF <br> Today Only</h5>
                         </div>  
                       </a>
                     </div>  
@@ -341,10 +338,29 @@
                 </ul>
               </li>       
             
-<!--............................................................................................... Lo mas popular -->
-              <li>
-                <a href="">Lo mas popular</a>
-              </li>
+<!--............................................................................................... Compras -->
+              <li class="dropdown grid">
+                <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Compras<b class="caret"></b></a>
+                <ul class="dropdown-menu multi-column menu-two multi-column3">
+                  <div class="row">
+                    <div class="col-sm-4 menu-grids">
+                      <ul class="multi-column-dropdown">
+                        @if(Auth::user()->compras == 0)
+                          <li><a class="list">Por el momento no has realizado ninguna compra.    No esperes mas, ¡COMPRA YA!</a></li>
+                        @else
+                        @for ($i = 1; $i < Auth::user()->compras+1; $i++)
+                          <li><a class="list" href="{{url('/compras')}}/{{Auth::user()->id}}/{{$i}}">Compra#: {{$i}}</a></li>
+                        @endfor
+                        @endif            
+                      </ul>
+                    </div>
+                    <div class="clearfix"> </div>
+                  </div>  
+                </ul>
+              </li>  
+              <!-- <li>
+                <a href="{{url('/compras')}}/{{Auth::user()->id}}">Compras</a>
+              </li> -->
               <li class="dropdown grid">
                 <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Configuraciones<b class="caret"></b></a>
                 <ul class="dropdown-menu multi-column menu-two multi-column3">
@@ -402,13 +418,14 @@
                         @foreach($marcas2 as $m)
                           <li><a class="list" href="{{url('/marcas')}}/{{$m->id}}">{{$m->name}}</a></li>
                         @endforeach
+                        <li><h6><a class="list" href="">Promociones</a></h6></li>
                       </ul>
                     </div>                                    
                     <div class="col-sm-2 menu-grids">
                       <h4>Smartphone's</h4>
                       <ul class="multi-column-dropdown">
                         @foreach($celulares1 as $c)
-                          <li><a class="list" href="{{url('/marcas')}}/{{$c->id}}">{{$c->name}}</a></li>
+                        <li><a class="list" href="{{url('/marcas')}}/{{$c->id}}">{{$c->name}}</a></li>
                         @endforeach
                       </ul>
                     </div>
@@ -427,9 +444,9 @@
                       <ul class="multi-column-dropdown">
                         <li><h6><a class="list" href="">Promociones</a></h6></li>
                         <h4>Consolas</h4>
-                          @foreach($consola as $c)
-                            <li><a class="list" href="{{url('/marcas')}}/{{$c->id}}">{{$c->name}}</a></li>
-                          @endforeach
+                        @foreach($consola as $c)
+                          <li><a class="list" href="{{url('/marcas')}}/{{$c->id}}">{{$c->name}}</a></li>
+                        @endforeach
                       </ul>
                     </div>
                     <div class="clearfix"> </div>
@@ -450,9 +467,6 @@
                     </div>
                     <div class="col-sm-8 menu-grids">
                       <a href="">
-                        <div class="new-add">
-                          <h5>30% OFF <br> Today Only</h5>
-                        </div>  
                       </a>
                     </div>  
                     <div class="clearfix"> </div>
@@ -460,10 +474,27 @@
                 </ul>
               </li>       
             
-<!--............................................................................................... Lo mas popular -->
-              <li>
-                <a href="">Lo mas popular</a>
-              </li>
+<!--............................................................................................... Compras -->
+              
+              <li class="dropdown grid">
+                <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Compras<b class="caret"></b></a>
+                <ul class="dropdown-menu multi-column menu-two multi-column3">
+                  <div class="row">
+                    <div class="col-sm-4 menu-grids">
+                      <ul class="multi-column-dropdown">
+                        @if(Auth::user()->compras == 0)
+                          <li><a class="list">Por el momento no has realizado ninguna compra.    No esperes mas, ¡COMPRA YA!</a></li>
+                        @else
+                        @for ($i = 1; $i < Auth::user()->compras+1; $i++)
+                          <li><a class="list" href="{{url('/compras')}}/{{Auth::user()->id}}/{{$i}}">Compra#: {{$i}}</a></li>
+                        @endfor
+                        @endif            
+                      </ul>
+                    </div>
+                    <div class="clearfix"> </div>
+                  </div>  
+                </ul>
+              </li>  
 
             </ul> 
             <div class="clearfix"> </div>

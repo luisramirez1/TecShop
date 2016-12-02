@@ -17,7 +17,11 @@
             <div class="cart-header wow fadeInUp animated" data-wow-delay=".5s">
                 <div class="cart-sec simpleCart_shelfItem">
                     <div class="cart-item cyc">
-                        <a href=""><img src="{{asset("images/usuarios")}}/{{$usuarios->imagen}}" class="img-responsive" alt=""></a>
+                            @if($usuarios->imagen == null)
+                                <a><img id="imagenUsarios" src="{{asset("images/usuarios/user.png")}}" class="img-responsive" alt=""/></a>
+                            @else
+                                <a><img id="imagenUsarios" src="{{asset("images/usuarios")}}/{{$usuarios->imagen}}" class="img-responsive" alt=""/></a>
+                            @endif
                     </div>
                     <div class="cart-item-info">
                         <h1><span>{{$usuarios->name}}</span></h1> <br>

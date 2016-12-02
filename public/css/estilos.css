@@ -46,6 +46,11 @@
             animation: fadein 5s;
 }
 
+#btnFC
+{
+	margin: 0 auto;
+}
+
 #exportar
 {
 	color: #5bc0de;

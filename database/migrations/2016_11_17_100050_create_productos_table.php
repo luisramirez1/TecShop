@@ -23,7 +23,7 @@ class CreateProductosTable extends Migration
             $table->integer('precio');
             $table->integer('categoria');
             $table->integer('marca');
-            $table->integer('calificacion');
+            $table->integer('calificacion')->default(0);
             $table->integer('existencia')->nullable();
             $table->rememberToken();
             $table->timestamps();

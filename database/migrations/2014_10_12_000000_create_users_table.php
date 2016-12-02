@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('imagen')->nullable();
             $table->boolean('verified')->default(false);
             $table->boolean('verifiedLogin')->default(false);
+            $table->integer('compras')->default(0);
             $table->string('token')->nullable();
             $table->rememberToken();
             $table->timestamps();

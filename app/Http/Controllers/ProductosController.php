@@ -13,6 +13,7 @@ use App\Marcas;
 use App\Pro_Cal;
 use App\Comentarios;
 use App\Usuarios;
+use App\Compras;
 use Session;
 
 
@@ -643,6 +644,70 @@ class ProductosController extends Controller {
         return view('/carrito', compact('categorias', 'marca', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'carrito', 'cantidad', 'cantidadPro', 'cantidadPagar'));
     }
 
+    public function comprar($id) {
+        $usuario = Usuarios::find($id);
+        $cP = $usuario->compras;
+        $cF = $cP + 1;
+        $update=DB::table('users')
+              ->where('id', '=', $id)
+              ->update(['compras' => $cF]);
+
+        $query = DB::insert("INSERT INTO compras SELECT * from pro_car where id_usuario = $id");
+        $delete =DB::table('pro_car')
+              ->where('id_usuario', '=', $id)
+              ->delete();
+        return back()->withInput();  
+    }
+
+    public function compras($idU, $idC) {
+        $categorias= Categorias::all();
+        $marca= Marcas::all();
+        $marcas1 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->limit('6')
+           ->get();
+        $marcas2 =DB::table('marcas')
+           ->where('categoria', '=', 2)
+           ->orderBy('id', 'desc')
+           ->limit('5')
+           ->get();
+        $celulares1 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->limit('6')
+           ->get();
+        $celulares2 =DB::table('marcas')
+           ->where('categoria', '=', 1)
+           ->orderBy('id', 'desc')
+           ->limit('2')
+           ->get();
+        $electronica =DB::table('marcas')
+           ->where('categoria', '=', 4)
+           ->limit('4')
+           ->get();
+        $consola =DB::table('marcas')
+           ->where('categoria', '=', 3)
+           ->limit('4')
+           ->get();
+        $usuarios =Usuarios::find($idU);
+        $usuario = Auth::user()->id;
+        $cantidadPro=DB::table('pro_car')
+            ->where('id_usuario', '=', $usuario)
+            ->sum('cantidad');
+        $cantidadPagar=DB::table('pro_car')
+          ->where('id_usuario', '=', $usuario)
+          ->sum('totalapagar');
+        $compra=DB::table('productos AS p')
+            ->join('compras AS c', 'p.id', '=', 'c.id_pro')
+            ->where('c.id_usuario', '=', $idU)
+            ->where('c.compras', '=', $idC)
+            ->get();
+        $canti = $idC;
+        $cantidadT=DB::table('compras')
+            ->where('compras', '=', $idC)
+            ->sum('totalapagar');
+      return view('/compras', compact('categorias', 'marca', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'usuarios', 'cantidadPro', 'cantidadPagar', 'compra', 'canti', 'cantidadT'));
+    }
+
     public function agregarCarrito($id, Request $datos) {
         $nuevo = new Pro_Car;
         $producto = Productos::find($id);
@@ -657,6 +722,7 @@ class ProductosController extends Controller {
           $nuevo->cantidad=$datos->input('cantidad');
           $producto->existencia= $exis - $datos->input('cantidad');
           $nuevo->totalapagar=$total;
+          $nuevo->compras= Auth::user()->compras + 1;
           $nuevo->save();
           $producto->save();
           return back()->withInput();

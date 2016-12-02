@@ -6,18 +6,17 @@
         <div class="container">
             <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
                 <li><a href="{{url('/')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Inicio</a></li>
-                <li class="active">Carrito</li>
+                <li class="active">Compras</li>
             </ol>
         </div>
     </div>
     <br>
     <div class="cart-items">
 		<div class="container">
-			<h3 class="wow fadeInUp animated" data-wow-delay=".5s">Mi Carrito ({{$cantidad}}) <span id="monto"><em>Monto: ${{$cantidadPagar}}</em></span></h3>
+			<h3 class="wow fadeInUp animated" data-wow-delay=".5s">Compra#: {{$canti}} <span id="monto"><em>Total: ${{$cantidadT}}.00</em></span></h3>
 
-			@foreach($carrito as $c)
+			@foreach($compra as $c)
 			<div class="cart-header wow fadeInUp animated" data-wow-delay=".5s">
-				<a href="{{url('/eliminarCarri')}}/{{$c->id}}"><div class="alert-close"></div></a>
 				<div class="cart-sec simpleCart_shelfItem">
 					<div class="cart-item cyc">
 						<a href="{{url('/vistaRapida')}}/{{$c->id_pro}}/{{$c->categoria}}"><img src="{{asset("images/productos/$c->imagen")}}" class="img-responsive" alt=""></a>
@@ -29,7 +28,7 @@
 							<li><p>Envio GRATIS!</p></li>
 						</ul>
 						<div class="delivery">
-							<p>Monto a Pagar : ${{$c->totalapagar}}</p>
+							<p>Monto Pagado : ${{$c->totalapagar}}</p>
 							<span>Entrega de 1-6 dias</span>
 							<div class="clearfix"></div>
 						</div>	
@@ -38,12 +37,6 @@
 				</div>
 			</div>
 			@endforeach
-			@if($cantidad == 0)
-			@else
-				<h3 class="wow fadeInUp animated" data-wow-delay=".5s" style="text-align: center;">
-					<a href="{{url('/comprar')}}/{{Auth::user()->id}}" class="btn btn-info" style="font-size: 21px; font-weight: bold;">Finalizar Compra</a>
-				</h3>
-			@endif
 		</div>
 	</div>
 @endsection

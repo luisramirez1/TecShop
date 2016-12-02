@@ -104,6 +104,8 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('/actualizar/{id}', 'HomeController@actualizar');
   Route::post('/comentar/{idU}/{idP}', 'HomeController@comentario');
   Route::get('/carrito/{id}', 'ProductosController@carritoV');
+  Route::get('/comprar/{id}', 'ProductosController@comprar');
+  Route::get('/compras/{idU}/{idC}', 'ProductosController@compras');
   Route::post('/agregarCarrito/{id}', 'ProductosController@agregarCarrito');
   Route::get('/eliminarCarri/{id}', 'ProductosController@eliminarCarri');
 });
