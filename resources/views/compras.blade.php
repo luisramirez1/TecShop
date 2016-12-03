@@ -7,6 +7,7 @@
             <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
                 <li><a href="{{url('/')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Inicio</a></li>
                 <li class="active">Compras</li>
+                <li><a href="{{url('/generarPDFCompras')}}/{{Auth::user()->id}}/{{$canti}}" id="exportar" target="_blank"><span class="glyphicon glyphicon-download-alt" aria-hidden="true" id="exportar"></span >Generar PDF</a></li>
             </ol>
         </div>
     </div>

@@ -4,6 +4,7 @@ namespace App\Mail;
 
 use Auth;
 use App\User;
+use App\Usuarios;
 use DB;
 use App\Productos;
 use App\Compras;

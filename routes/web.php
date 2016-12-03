@@ -106,6 +106,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/carrito/{id}', 'ProductosController@carritoV');
   Route::get('/comprar/{id}', 'ProductosController@comprar');
   Route::get('/compras/{idU}/{idC}', 'ProductosController@compras');
+  Route::get('/generarPDFCompras/{idU}/{idC}', 'ProductosController@generarPDFCompras');
   Route::post('/agregarCarrito/{id}', 'ProductosController@agregarCarrito');
   Route::get('/eliminarCarri/{id}', 'ProductosController@eliminarCarri');
 });

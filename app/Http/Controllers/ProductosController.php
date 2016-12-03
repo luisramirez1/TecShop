@@ -711,6 +711,22 @@ class ProductosController extends Controller {
       return view('/compras', compact('categorias', 'marca', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'usuarios', 'cantidadPro', 'cantidadPagar', 'compra', 'canti', 'cantidadT'));
     }
 
+    public function generarPDFCompras($idU, $idC){
+        $compra=DB::table('productos AS p')
+            ->join('compras AS c', 'p.id', '=', 'c.id_pro')
+            ->where('c.id_usuario', '=', $idU)
+            ->where('c.compras', '=', $idC)
+            ->get();
+        $canti = $idC;
+        $cantidadT=DB::table('compras')
+            ->where('compras', '=', $idC)
+            ->sum('totalapagar');
+        $vista=view('generarPDFCompras', compact('compra','canti','cantidadT'));
+        $dompdf=\App::make('dompdf.wrapper');
+        $dompdf->loadHTML($vista);
+        return $dompdf->stream("TecShop_Compra.pdf");
+    }
+
     public function agregarCarrito($id, Request $datos) {
         $nuevo = new Pro_Car;
         $producto = Productos::find($id);

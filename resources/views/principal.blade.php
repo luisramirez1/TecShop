@@ -72,12 +72,16 @@
         </div>
         <div class="nav navbar-nav navbar-right social-icons wow fadeInRight animated" data-wow-delay=".5s">
           <ul>
-            <li><a href="#"> </a></li>
-            <li><a href="#" class="pin"> </a></li>
-            <li><a href="#" class="in"> </a></li>
-            <li><a href="#" class="be"> </a></li>
-            <li><a href="#" class="you"> </a></li>
-            <li><a href="#" class="vimeo"> </a></li>
+            <li><a href="http://www.facebook.com" target="_blank"> </a></li>
+            <li><a href="http://www.youtube.com" class="you" target="_blank"> </a></li>
+            <li style="margin-right: -30px; font-size: 0.9em; color: #353F49; line-height: 1.8em; margin-top: .8em; font-weight: 500; font-family: 'Raleway', sans-serif;">
+                <script>
+                  var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+                  var diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+                  var f=new Date();
+                  document.write(diasSemana[f.getDay()] + ", " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
+                </script>
+            </li>
           </ul>
         </div>
         <div class="clearfix"> </div>
@@ -107,11 +111,12 @@
           </ul>
         </div>
         <div class="nav navbar-nav logo wow zoomIn animated" data-wow-delay=".7s">
-          <h1><a href="{{url('/')}}">Tec <b>Shop</b><span class="tag">Tecnologia a la Moda</span> </a></h1>
+          <h1><a href="{{url('/')}}">Tec<b>Shop</b><span class="tag">Tecnologia a la Moda</span> </a></h1>
         </div>
         <div class="nav navbar-nav navbar-right header-two-right">
           <div class="header-right my-account">
-            <a href="#" data-toggle="modal" data-target="#myModalCon"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>CONTÁCTANOS</a>       
+            <a href="#" data-toggle="modal" data-target="#myModalCon"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>CONTÁCTANOS</a>
+
           </div>
           
           @if (Auth::guest())
