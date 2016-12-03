@@ -51,7 +51,7 @@ h1 {
   font-weight: normal;
   text-align: center;
   margin: 0 0 20px 0;
-  background-image: url('dimension.png');
+  background-image: url("{{asset("dimension.png")}}");
 }
 
 #project {
