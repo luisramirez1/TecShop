@@ -53,6 +53,17 @@ h1 {
   margin: 0 0 20px 0;
   background: url('../dimension.png');
 }
+h1 img {
+  border-top: 1px solid  #5D6975;
+  border-bottom: 1px solid  #5D6975;
+  color: #5D6975;
+  font-size: 2.4em;
+  line-height: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  margin: 0 0 20px 0;
+  background: url('../dimension.png');
+}
 
 #project {
   float: left;
