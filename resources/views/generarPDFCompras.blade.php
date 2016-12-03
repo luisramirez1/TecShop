@@ -155,7 +155,7 @@ footer {
       <div id="logo">
         <img src="{{asset("images/TS.PNG")}}">
       </div>
-      <h1>Compra#: {{$canti}}</h1>
+      <h1><img src="{{asset("dimension.png")}}" alt="">Compra#: {{$canti}}</h1>
       <div id="company" class="clearfix">
         <div>TecShop</div>
         <div>Culiacan, Sinaloa, Mexico</div>
