@@ -23,7 +23,7 @@
             <div class="login-body">
                 <form class="wow fadeInUp animated" data-wow-delay=".7s" class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                     {{ csrf_field() }}
-                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <div>
                                 <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus placeholder="Nombre">
 
@@ -42,6 +42,18 @@
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('domicilio') ? ' has-error' : '' }}">
+                            <div>
+                                <input id="domicilio" type="text" name="domicilio" value="{{ old('domicilio') }}" required autofocus placeholder="Domicilio">
+
+                                @if ($errors->has('domicilio'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('domicilio') }}</strong>
                                     </span>
                                 @endif
                             </div>

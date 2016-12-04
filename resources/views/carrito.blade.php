@@ -11,6 +11,10 @@
         </div>
     </div>
     <br>
+    <div class="alert alert-success alert-dismissible" role="alert" id="alertaCompra" style="display:none; width: 50%; margin: 0 auto;">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Genial!</strong> Estamos procesando tu compra. Gracias por tu preferencia.
+    </div>
     <div class="cart-items">
 		<div class="container">
 			<h3 class="wow fadeInUp animated" data-wow-delay=".5s">Mi Carrito ({{$cantidad}}) <span id="monto"><em>Monto: ${{$cantidadPagar}}</em></span></h3>
@@ -41,9 +45,17 @@
 			@if($cantidad == 0)
 			@else
 				<h3 class="wow fadeInUp animated" data-wow-delay=".5s" style="text-align: center;">
-					<a href="{{url('/comprar')}}/{{Auth::user()->id}}" class="btn btn-info" style="font-size: 21px; font-weight: bold;">Finalizar Compra</a>
+					<a href="{{url('/comprar')}}/{{Auth::user()->id}}" class="btn btn-info" style="font-size: 21px; font-weight: bold;" onclick="alerta()">Finalizar Compra</a>
 				</h3>
 			@endif
 		</div>
 	</div>
+	<script>
+        function alerta() {
+        $("#alertaCompra").fadeTo(4000, 1000).slideUp(1000, function(){
+        $("#alertaCompra").slideUp(1000);        
+        });
+    }
+    </script>
+                      
 @endsection

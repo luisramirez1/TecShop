@@ -823,6 +823,14 @@ class ProductosController extends Controller {
             ->join('pro_car AS pc', 'p.id', '=', 'pc.id_pro')
             ->where('pc.id_usuario', '=', $id)
             ->get();
-      return view('/vistaRapidaU', compact('categorias', 'marca', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'usuarios', 'cantidadPro', 'cantidadPagar', 'usuarioC', 'usuarioCom'));
+        $compra=DB::table('productos AS p')
+            ->join('compras AS c', 'p.id', '=', 'c.id_pro')
+            ->where('c.id_usuario', '=', $id)
+            ->get();
+        $compraC=DB::table('compras')
+            ->where('id_usuario', '=', $id)
+            ->count();
+
+      return view('/vistaRapidaU', compact('categorias', 'marca', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'usuarios', 'cantidadPro', 'cantidadPagar', 'usuarioC', 'usuarioCom', 'compra', 'compraC'));
     }
 }

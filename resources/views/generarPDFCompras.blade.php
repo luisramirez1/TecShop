@@ -165,8 +165,9 @@ footer {
       <div id="project">
       
         <div><span>CLIENTE</span>{{Auth::user()->name}}</div>
-        <div><span>DOMICILIO</span> </div>
+        <div><span>DOMICILIO</span>{{Auth::user()->domicilio}}</div>
         <div><span>EMAIL</span> {{Auth::user()->email}}<a href="mailto:{{Auth::user()->email}}"></a></div>
+        <div><span>FACEBOOK</span> www.facebook.com/{{Auth::user()->facebook}}<a href="http://www.facebook.com/{{Auth::user()->email}}" target="_blank"></a></div>
      
       </div>
     </header> <br> <br> <br> <br>

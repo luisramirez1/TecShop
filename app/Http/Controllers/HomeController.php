@@ -85,6 +85,7 @@ class HomeController extends Controller
         $file->move('images/usuarios', $nombre);
         $nuevo->name=$datos->input('name');
         $nuevo->email=$datos->input('email');
+        $nuevo->facebook=$datos->input('facebook');
         $nuevo->tel=$datos->input('tel');
         $contraseña = bcrypt($datos['password']);
         //bcrypt('sanz123')

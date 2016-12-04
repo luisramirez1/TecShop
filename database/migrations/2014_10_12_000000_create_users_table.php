@@ -17,6 +17,8 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('domicilio')->nullable();
+            $table->string('facebook')->nullable();
             $table->string('password');
             $table->integer('tipoUsuario');
             $table->bigInteger('tel');
@@ -35,7 +37,9 @@ class CreateUsersTable extends Migration
                 'password' => bcrypt('luis123'),
                 'tipoUsuario' => '1',
                 'verified' => '1',
-                'tel' => '6672005057'
+                'tel' => '6672005057',
+                'domicilio' => 'Blvd. de los amelos #2533 Col. Servidor P.',
+                'facebook' => 'luisramirez.lfrs'
             ]
         );
 
@@ -45,7 +49,9 @@ class CreateUsersTable extends Migration
                 'password' => bcrypt('sanz123'),
                 'tipoUsuario' => '1',
                 'verified' => '1',
-                'tel' => '6674734974'
+                'tel' => '6674734974',
+                'domicilio' => 'Blvd. de los amelos #2533 Col. Servidor P.',
+                'facebook' => 'mariosanzl'
             ]
         );
     }

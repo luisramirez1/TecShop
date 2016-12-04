@@ -26,8 +26,20 @@
                     <input name="email" type="email" class="form-control" placeholder="Correo" required value="{{$usuarios->email}}">
                 </article>
                 <article class="form-group">
+                    <label for="Direccion">Direccion:</label>
+                    <input name="direccion" type="text" class="form-control" placeholder="Direccion" required value="{{$usuarios->domicilio}}">
+                </article>
+                <article class="form-group">
                     <label for="Tel">Celular:</label>
                     <input name="tel" type="tel" class="form-control" placeholder="Celular" required onkeypress="return justNumbers(event);" value="{{$usuarios->tel}}">
+                </article>
+                <article class="form-group">
+                    <label for="Direccion">Direccion:</label>
+                    <input name="direccion" type="text" class="form-control" placeholder="Direccion" required value="{{$usuarios->domicilio}}">
+                </article>
+                <article class="form-group">
+                    <label for="Facebook">Facebook:</label>
+                    <input name="facebook" type="text" class="form-control" placeholder="Facebook" required value="{{$usuarios->facebook}}">
                 </article>
                 <article class="form-group">
                     <label for="Password">Contraseña:</label>

@@ -70,9 +70,14 @@
                                         </form></p>
           @endif
         </div>
+
         <div class="nav navbar-nav navbar-right social-icons wow fadeInRight animated" data-wow-delay=".5s">
           <ul>
-            <li><a href="http://www.facebook.com" target="_blank"> </a></li>
+            @if (Auth::guest())
+              <li><a href="http://www.facebook.com" target="_blank"> </a></li>
+            @else
+              <li><a href="http://www.facebook.com/{{Auth::user()->facebook}}" target="_blank"> </a></li>
+            @endif
             <li><a href="http://www.youtube.com" class="you" target="_blank"> </a></li>
             <li style="margin-right: -30px; font-size: 0.9em; color: #353F49; line-height: 1.8em; margin-top: .8em; font-weight: 500; font-family: 'Raleway', sans-serif;">
                 <script>
@@ -87,6 +92,10 @@
         <div class="clearfix"> </div>
       </div>
     </div>
+    <div class="alert alert-success alert-dismissible" role="alert" id="alertaCompra2" style="display: none; width: 50%; margin: 0 auto;">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>Genial!</strong> Estamos procesando tu compra. Gracias por tu preferencia.
+        </div>
     <div class="header-two navbar navbar-default"><!--header-two-->
       <div class="container">
         <div class="nav navbar-nav header-two-left">
@@ -129,7 +138,7 @@
             <div class="cart-box">
               @if($cantidadPro == 0)
               @else
-                <p><a href="{{url('/comprar')}}/{{Auth::user()->id}}" class="simpleCart_empty">Finalizar Compra</a></p>
+                <p><a href="{{url('/comprar')}}/{{Auth::user()->id}}" class="simpleCart_empty" onclick="alertaC()">Finalizar Compra</a></p>
               @endif
               <div class="clearfix"> </div>
             </div>
@@ -715,6 +724,8 @@
                                 @endif<br>
                       <b>Correo:</b> {{Auth::user()->email}} <br>
                       <b>Celular:</b> {{Auth::user()->tel}}<br>
+                      <b>Domicilio:</b> {{Auth::user()->domicilio}}<br>
+                      <b>Usuario FB:</b> {{Auth::user()->facebook}}<br>
                     </ul>
                     <a href="{{url('/editar')}}/{{Auth::user()->id}}" class="btn btn-info btn-sm" id="editar">Editar</a>
                   </div>
@@ -751,6 +762,13 @@
       $().UItoTop({ easingType: 'easeOutQuart' });
       
     });
+  </script>
+  <script>
+        function alertaC() {
+        $("#alertaCompra2").fadeTo(4000, 1000).slideUp(1000, function(){
+        $("#alertaCompra2").slideUp(1000);        
+        });
+    }
   </script>
   <!--//smooth-scrolling-of-move-up-->
   <!--Bootstrap core JavaScript

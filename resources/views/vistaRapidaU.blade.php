@@ -31,53 +31,65 @@
                             <span>Celular :  {{$usuarios->tel}}</span>
                             <div class="clearfix"></div>
                         </div><br>
-                        <div>
+                        <div>    
                             <span id="pM">Productos Comprados:</span>
-                            @foreach($usuarioCom as $uC)
-                                <p>{{$uC->name}} ({{$uC->cantidad}}):  ${{$uC->totalapagar}}</p>                               
-                            @endforeach
+                            @if($compraC < 2)
+                            <div style="overflow-y: auto; width: 280px; height:40px;">
+                                @foreach($compra as $c)
+                                    <p>{{$c->name}} ({{$c->cantidad}}):  ${{$c->totalapagar}}</p>                    
+                                @endforeach
+                            </div>
+                            @else
+                            <div style="overflow-y: auto; width: 280px; height:100px;">
+                                @foreach($compra as $c)
+                                    <p>{{$c->name}} ({{$c->cantidad}}):  ${{$c->totalapagar}}</p>                    
+                                @endforeach
+                            </div>
+                            @endif
                         </div><br>
                         <div>
                             <span id="pM">Productos Calificados:</span>
-                            @foreach($usuarioC as $uC)
-                                <p>{{$uC->name}} : 
-                                    @if($uC->calificacion == 5)
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
-                                    @endif
-                                    @if($uC->calificacion == 4)
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star-empty"></span>
-                                    @endif
-                                    @if($uC->calificacion == 3)
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star-empty"></span>
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star-empty"></span>
-                                    @endif
-                                    @if($uC->calificacion == 2)
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star-empty"></span>
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star-empty"></span>
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star-empty"></span>
-                                    @endif
-                                    @if($uC->calificacion == 1)
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star-empty"></span>
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star-empty"></span>
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star-empty"></span>
-                                    <span style="color:#F07818" class="glyphicon glyphicon-star-empty"></span>
-                                    @endif
-                                </p>                               
-                            @endforeach
+                            <div style="overflow-y: auto; width: 280px; height:100px;">
+                                @foreach($usuarioC as $uC)
+                                    <p>{{$uC->name}} : 
+                                        @if($uC->calificacion == 5)
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
+                                        @endif
+                                        @if($uC->calificacion == 4)
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star-empty"></span>
+                                        @endif
+                                        @if($uC->calificacion == 3)
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star-empty"></span>
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star-empty"></span>
+                                        @endif
+                                        @if($uC->calificacion == 2)
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star-empty"></span>
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star-empty"></span>
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star-empty"></span>
+                                        @endif
+                                        @if($uC->calificacion == 1)
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star"></span>
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star-empty"></span>
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star-empty"></span>
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star-empty"></span>
+                                        <span style="color:#F07818" class="glyphicon glyphicon-star-empty"></span>
+                                        @endif
+                                    </p>                               
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                     <div class="clearfix"></div>
