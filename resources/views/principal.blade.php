@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <link rel="icon" type="image/png" sizes="32x32" href="{{asset("img/favicon.png")}}" />
+  <link rel="icon" type="image/ico" sizes="32x32" href="{{asset("images/favicon.ico")}}" />
 	<meta charset="UTF-8">
 	<title>TecShop</title>
 	<script src="{{asset("js/jquery.js")}}"></script>
