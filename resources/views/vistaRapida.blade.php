@@ -69,11 +69,6 @@ $(window).load(function() {
                     </div>
                 </div>
                 <div class="col-md-6 single-top-left simpleCart_shelfItem wow fadeInRight animated" data-wow-delay=".5s">
-                   <!--  <div class="alert alert-danger alert-dismissible" id="alertaC" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <strong>Espera!</strong> Ya calificaste este producto.
-                    </div> -->
-                    <!-- Alerta cuando calificaste el producto -->
                     <div class="alert alert-success alert-dismissible" id="alertaSi" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <strong>Espera!</strong> Estamos procesando tu calificacion. Gracias por calificar: {{$productoVR->name}}.
@@ -417,8 +412,8 @@ $(window).load(function() {
                                     <li><a href="{{url('/vistaRapida')}}/{{$r->id}}/{{$r->categoria}}">Vista Rapida </a></li>
                                     @if (Auth::guest())
                                     @else
-                                        <li><input type="number" class="item_quantity" min="1" value="1"></li>
-                                        <li><a class="item_add" href=""> Agregar al carro</a></li>
+                                        <li><a>Existencia: {{$r->existencia}} </a></li>
+                                        <li><a href="{{url('/carrito')}}/{{Auth::user()->id}}" id="carritoB" class="add-cart item_add">Ir al Carrito</a></li>
                                     @endif
                                 </ul>
                             </div>

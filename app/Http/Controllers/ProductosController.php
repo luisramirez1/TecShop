@@ -706,6 +706,7 @@ class ProductosController extends Controller {
             ->get();
         $canti = $idC;
         $cantidadT=DB::table('compras')
+            ->where('id_usuario', '=', $usuario)
             ->where('compras', '=', $idC)
             ->sum('totalapagar');
       return view('/compras', compact('categorias', 'marca', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'usuarios', 'cantidadPro', 'cantidadPagar', 'compra', 'canti', 'cantidadT'));
@@ -719,6 +720,7 @@ class ProductosController extends Controller {
             ->get();
         $canti = $idC;
         $cantidadT=DB::table('compras')
+            ->where('id_usuario', '=', $idU)
             ->where('compras', '=', $idC)
             ->sum('totalapagar');
         $vista=view('generarPDFCompras', compact('compra','canti','cantidadT'));

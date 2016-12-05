@@ -154,11 +154,8 @@ $style = [
                                         <p style="{{ $style['paragraph'] }}">
                                             {{$user->email}}<br>
                                             {{$user->tel}}<br>
-                                            @if ($user->verifiedLogin == 1)
-                                            Conectado
-                                            @else
-                                            Desconectado
-                                            @endif
+                                            {{$user->domicilio}}<br>
+                                            <a href="http://www.facebook.com/{{$user->facebook}}">http://www.facebook.com/{{$user->facebook}}</a>
                                         </p>
 
     									<strong>Ir al sistema</strong> <br>
