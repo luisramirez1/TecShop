@@ -7,6 +7,7 @@
             <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
                 <li><a href="{{url('/')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Inicio</a></li>
                 <li class="active">Categorias</li>
+                <li><a href="javascript:history.back(-1);" style="color:#5bc0de;"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true" style="color:#5bc0de;"></span>Pagina Anterior</a></li>
             </ol>
         </div>
     </div>

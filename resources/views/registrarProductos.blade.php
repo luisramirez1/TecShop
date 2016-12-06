@@ -94,5 +94,5 @@
       </div>
     </div>
   </div>
-
+<script src="{{asset("js/main.js")}}"></script>
 @endsection

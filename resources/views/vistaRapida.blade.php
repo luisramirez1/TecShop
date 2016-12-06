@@ -47,7 +47,8 @@ $(window).load(function() {
         <div class="container">
             <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
                 <li><a href="{{url('/')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Inicio</a></li>
-                <li class="active">Vista Rapida</li>
+                <li class="active">Vista Rapida</li> 
+                <li><a href="javascript:history.back(-1);"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>Pagina Anterior</a></li>
             </ol>
         </div>
     </div>

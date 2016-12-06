@@ -4,6 +4,7 @@
   <link rel="icon" type="image/ico" sizes="32x32" href="{{asset("images/favicon.ico")}}" />
 	<meta charset="UTF-8">
 	<title>TecShop</title>
+
 	<script src="{{asset("js/jquery.js")}}"></script>
 
   <!--........................................................................................................-->
@@ -268,7 +269,7 @@
         </nav>
         <div id="cd-search" class="cd-search">
           <form>
-            <input type="search" placeholder="Search...">
+            <input type="search" placeholder="Buscar...">
           </form>
         </div>
       </div>
@@ -406,7 +407,7 @@
         </nav>
         <div id="cd-search" class="cd-search">
           <form>
-            <input type="search" placeholder="Search...">
+            <input type="search" placeholder="Buscar...">
           </form>
         </div>
       </div>
@@ -523,7 +524,7 @@
         </nav>
         <div id="cd-search" class="cd-search">
           <form>
-            <input type="search" placeholder="Search...">
+            <input type="search" placeholder="Buscar...">
           </form>
         </div>
       </div>
@@ -746,8 +747,7 @@
 
   <!--//footer-->   
   <!--search jQuery-->
-  <script src="js/main.js"></script>
-  <!--//search jQuery-->
+
   <!--smooth-scrolling-of-move-up-->
   <script type="text/javascript">
     $(document).ready(function() {
