@@ -38,13 +38,57 @@
                         </div>
                         <div class="new-bottom">
                             <h5><a class="name" href="{{url('/vistaRapida')}}/{{$p->id}}/{{$p->categoria}}">{{$p->name}}</a></h5>
-                            <div class="rating">
-                                <span class="on">☆</span>
-                                <span class="on">☆</span>
-                                <span class="on">☆</span>
-                                <span class="on">☆</span>
-                                <span class="on">☆</span>
-                            </div>
+                            
+                                @foreach($cali as $c)
+                                    @if($c->id == $p->id)
+                                        @if($c->calificacion == 5)         
+                                            <div class="rating">
+                                                <span class="on">☆</span>
+                                                <span class="on">☆</span>
+                                                <span class="on">☆</span>
+                                                <span class="on">☆</span>
+                                                <span class="on">☆</span>
+                                            </div>
+                                        @endif
+                                        @if($c->calificacion == 4)         
+                                            <div class="rating">
+                                                <span class="on">☆</span>
+                                                <span class="on">☆</span>
+                                                <span class="on">☆</span>
+                                                <span class="on">☆</span>
+                                                <span class="off">☆</span>
+                                            </div>
+                                        @endif
+                                        @if($c->calificacion == 3)         
+                                            <div class="rating">
+                                                <span class="on">☆</span>
+                                                <span class="on">☆</span>
+                                                <span class="on">☆</span>
+                                                <span class="off">☆</span>
+                                                <span class="off">☆</span>
+                                            </div>
+                                        @endif
+                                        @if($c->calificacion == 2)         
+                                            <div class="rating">
+                                                <span class="on">☆</span>
+                                                <span class="on">☆</span>
+                                                <span class="off">☆</span>
+                                                <span class="off">☆</span>
+                                                <span class="off">☆</span>
+                                            </div>
+                                        @endif
+                                        @if($c->calificacion == 1)         
+                                            <div class="rating">
+                                                <span class="on">☆</span>
+                                                <span class="off">☆</span>
+                                                <span class="off">☆</span>
+                                                <span class="off">☆</span>
+                                                <span class="off">☆</span>
+                                            </div>
+                                        @endif
+                                    @endif
+                                @endforeach
+                          
                             <div class="ofr">
                                 <p class="pric1"><del>${{$p->precio + 500}}</del></p>
                                 <p><span class="item_price">${{$p->precio}}</span></p>

@@ -169,9 +169,7 @@
 						<h5><a class="name" href="{{url('/vistaRapida')}}/{{$p->id}}/{{$p->categoria}}">{{$p->name}}</a></h5>
 						<p><span class="item_price">${{$p->precio}}</span></p>
 						<ul>
-							<li><a href="#"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></a></li>
-							<li><a class="item_add" href="#"><span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
-							<li><a href="#"><span class="glyphicon glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a></li>
+							<li><a class="item_add" href="{{url('/carrito')}}/{{Auth::user()->id}}"><span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
 						</ul>
 					</div>
 

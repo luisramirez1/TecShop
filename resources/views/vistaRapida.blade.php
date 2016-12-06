@@ -105,6 +105,7 @@ $(window).load(function() {
                     <form id="myForm" action="{{url('/calificacion')}}/{{$productoVR->id}}" method="POST">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="single-rating">
+                    @if(!$existe)
                         <span class="starRating">
                             <input id="rating5" type="radio" name="rating" value="5" onclick="submitt()">
                             <label for="rating5">5</label>
@@ -117,6 +118,82 @@ $(window).load(function() {
                             <input id="rating1" type="radio" name="rating" value="1" onclick="submitt()">
                             <label for="rating1">1</label>
                         </span>
+                    @else
+                        @foreach($cali as $c)
+                            @if($c->calificacion == 5)
+                                <span class="starRating">
+                                    <input id="rating5" type="radio" name="rating" value="5" onclick="submitt()" checked="">
+                                    <label for="rating5">5</label>
+                                    <input id="rating4" type="radio" name="rating" value="4" onclick="submitt()">
+                                    <label for="rating4">4</label>
+                                    <input id="rating3" type="radio" name="rating" value="3" onclick="submitt()">
+                                    <label for="rating3">3</label>
+                                    <input id="rating2" type="radio" name="rating" value="2" onclick="submitt()">
+                                    <label for="rating2">2</label>
+                                    <input id="rating1" type="radio" name="rating" value="1" onclick="submitt()">
+                                    <label for="rating1">1</label>
+                                </span>
+                            @endif
+                            @if($c->calificacion == 4)
+                                <span class="starRating">
+                                    <input id="rating5" type="radio" name="rating" value="5" onclick="submitt()">
+                                    <label for="rating5">5</label>
+                                    <input id="rating4" type="radio" name="rating" value="4" onclick="submitt()" checked="">
+                                    <label for="rating4">4</label>
+                                    <input id="rating3" type="radio" name="rating" value="3" onclick="submitt()">
+                                    <label for="rating3">3</label>
+                                    <input id="rating2" type="radio" name="rating" value="2" onclick="submitt()">
+                                    <label for="rating2">2</label>
+                                    <input id="rating1" type="radio" name="rating" value="1" onclick="submitt()">
+                                    <label for="rating1">1</label>
+                                </span>
+                            @endif
+                            @if($c->calificacion == 3)
+                                <span class="starRating">
+                                    <input id="rating5" type="radio" name="rating" value="5" onclick="submitt()">
+                                    <label for="rating5">5</label>
+                                    <input id="rating4" type="radio" name="rating" value="4" onclick="submitt()">
+                                    <label for="rating4">4</label>
+                                    <input id="rating3" type="radio" name="rating" value="3" onclick="submitt()" checked="">
+                                    <label for="rating3">3</label>
+                                    <input id="rating2" type="radio" name="rating" value="2" onclick="submitt()">
+                                    <label for="rating2">2</label>
+                                    <input id="rating1" type="radio" name="rating" value="1" onclick="submitt()">
+                                    <label for="rating1">1</label>
+                                </span>
+                            @endif
+                            @if($c->calificacion == 2)
+                                <span class="starRating">
+                                    <input id="rating5" type="radio" name="rating" value="5" onclick="submitt()">
+                                    <label for="rating5">5</label>
+                                    <input id="rating4" type="radio" name="rating" value="4" onclick="submitt()">
+                                    <label for="rating4">4</label>
+                                    <input id="rating3" type="radio" name="rating" value="3" onclick="submitt()">
+                                    <label for="rating3">3</label>
+                                    <input id="rating2" type="radio" name="rating" value="2" onclick="submitt()" checked="">
+                                    <label for="rating2">2</label>
+                                    <input id="rating1" type="radio" name="rating" value="1" onclick="submitt()">
+                                    <label for="rating1">1</label>
+                                </span>
+                            @endif
+                            @if($c->calificacion == 1)
+                                <span class="starRating">
+                                    <input id="rating5" type="radio" name="rating" value="5" onclick="submitt()">
+                                    <label for="rating5">5</label>
+                                    <input id="rating4" type="radio" name="rating" value="4" onclick="submitt()">
+                                    <label for="rating4">4</label>
+                                    <input id="rating3" type="radio" name="rating" value="3" onclick="submitt()">
+                                    <label for="rating3">3</label>
+                                    <input id="rating2" type="radio" name="rating" value="2" onclick="submitt()">
+                                    <label for="rating2">2</label>
+                                    <input id="rating1" type="radio" name="rating" value="1" onclick="submitt()" checked="">
+                                    <label for="rating1">1</label>
+                                </span>
+                            @endif
+                        @endforeach
+                    @endif
+                            
+                        
                         @if (Auth::guest())
                         @else
                             <a href="#" data-toggle="modal" data-target="#myModalC">Agregar Comentario</a>
@@ -421,13 +498,57 @@ $(window).load(function() {
                         </div>
                         <div class="new-bottom">
                             <h5><a class="name" href="{{url('/vistaRapida')}}/{{$r->id}}/{{$r->categoria}}">{{$r->name}}</a></h5>
-                            <div class="rating">
-                                <span class="on">☆</span>
-                                <span class="on">☆</span>
-                                <span class="on">☆</span>
-                                <span class="on">☆</span>
-                                <span>☆</span>
-                            </div>  
+                            
+                            @foreach($cali2 as $c)
+                                    @if($c->id == $r->id)
+                                        @if($c->calificacion == 5)         
+                                            <div class="rating">
+                                                <span class="on">☆</span>
+                                                <span class="on">☆</span>
+                                                <span class="on">☆</span>
+                                                <span class="on">☆</span>
+                                                <span class="on">☆</span>
+                                            </div>
+                                        @endif
+                                        @if($c->calificacion == 4)         
+                                            <div class="rating">
+                                                <span class="on">☆</span>
+                                                <span class="on">☆</span>
+                                                <span class="on">☆</span>
+                                                <span class="on">☆</span>
+                                                <span class="off">☆</span>
+                                            </div>
+                                        @endif
+                                        @if($c->calificacion == 3)         
+                                            <div class="rating">
+                                                <span class="on">☆</span>
+                                                <span class="on">☆</span>
+                                                <span class="on">☆</span>
+                                                <span class="off">☆</span>
+                                                <span class="off">☆</span>
+                                            </div>
+                                        @endif
+                                        @if($c->calificacion == 2)         
+                                            <div class="rating">
+                                                <span class="on">☆</span>
+                                                <span class="on">☆</span>
+                                                <span class="off">☆</span>
+                                                <span class="off">☆</span>
+                                                <span class="off">☆</span>
+                                            </div>
+                                        @endif
+                                        @if($c->calificacion == 1)         
+                                            <div class="rating">
+                                                <span class="on">☆</span>
+                                                <span class="off">☆</span>
+                                                <span class="off">☆</span>
+                                                <span class="off">☆</span>
+                                                <span class="off">☆</span>
+                                            </div>
+                                        @endif
+                                    @endif
+                                @endforeach
+                            
                             <div class="ofr">
                                 <p class="pric1"><del>${{$r->precio + 500}}</del></p>
                                 <p><span class="item_price">${{$r->precio}}</span></p>
