@@ -268,13 +268,14 @@ class ProductosController extends Controller {
           $cantidadPagar=DB::table('pro_car')
           ->where('id_usuario', '=', $usuario)
           ->sum('totalapagar');
-        }
-        $cali=DB::table('pro_cal AS pc')
+          $cali=DB::table('pro_cal AS pc')
             ->join('productos AS p', 'pc.id_pro', '=', 'p.id')
             ->where('p.categoria', '=', $id)
             ->where('pc.id', '=', $usuario)
             ->select('pc.calificacion', 'p.id')
             ->get();    
+        }
+        
         return view('/categorias', compact('categorias', 'productos', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'interesar', 'cantidadPro', 'cantidadPagar', 'cali'));
     }
 
@@ -324,13 +325,13 @@ class ProductosController extends Controller {
           $cantidadPagar=DB::table('pro_car')
           ->where('id_usuario', '=', $usuario)
           ->sum('totalapagar');
-        }
-        $cali=DB::table('pro_cal AS pc')
+          $cali=DB::table('pro_cal AS pc')
             ->join('productos AS p', 'pc.id_pro', '=', 'p.id')
             ->where('p.marca', '=', $id)
             ->where('pc.id', '=', $usuario)
             ->select('pc.calificacion', 'p.id')
             ->get();
+        }
         return view('/marcas', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'interesar', 'cantidadPro', 'cantidadPagar', 'cali'));
     }
 
@@ -397,19 +398,19 @@ class ProductosController extends Controller {
           $cantidadPagar=DB::table('pro_car')
           ->where('id_usuario', '=', $usuario)
           ->sum('totalapagar');
-        }
-        $cali=DB::table('pro_cal')
+          $cali=DB::table('pro_cal')
             ->where('id', '=', $usuario)
             ->where('id_pro', '=', $id)
             ->limit('1')
             ->get();
-        $cali2=DB::table('pro_cal AS pc')
+          $cali2=DB::table('pro_cal AS pc')
             ->join('productos AS p', 'pc.id_pro', '=', 'p.id')
             ->where('p.categoria', '=', $idC)
             ->where('pc.id', '=', $usuario)
             ->select('pc.calificacion', 'p.id')
             ->get();
-        $existe=Pro_Cal::where('id_pro', '=', $id)->where('id', '=',$usuario)->exists();    
+        $existe=Pro_Cal::where('id_pro', '=', $id)->where('id', '=',$usuario)->exists(); 
+        }   
         return view('/vistaRapida', compact('categorias', 'productoss', 'marcas', 'marcas1', 'marcas2', 'celulares1', 'celulares2', 'electronica', 'consola', 'productoVR', 'comentario', 'comentarioV', 'usuarioC', 'relacionados', 'cantidadPro', 'cantidadPagar', 'cali', 'existe', 'cali2'));
     }
 

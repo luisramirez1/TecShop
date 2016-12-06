@@ -499,56 +499,58 @@ $(window).load(function() {
                         <div class="new-bottom">
                             <h5><a class="name" href="{{url('/vistaRapida')}}/{{$r->id}}/{{$r->categoria}}">{{$r->name}}</a></h5>
                             
-                            @foreach($cali2 as $c)
-                                    @if($c->id == $r->id)
-                                        @if($c->calificacion == 5)         
-                                            <div class="rating">
-                                                <span class="on">☆</span>
-                                                <span class="on">☆</span>
-                                                <span class="on">☆</span>
-                                                <span class="on">☆</span>
-                                                <span class="on">☆</span>
-                                            </div>
+                            @if(Auth::guest())
+                            @else
+                                @foreach($cali2 as $c)
+                                        @if($c->id == $r->id)
+                                            @if($c->calificacion == 5)         
+                                                <div class="rating">
+                                                    <span class="on">☆</span>
+                                                    <span class="on">☆</span>
+                                                    <span class="on">☆</span>
+                                                    <span class="on">☆</span>
+                                                    <span class="on">☆</span>
+                                                </div>
+                                            @endif
+                                            @if($c->calificacion == 4)         
+                                                <div class="rating">
+                                                    <span class="on">☆</span>
+                                                    <span class="on">☆</span>
+                                                    <span class="on">☆</span>
+                                                    <span class="on">☆</span>
+                                                    <span class="off">☆</span>
+                                                </div>
+                                            @endif
+                                            @if($c->calificacion == 3)         
+                                                <div class="rating">
+                                                    <span class="on">☆</span>
+                                                    <span class="on">☆</span>
+                                                    <span class="on">☆</span>
+                                                    <span class="off">☆</span>
+                                                    <span class="off">☆</span>
+                                                </div>
+                                            @endif
+                                            @if($c->calificacion == 2)         
+                                                <div class="rating">
+                                                    <span class="on">☆</span>
+                                                    <span class="on">☆</span>
+                                                    <span class="off">☆</span>
+                                                    <span class="off">☆</span>
+                                                    <span class="off">☆</span>
+                                                </div>
+                                            @endif
+                                            @if($c->calificacion == 1)         
+                                                <div class="rating">
+                                                    <span class="on">☆</span>
+                                                    <span class="off">☆</span>
+                                                    <span class="off">☆</span>
+                                                    <span class="off">☆</span>
+                                                    <span class="off">☆</span>
+                                                </div>
+                                            @endif
                                         @endif
-                                        @if($c->calificacion == 4)         
-                                            <div class="rating">
-                                                <span class="on">☆</span>
-                                                <span class="on">☆</span>
-                                                <span class="on">☆</span>
-                                                <span class="on">☆</span>
-                                                <span class="off">☆</span>
-                                            </div>
-                                        @endif
-                                        @if($c->calificacion == 3)         
-                                            <div class="rating">
-                                                <span class="on">☆</span>
-                                                <span class="on">☆</span>
-                                                <span class="on">☆</span>
-                                                <span class="off">☆</span>
-                                                <span class="off">☆</span>
-                                            </div>
-                                        @endif
-                                        @if($c->calificacion == 2)         
-                                            <div class="rating">
-                                                <span class="on">☆</span>
-                                                <span class="on">☆</span>
-                                                <span class="off">☆</span>
-                                                <span class="off">☆</span>
-                                                <span class="off">☆</span>
-                                            </div>
-                                        @endif
-                                        @if($c->calificacion == 1)         
-                                            <div class="rating">
-                                                <span class="on">☆</span>
-                                                <span class="off">☆</span>
-                                                <span class="off">☆</span>
-                                                <span class="off">☆</span>
-                                                <span class="off">☆</span>
-                                            </div>
-                                        @endif
-                                    @endif
-                                @endforeach
-                            
+                                    @endforeach
+                            @endif
                             <div class="ofr">
                                 <p class="pric1"><del>${{$r->precio + 500}}</del></p>
                                 <p><span class="item_price">${{$r->precio}}</span></p>

@@ -153,12 +153,16 @@
 		</div>
 	</div>
 	<!--//trend-->
-	
+	 
 	<div class="gallery">
 		<div class="container">
 			<div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
 				<h3 class="title">Productos<span> Populares</span></h3>
 			</div>
+			<div class="alert alert-danger alert-dismissible" id="alertaVC" role="alert" style="display: none; width: 50%; margin: 0 auto;">
+        		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        		<strong>Espera!</strong> Necesitas <a href="{{url('login')}}">INICIAR SESION</a> para ver el carrito.
+    		</div><br>
 			<div class="gallery-info">
 				@foreach($populares as $p)
 
@@ -169,18 +173,29 @@
 						<h5><a class="name" href="{{url('/vistaRapida')}}/{{$p->id}}/{{$p->categoria}}">{{$p->name}}</a></h5>
 						<p><span class="item_price">${{$p->precio}}</span></p>
 						<ul>
-							<li><a class="item_add" href="{{url('/carrito')}}/{{Auth::user()->id}}"><span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
+							@if(Auth::guest())
+								<li><a class="item_add" onclick="alertaVC()" style="cursor: pointer; cursor: hand;"><span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
+							@else
+								<li><a class="item_add" href="{{url('/carrito')}}/{{Auth::user()->id}}"><span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
+							@endif
 						</ul>
 					</div>
 
 				</div>
 				@endforeach
-
+				
 				<div class="clearfix"></div>
 			</div>
 		</div>
 	</div>
-
+	
+	<script>
+        function alertaVC() {
+            $("#alertaVC").fadeTo(8000, 1000).slideUp(1000, function(){
+            $("#alertaVC").slideUp(1000);
+        	});
+        }
+    </script>
 	<!--search jQuery-->
 	<script src="{{asset("js/main.js")}}"></script>
 	<!--//search jQuery-->
