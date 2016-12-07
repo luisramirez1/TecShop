@@ -729,6 +729,9 @@
                       <b>Usuario FB:</b> {{Auth::user()->facebook}}<br>
                     </ul>
                     <a href="{{url('/editar')}}/{{Auth::user()->id}}" class="btn btn-info btn-sm" id="editar">Editar</a>
+                    @if(Auth::user()->tipoUsuario==2)
+                    <a href="{{url('/eliminarUsuariosI')}}/{{Auth::user()->id}}" class="btn btn-info btn-sm" id="editar">Eliminar Cuenta</a>
+                    @endif
                   </div>
                   <div>
                     @if(Auth::user()->imagen == null)

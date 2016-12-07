@@ -69,44 +69,59 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/categorias/{id}','ProductosController@categorias');
-Route::get('/marcas/{id}','ProductosController@marcas');
+Route::get('/categorias/{id}','CategoriasController@categorias');
+Route::get('/marcas/{id}','MarcasController@marcas');
 Route::get('/vistaRapida/{id}/{idC}','ProductosController@vistaRapida');
 Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
 
 Route::group(['middleware' => ['admin']], function () {
 
-	Route::get('/registrarProductos', 'ProductosController@registrarV');
+	
+  Route::get('/registrarCategorias', 'CategoriasController@registrarCV');
+  Route::post('/guardarCategorias', 'CategoriasController@registrarC');
+
+  Route::get('/editarComentarioV/{id}','ComentariosController@editarComentarioV');
+  Route::get('/eliminarComentario/{id}','ComentariosController@eliminarComentario');
+  Route::post('/editarComentario/{id}','ComentariosController@editarComentario');
+
+  Route::post('/importar','ExcelController@importar');
+  Route::get('/exportar','ExcelController@exportar');
+
+  Route::get('/registrarMarcas','MarcasController@registrarMarcaV');
+  Route::post('/guardarMarcas','MarcasController@registrarM');
+
+  Route::get('/registrarProductos', 'ProductosController@registrarV');
 	Route::post('/guardarProductos', 'ProductosController@registrar');
-	Route::get('/registrarCategorias', 'ProductosController@registrarCV');
-	Route::post('/guardarCategorias', 'ProductosController@registrarC');
-	Route::get('/registrarMarcas','ProductosController@registrarMarcaV');
-	Route::post('/guardarMarcas','ProductosController@registrarM');
   Route::get('/editarProductoV/{id}','ProductosController@editarProductoV');
   Route::post('/editarProducto/{id}','ProductosController@editarProducto');
   Route::post('/editarExistencia/{id}','ProductosController@editarExistencia');
   Route::get('/eliminarProducto/{id}','ProductosController@eliminarProducto');
-  Route::get('/editarComentarioV/{id}','ProductosController@editarComentarioV');
-  Route::get('/eliminarComentario/{id}','ProductosController@eliminarComentario');
-  Route::post('/editarComentario/{id}','ProductosController@editarComentario');
   Route::get('/consultaProductos', 'ProductosController@consultarP');
-  Route::get('/consultaUsuarios', 'ProductosController@consultarU');
-  Route::get('/vistaRapidaU/{id}','ProductosController@vistaRapidaU');
-  Route::get('/eliminarUsuarios/{id}', 'ProductosController@eliminar');
-  Route::post('/importar','ExcelController@importar');
-  Route::get('/exportar','ExcelController@exportar');
+
+  Route::get('/consultaUsuarios', 'UsuariosController@consultarU');
+  Route::get('/vistaRapidaU/{id}','UsuariosController@vistaRapidaU');
+  Route::get('/eliminarUsuarios/{id}', 'UsuariosController@eliminar');
+  
 });
 
 Route::group(['middleware' => ['auth']], function () {
-  Route::post('/calificacion/{id}', 'ProductosController@calificacion');
+  
+  Route::post('/calificacion/{id}', 'CalificacionController@calificacion');
+  
+  Route::post('/agregarCarrito/{id}', 'CarritoController@agregarCarrito');
+  Route::get('/eliminarCarri/{id}', 'CarritoController@eliminarCarri');
+  Route::get('/carrito/{id}', 'CarritoController@carritoV');
+  
+  Route::get('/comprar/{id}', 'ComprasController@comprar');
+  Route::get('/compras/{idU}/{idC}', 'ComprasController@compras');
+
 	Route::get('/editar/{id}', 'HomeController@editar');
 	Route::post('/actualizar/{id}', 'HomeController@actualizar');
   Route::post('/comentar/{idU}/{idP}', 'HomeController@comentario');
-  Route::get('/carrito/{id}', 'ProductosController@carritoV');
-  Route::get('/comprar/{id}', 'ProductosController@comprar');
-  Route::get('/compras/{idU}/{idC}', 'ProductosController@compras');
+  
+  Route::get('/eliminarUsuariosI/{id}', 'UsuariosController@eliminarUI');
+
   Route::get('/generarPDFCompras/{idU}/{idC}', 'ProductosController@generarPDFCompras');
-  Route::post('/agregarCarrito/{id}', 'ProductosController@agregarCarrito');
-  Route::get('/eliminarCarri/{id}', 'ProductosController@eliminarCarri');
+
 });
