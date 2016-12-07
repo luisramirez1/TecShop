@@ -70,10 +70,6 @@ $(window).load(function() {
                     </div>
                 </div>
                 <div class="col-md-6 single-top-left simpleCart_shelfItem wow fadeInRight animated" data-wow-delay=".5s">
-                    <div class="alert alert-success alert-dismissible" id="alertaSi" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <strong>Espera!</strong> Estamos procesando tu calificacion. Gracias por calificar: {{$productoVR->name}}.
-                    </div>
                     <!-- Alerta cuando no has iniciado sesion -->
                     <div class="alert alert-danger alert-dismissible" id="alertaL" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -83,7 +79,9 @@ $(window).load(function() {
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <strong>Espera!</strong> Por el momento no tenemos en existencia este producto: {{$productoVR->name}}.
                     </div>
-                    @include('partials.flash')
+
+                    @include('partials.exito') <br>
+
                     <h3>{{$productoVR->name}}</h3>
                     @if (Auth::guest())
                     <div class="single-rating">
@@ -204,10 +202,7 @@ $(window).load(function() {
                     
                     <script>
                         function submitt() {
-                        $("#alertaSi").fadeTo(4000, 1000).slideUp(1000, function(){
-                            $("#alertaSi").slideUp(1000);
                             document.getElementById("myForm").submit();
-                            });
                         }
                         function alertaL() {
                             $("#alertaL").fadeTo(8000, 1000).slideUp(1000, function(){

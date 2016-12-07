@@ -18,7 +18,7 @@ class ExcelController extends Controller
 				Productos::firstOrCreate($sheet->toArray());
 			});
 		});
-		return redirect('consultaProductos');
+		return redirect('consultaProductos')->with('status', ' CSV Importado Correctamente.');
     }
 
     public function exportar(){

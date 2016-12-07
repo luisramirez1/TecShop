@@ -44,7 +44,7 @@ class ComprasController extends Controller
               ->where('id_usuario', '=', $id)
               ->delete();
         Mail::to(Auth::user()->email)->send(new comprasTecShop(Auth::user()));
-        return back()->withInput();  
+        return back()->with('status', ' Compra Exitosa. Gracias por tu preferencia.');
     }
 
     public function compras($idU, $idC) {

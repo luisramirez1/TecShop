@@ -93,10 +93,6 @@
         <div class="clearfix"> </div>
       </div>
     </div>
-    <div class="alert alert-success alert-dismissible" role="alert" id="alertaCompra2" style="display: none; width: 50%; margin: 0 auto;">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <strong>Genial!</strong> Estamos procesando tu compra. Gracias por tu preferencia.
-        </div>
     <div class="header-two navbar navbar-default"><!--header-two-->
       <div class="container">
         <div class="nav navbar-nav header-two-left">
@@ -139,7 +135,7 @@
             <div class="cart-box">
               @if($cantidadPro == 0)
               @else
-                <p><a href="{{url('/comprar')}}/{{Auth::user()->id}}" class="simpleCart_empty" onclick="alertaC()">Finalizar Compra</a></p>
+                <p><a href="{{url('/comprar')}}/{{Auth::user()->id}}" class="simpleCart_empty">Finalizar Compra</a></p>
               @endif
               <div class="clearfix"> </div>
             </div>
@@ -765,13 +761,6 @@
       $().UItoTop({ easingType: 'easeOutQuart' });
       
     });
-  </script>
-  <script>
-        function alertaC() {
-        $("#alertaCompra2").fadeTo(4000, 1000).slideUp(1000, function(){
-        $("#alertaCompra2").slideUp(1000);        
-        });
-    }
   </script>
   <!--//smooth-scrolling-of-move-up-->
   <!--Bootstrap core JavaScript

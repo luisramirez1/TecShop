@@ -70,12 +70,12 @@ class ComentariosController extends Controller
         $nuevo= Comentarios::where('id', $id)
           ->update(['comentario' => $comentario]);
         $id = comentarios::find($id);
-        return redirect('/vistaRapida/' . $id->id_pro);
+        return back()->with('status', ' Comentario Editado Correctamente.');
       }
 
       public function eliminarComentario($id){
         $nuevo= Comentarios::where('id', $id)
           ->delete();
-        return back()->withInput();
+        return back()->with('status', ' Comentario Eliminado Correctamente.');
       }
 }

@@ -36,7 +36,7 @@ class CalificacionController extends Controller
           $nuevo->calificacion=$datos->input('rating');
           $nuevo->save();
           $producto->save();
-          return back()->withInput();
+          return back()->with('status', ' Gracias por calificar este producto.');
         }else{
           $update=DB::table('pro_cal')
               ->where('id_pro', '=', $id)
@@ -48,7 +48,7 @@ class CalificacionController extends Controller
           $update2=DB::table('productos')
               ->where('id', '=', $id)
               ->update(['calificacion' => $cali2]);
-          return back()->withInput();
+          return back()->with('status', ' Calificacion de este producto actualizada.');
 
         }
           return back()->withInput();

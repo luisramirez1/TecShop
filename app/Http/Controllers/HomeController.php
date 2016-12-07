@@ -105,6 +105,6 @@ class HomeController extends Controller
         $nuevo->id_usuario=$idU;
         $nuevo->id_pro=$idP;
         $nuevo->save();
-        return back()->withInput();
+        return back()->with('status', ' Gracias por tu Comentario.');
     }
 }

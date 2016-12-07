@@ -12,7 +12,8 @@
         </div>
     </div>
     <br>
-
+    @include('partials.exito2') <br>
+    
     <div class="products">
         <div class="container">
                 <div class="col-md-11 product-model-sec">

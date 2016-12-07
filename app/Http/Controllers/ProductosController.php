@@ -79,7 +79,7 @@ class ProductosController extends Controller {
         $nuevo->imagen2=$nombre2;
     	  $nuevo->save();
 
-    	return Redirect('/registrarProductos');
+    	return Redirect('/consultaProductos')->with('status', ' Producto Registrado Exitosamente.');
     }
 
     public function vistaRapida($id, $idC) {
@@ -244,7 +244,6 @@ class ProductosController extends Controller {
 
       public function editarProducto($id,Request $datos) {
         $nuevo = Productos::find($id);
-        $procate = new Pro_Cate;
         $file = Input::file('imagen');
         $nombre = $file->getClientOriginalName();
         $file->move('images/productos', $nombre);
@@ -260,7 +259,7 @@ class ProductosController extends Controller {
         $nuevo->imagen2=$nombre2;
         $nuevo->save();
 
-      return back()->withInput();
+      return Redirect('consultaProductos')->with('status', ' Producto Editado Correctamente.');
     }
 
     public function editarExistencia($id,Request $datos) {
@@ -269,12 +268,12 @@ class ProductosController extends Controller {
         $nuevo->existencia=$exist + $datos->input('existencia');
         $nuevo->save();
 
-      return back()->withInput();
+      return back()->with('status', ' Existencia Actualizada.');
     }
 
     public function eliminarProducto($id){
         $nuevo = Productos::find($id)->delete();
-        return back()->withInput();
+        return back()->with('status', ' Producto Eliminado Correctamente.');
     }
 
     public function generarPDFCompras($idU, $idC){

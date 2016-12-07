@@ -87,7 +87,7 @@ class CarritoController extends Controller
           $nuevo->compras= Auth::user()->compras + 1;
           $nuevo->save();
           $producto->save();
-          return back()->withInput();
+          return back()->with('status', ' Producto agregado al carrito.');
         }else{
           $idpro_car=Pro_Car::where('id_pro', '=', $id)->where('id_usuario', '=',$usuario)->limit(1)->get();
           foreach ($idpro_car as $i) {
@@ -102,7 +102,7 @@ class CarritoController extends Controller
               ->where('id_usuario', '=',$usuario)
               ->update(['cantidad' => $canti, 'totalapagar' => $total2]);
 
-          return back()->withInput();
+          return back()->with('status', ' Cantidad de pedido actualizada.');
         }
       return back()->withInput();
     }
@@ -118,6 +118,6 @@ class CarritoController extends Controller
               ->where('id', '=', $idPro)
               ->update(['existencia' => $canti]);
         Pro_Car::find($id)->delete();
-        return back();
+        return back()->with('status', ' Producto eliminado del carrito Correctamente.');
     }
 }

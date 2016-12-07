@@ -12,6 +12,8 @@
     </div>
 
     <br>
+    @include('partials.exito2') <br>
+
 @foreach($comentario as $c)
 <article id="jum">
     <form action="{{url('/editarComentario')}}/{{$c->id}}" method="POST" class="jumbotron" id="form1" enctype="multipart/form-data">
