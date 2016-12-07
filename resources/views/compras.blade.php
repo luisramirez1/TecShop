@@ -20,10 +20,10 @@
 			<div class="cart-header wow fadeInUp animated" data-wow-delay=".5s">
 				<div class="cart-sec simpleCart_shelfItem">
 					<div class="cart-item cyc">
-						<a href="{{url('/vistaRapida')}}/{{$c->id_pro}}/{{$c->categoria}}"><img src="{{asset("images/productos/$c->imagen")}}" class="img-responsive" alt=""></a>
+						<a><img src="{{asset("images/productos/$c->imagen")}}" class="img-responsive" alt=""></a>
 					</div>
 					<div class="cart-item-info">
-						<h4><a href="{{url('/vistaRapida')}}/{{$c->id_pro}}/{{$c->categoria}}"> {{$c->name}} </a><span>Fecha y Hora del pedido: {{$c->created_at}}</span></h4>
+						<h4><a> {{$c->name}} </a><span>Fecha y Hora del pedido: {{$c->created_at}}</span></h4>
 						<ul class="qty">
 							<li><p>Cantidad : {{$c->cantidad}}</p></li>
 							<li><p>Envio GRATIS!</p></li>
