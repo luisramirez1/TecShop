@@ -7,6 +7,7 @@ use App\User;
 use App\Usuarios;
 use DB;
 use App\Productos;
+use App\ResProductos;
 use App\Compras;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;

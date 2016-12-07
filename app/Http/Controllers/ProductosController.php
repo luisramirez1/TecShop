@@ -14,6 +14,7 @@ use App\Pro_Cal;
 use App\Comentarios;
 use App\Usuarios;
 use App\Compras;
+use App\ResProductos;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\comprasTecShop;
 use Session;
@@ -677,8 +678,18 @@ class ProductosController extends Controller {
         $update=DB::table('users')
               ->where('id', '=', $id)
               ->update(['compras' => $cF]);
-
         $query = DB::insert("INSERT INTO compras SELECT * from pro_car where id_usuario = $id");
+        $idP = DB::table('pro_car')
+              ->where('id_usuario', '=', $id)
+              ->select('id_pro')
+              ->get();
+        foreach($idP as $i){
+        $exists=resproductos::where('id', '=', $i->id_pro)->exists();
+          if(!$exists){
+            $queryP = DB::insert("INSERT INTO resproductos SELECT * from productos where id = $i->id_pro");
+          }else{
+          }
+        }
         $delete =DB::table('pro_car')
               ->where('id_usuario', '=', $id)
               ->delete();
@@ -723,7 +734,7 @@ class ProductosController extends Controller {
         $cantidadPagar=DB::table('pro_car')
           ->where('id_usuario', '=', $usuario)
           ->sum('totalapagar');
-        $compra=DB::table('productos AS p')
+        $compra=DB::table('resproductos AS p')
             ->join('compras AS c', 'p.id', '=', 'c.id_pro')
             ->where('c.id_usuario', '=', $idU)
             ->where('c.compras', '=', $idC)
@@ -737,7 +748,7 @@ class ProductosController extends Controller {
     }
 
     public function generarPDFCompras($idU, $idC){
-        $compra=DB::table('productos AS p')
+        $compra=DB::table('resproductos AS p')
             ->join('compras AS c', 'p.id', '=', 'c.id_pro')
             ->where('c.id_usuario', '=', $idU)
             ->where('c.compras', '=', $idC)
@@ -849,7 +860,7 @@ class ProductosController extends Controller {
             ->join('pro_car AS pc', 'p.id', '=', 'pc.id_pro')
             ->where('pc.id_usuario', '=', $id)
             ->get();
-        $compra=DB::table('productos AS p')
+        $compra=DB::table('resproductos AS p')
             ->join('compras AS c', 'p.id', '=', 'c.id_pro')
             ->where('c.id_usuario', '=', $id)
             ->get();
